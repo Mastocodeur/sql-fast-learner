@@ -1,0 +1,14 @@
+https://academy.vertabelo.com/course/common-table-expressions/syntax/basic-cte/basic-syntax
+https://www.geeksforgeeks.org/cte-in-sql/
+
+
+
+
+WITH AvgSalaryByDept AS(
+	SELECT Department, AVG(Salary) AS AvgSalary
+	FROM employees
+	GROUP BY Department
+)
+
+SELECT *
+FROM AvgSalaryByDept;
