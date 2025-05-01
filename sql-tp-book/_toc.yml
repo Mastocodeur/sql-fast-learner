@@ -7,6 +7,6 @@ chapters:
 - file: markdown
 - file: notebooks
 - file: markdown-notebooks
-- file: tp_volcan
+- file: tp/tp4_volcans
   sections:
       - file: tp_volcan_notebook
