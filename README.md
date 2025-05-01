@@ -1,54 +1,68 @@
-# <center> Cours complet SQL </center>
+# <center>📘 SQL Complete Course</center>
 
 <p align="center">
     <img src="sql-tp-book/tp/images/sql_librairie.png" width="500" height="400">
 </p>
 
 
-# 🎯 Objectifs du dépôt
-Ce dépôt a pour vocation de rassembler l’ensemble de mon travail en SQL, à la fois comme :
+[Lire en français](README_FR.md)
 
-* 🧠 preuve de maîtrise du langage,
+---
 
-* 📚 base pédagogique ouverte et adaptable à tout niveau,
+## Complete SQL Course 
 
-* 🔍 terrain d’exploration approfondi du langage SQL.
+### 🎯 Purpose of this Repository
 
-L’ambition est de proposer une approche complète et évolutive : du simple SELECT à des sujets plus avancés comme la modélisation relationnelle, les vues, les sous-requêtes, les CTEs, ou encore les jointures complexes.
+This repository brings together **all of my work in SQL**, serving as:
 
-# 👨‍🏫 Un contenu pensé pour l’apprentissage
-Une partie de ces ressources est déjà utilisée dans un cadre d’enseignement à des étudiants de BTS.
-Le contenu est donc :
+* 🧠 Proof of language proficiency,  
+* 📚 An open and adaptable educational resource for all levels,  
+* 🔍 A wide-ranging exploration ground for the SQL language.
 
-* Ludique et progressif, notamment les TP orientés "énigmes" ou "enquêtes" (ex. SQL Murder Mystery),
+The aim is to offer a **complete and evolving learning journey**, from basic `SELECT` queries to advanced topics like relational modeling, views, subqueries, CTEs, and complex joins.
 
-* Structuré en modules, facilement réutilisables dans un cadre pédagogique,
+---
 
-* Adapté à tous niveaux : débutants, curieux, autodidactes ou futurs data analysts.
+### 👨‍🏫 A Teaching-Oriented Resource
 
+Some of these materials are already used in **real classrooms (BTS students in France)**.  
+The content is therefore:
 
-# Sources
+* **Fun and progressive**, especially the practice exercises based on games or mysteries (e.g. SQL Murder Mystery),  
+* **Modular and reusable**, ideal for educators and trainers,  
+* **Accessible for all profiles**: beginners, self-learners, or aspiring data analysts.
 
-Voici tous les liens qui m'ont permis de monter ce dépôt github. 
+---
 
-Pour le cours et les TP :
-- https://www.coursera.org/learn/sql-data-science?specialization=ibm-data-science
-- https://dquenton.forge.apps.education.fr/nsi-terminale-specialite/BaseDeDonnees/BaseDeDonnees00/
-- https://www.lyceum.fr/tg/nsi/2-bases-de-donnees/
-- https://dquenton.forge.apps.education.fr/nsi-terminale-specialite/BaseDeDonnees/Ghibli_SQL/
-- https://github.com/kansiris/SQL-interview-questions/tree/master
-- https://leetcode.com/studyplan/top-sql-50/
+### 📦 Sources & References
 
-Pour le TP numéro 2 : 
-- https://mystery.knightlab.com/
-- https://www.kaggle.com/datasets/johnp47/sql-murder-mystery-database/
-- https://qkzk.xyz/docs/nsi/cours_terminale/bdd/murder_mystery/
+#### Courses and Practical Work
 
-Python et le SQL : 
-- https://www.easypythondocs.com/SQL.html
-- https://docs.python.org/3/library/sqlite3.html
+- https://www.coursera.org/learn/sql-data-science?specialization=ibm-data-science  
+- https://dquenton.forge.apps.education.fr/nsi-terminale-specialite/BaseDeDonnees/BaseDeDonnees00/  
+- https://www.lyceum.fr/tg/nsi/2-bases-de-donnees/  
+- https://dquenton.forge.apps.education.fr/nsi-terminale-specialite/BaseDeDonnees/Ghibli_SQL/  
+- https://github.com/kansiris/SQL-interview-questions  
+- https://leetcode.com/studyplan/top-sql-50/  
 
-Plan d'apprentissage 30 jours :
-- https://www.linkedin.com/posts/gael-penessot_dataanalytics-sql-activity-7243861676297449472-by1f?utm_source=share&utm_medium=member_desktop
+#### TP #2 – SQL Murder Mystery
 
-L'ensemble des illustrations a été réalisé avec ChatGPT-4.
+- https://mystery.knightlab.com/  
+- https://www.kaggle.com/datasets/johnp47/sql-murder-mystery-database/  
+- https://qkzk.xyz/docs/nsi/cours_terminale/bdd/murder_mystery/  
+
+#### Python and SQL
+
+- https://www.easypythondocs.com/SQL.html  
+- https://docs.python.org/3/library/sqlite3.html  
+
+#### 30-Day Learning Plan
+
+- https://www.linkedin.com/posts/gael-penessot_dataanalytics-sql-activity-7243861676297449472-by1f
+
+---
+
+### 🎨 Visuals
+
+All illustrations were generated using **ChatGPT-4**.
+
