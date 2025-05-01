@@ -1,54 +1,30 @@
 # <center> Cours complet SQL </center>
 
 <p align="center">
-    <img src="5. tp/images/sql_librairie.png" width="500" height="400">
+    <img src="sql-tp-book/tp/images/sql_librairie.png" width="500" height="400">
 </p>
 
 
-L'objectif de ce dépôt GitHub est de proposer un cours complet en SQL, adapté à tous les niveaux d'apprentissage. Que vous soyez un étudiant en école d'ingénieur ou un lycéen, ce cours est conçu pour répondre à vos besoins.
+# 🎯 Objectifs du dépôt
+Ce dépôt a pour vocation de rassembler l’ensemble de mon travail en SQL, à la fois comme :
 
-Actuellement, certains de ces cours sont spécifiquement adaptés pour être enseignés à des élèves de bac professionnel. L'idée est de fournir un contenu ludique et engageant, particulièrement pour les travaux pratiques (TP), afin de rendre l'apprentissage du SQL aussi agréable que possible. 
+* 🧠 preuve de maîtrise du langage,
 
-# Plan d'aprentissage sur 30 jours en 7 étapes 
+* 📚 base pédagogique ouverte et adaptable à tout niveau,
 
-Pour toute personne souhaitant maitriser le SQL, voici un plan en 30 jours
+* 🔍 terrain d’exploration approfondi du langage SQL.
 
-1️⃣ Jours 1-5 : Fondamentaux SQL
-- Explorez la syntaxe de base
-- Pratiquez les requêtes simples (SELECT, WHERE, ORDER BY)
-- Familiarisez-vous avec les fonctions d'agrégation (COUNT, SUM, AVG) 
+L’ambition est de proposer une approche complète et évolutive : du simple SELECT à des sujets plus avancés comme la modélisation relationnelle, les vues, les sous-requêtes, les CTEs, ou encore les jointures complexes.
 
-2️⃣ Jours 6-10 : Requêtes avancées
-- Maîtrisez les différents types de JOINs
-- Approfondissez les sous-requêtes
-- Explorez les clauses GROUP BY et HAVING 
-- Entraînement : DataCamp "Intermediate SQL" course
+# 👨‍🏫 Un contenu pensé pour l’apprentissage
+Une partie de ces ressources est déjà utilisée dans un cadre d’enseignement à des étudiants de BTS.
+Le contenu est donc :
 
-3️⃣ Jours 11-15 : Pratique intensive
-- Utilisez des plateformes LeetCode ou DataLemur 🐵 (Ace the SQL & Data Interview) pour mettre ces concepts en pratique. 
-- Résolvez des problèmes de niveaux de difficulté variés
+* Ludique et progressif, notamment les TP orientés "énigmes" ou "enquêtes" (ex. SQL Murder Mystery),
 
-4️⃣ Jours 16-20 : Optimisation des requêtes
-- Décryptez l'ordre d'exécution des clauses SQL
-- Analysez les plans d'exécution
-- Apprenez à optimiser vos requêtes pour de meilleures performances 
-- Exercice : Comparez l'efficacité de différentes approches pour une même requête
+* Structuré en modules, facilement réutilisables dans un cadre pédagogique,
 
-5️⃣ Jours 21-25 : Fonctions de fenêtrage 🪟
-- Explorez ROW_NUMBER, RANK, DENSE_RANK
-- Maîtrisez LAG/LEAD pour l'analyse temporelle
-- Utilisez PARTITION BY pour des calculs segmentés 
-- Défi : Créez un classement des ventes par catégorie et par mois
-
-6️⃣ Jours 26-28 : Projets concrets
-- Analysez un jeu de données Kaggle avec SQL
-- Créez un dashboard de KPIs pour une entreprise fictive
-- Nettoyez et transformez un dataset complexe
-
-7️⃣ Jours 29-30 : Consolidation et perspectives
-- Révisez les concepts clés
-- Identifiez vos points forts et axes d'amélioration
-- Planifiez un apprentissage continu au-delà des 30 jours.
+* Adapté à tous niveaux : débutants, curieux, autodidactes ou futurs data analysts.
 
 
 # Sources

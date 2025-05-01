@@ -1,1 +1,8 @@
 .ipynb_checkpoints
+tp/sql-tp-book/_build
+sql-tp-book/_build
+sql-tp-book/_build/html
+sql-tp-book/_build/latex
+_build/
+.ipynb_checkpoints/
+.DS_Store
