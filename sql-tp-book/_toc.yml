@@ -2,11 +2,34 @@
 # Learn more at https://jupyterbook.org/customize/toc.html
 
 format: jb-book
-root: intro
+root: intro_fr
 chapters:
-- file: markdown
-- file: notebooks
-- file: markdown-notebooks
-- file: tp/tp4_volcans
-  sections:
-      - file: tp_volcan_notebook
+  - file: tp/tp1_lycee
+    sections:
+      - file: tp/tp1_lycee/tp_sql_notebook_enonce
+      - file: tp/tp1_lycee/tp_sql_notebook_correction
+
+  - file: tp/tp2_meurtre_sql_city
+    sections:
+      - file: tp/tp2_meurtre_sql_city/contexte
+      - file: tp/tp2_meurtre_sql_city/sql_city_sujet_part1
+      - file: tp/tp2_meurtre_sql_city/sql_city_sujet_part2
+      - file: tp/tp2_meurtre_sql_city/sql_city_correction
+      - file: tp/tp2_meurtre_sql_city/detective_sql
+
+  - file: tp/tp3_studio_ghilbi/index
+    sections:
+      - file: tp/tp3_studio_ghilbi/Studio_Ghilbi_Enonce
+      - file: tp/tp3_studio_ghilbi/studio_ghilbi_correction
+
+  - file: tp/tp4_volcans/index
+    sections:
+      - file: tp/tp4_volcans/tp_volcan_notebook_enonce
+      - file: tp/tp4_volcans/tp_volcan_notebook_correction
+      - file: tp/tp4_volcans/tp_volcan
+
+  - file: tp/tp5_leet_code
+    sections:
+      - file: tp/tp5_leet_code/sql50
+
+  - file: tp/tp6_cte
