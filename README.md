@@ -1,7 +1,7 @@
 # <center>📘 SQL Complete Course</center>
 
 <p align="center">
-    <img src="sql-tp-book/tp/images/sql_librairie.png" width="500" height="400">
+    <img src="sql-tp-book/images/sql_librairie.png" width="500" height="400">
 </p>
 
 
@@ -40,8 +40,7 @@ The content is therefore:
 
 - https://www.coursera.org/learn/sql-data-science?specialization=ibm-data-science  
 - https://dquenton.forge.apps.education.fr/nsi-terminale-specialite/BaseDeDonnees/BaseDeDonnees00/  
-- https://www.lyceum.fr/tg/nsi/2-bases-de-donnees/  
-- https://dquenton.forge.apps.education.fr/nsi-terminale-specialite/BaseDeDonnees/Ghibli_SQL/  
+- https://www.lyceum.fr/tg/nsi/2-bases-de-donnees/   
 - https://github.com/kansiris/SQL-interview-questions  
 - https://leetcode.com/studyplan/top-sql-50/  
 
@@ -50,6 +49,10 @@ The content is therefore:
 - https://mystery.knightlab.com/  
 - https://www.kaggle.com/datasets/johnp47/sql-murder-mystery-database/  
 - https://qkzk.xyz/docs/nsi/cours_terminale/bdd/murder_mystery/  
+
+#### TP #3 – SQL Studio Ghilbi
+
+- https://dquenton.forge.apps.education.fr/nsi-terminale-specialite/BaseDeDonnees/Ghibli_SQL/ 
 
 #### Python and SQL
 
