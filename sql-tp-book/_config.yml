@@ -1,32 +1,52 @@
-# Book settings
-# Learn more at https://jupyterbook.org/customize/config.html
+# Fichier de configuration Jupyter Book
 
-title: My sample book
-author: The Jupyter Book Community
+title: "TP SQL — Jupyter Book"
+author: "Gasmi Rémy"
 logo: logo.png
 
-# Force re-execution of notebooks on each build.
-# See https://jupyterbook.org/content/execute.html
+# Dossier d'output
+output_dir: _build
+only_build_toc_files: false
+
+
+# Activer les extensions Markdown utiles
+parse:
+  myst_enable_extensions:
+    - colon_fence           # ::: blocks
+    - deflist               # listes de définitions
+    - dollarmath            # $math$
+    - amsmath               # equations en bloc
+    - html_admonition       # notes type "note", "warning"
+    - html_image            # images HTML
+    - linkify               # détection automatique de liens
+    - substitution          # variables {sub}
+
+# Gestion de l’exécution
 execute:
-  execute_notebooks: force
+  execute_notebooks: "off"  # tu peux mettre "force" si tu veux exécuter tout à chaque build
+  timeout: 60
 
-# Define the name of the latex output file for PDF builds
-latex:
-  latex_documents:
-    targetname: book.tex
-
-# Add a bibtex file so that we can create citations
+# Références bibliographiques
 bibtex_bibfiles:
   - references.bib
 
-# Information about where the book exists on the web
-repository:
-  url: https://github.com/executablebooks/jupyter-book  # Online location of your book
-  path_to_book: docs  # Optional path to your book, relative to the repository root
-  branch: master  # Which branch of the repository should be used when creating links (optional)
-
-# Add GitHub buttons to your book
-# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+# Ajoute une barre latérale avec navigation
 html:
-  use_issues_button: true
-  use_repository_button: true
+  navbar_number_sections: true
+  use_repository_button: false
+  use_issues_button: false
+  use_edit_page_button: false
+  extra_navbar: ""
+  extra_footer: "© 2025 — TP SQL"
+
+# Ignorer certains fichiers
+exclude_patterns:
+  - "**/.ipynb_checkpoints"
+  - "**/.*"
+  - "**/__pycache__"
+  - "**/*.pyc"
+  - "**/*.tmp"
+
+# Ajoute des fichiers supplémentaires
+extra_files:
+  - "../images/"

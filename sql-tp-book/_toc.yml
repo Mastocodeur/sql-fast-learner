@@ -2,35 +2,36 @@ format: jb-book
 root: README
 
 chapters:
-  - file: TUTORIEL_DB_BROWSER
-  - file: TUTORIEL_SQL_NOTEBOOK
 
-  - title: TP 1 - Lycée
+  - file: tutoriel/TUTO
+    title: Tutoriel pour faire du SQL sur son PC
     sections:
-      - file: tp1_lycee/tp_sql_notebook_enonce
-      - file: tp1_lycee/tp_sql_notebook_correction
+      - file: tutoriel/TUTORIEL_DB_BROWSER
+      - file: tutoriel/TUTORIEL_SQL_NOTEBOOK
 
-  - title: TP 2 - SQL City
+  - file: tp1_lycee/sql_intro
+    title: TP 1 — Liste d’élèves (lycée)
+
+  - file: tp2_meurtre_sql_city/sql_city_sujet_part1
+    title: TP 2 — SQL City Murder
     sections:
-      - file: tp2_meurtre_sql_city/contexte
-      - file: tp2_meurtre_sql_city/sql_city_sujet_part1
       - file: tp2_meurtre_sql_city/sql_city_sujet_part2
       - file: tp2_meurtre_sql_city/sql_city_correction
       - file: tp2_meurtre_sql_city/detective_sql
 
-  - file: tp3_studio_ghilbi/index
+  - file: tp3_studio_ghilbi/studio_ghilbi_enonce
+    title: TP 3 — Studio Ghilbi
     sections:
-      - file: tp3_studio_ghilbi/studio_ghilbi_enonce
       - file: tp3_studio_ghilbi/studio_ghilbi_correction
+      - file: tp3_studio_ghilbi/CONSIGNES
 
-  - file: tp4_volcans/index
+  - file: tp4_volcans/tp_volcan_notebook_enonce
+    title: TP 4 — Volcans
     sections:
-      - file: tp4_volcans/tp_volcan_notebook_enonce
       - file: tp4_volcans/tp_volcan_notebook_correction
       - file: tp4_volcans/tp_volcan
 
-  - title: TP 5 - LeetCode
-    sections:
-      - file: tp5_leet_code/sql50
-
-  - file: tp6_cte
+  - file: tp5_leet_code/sql50
+    title: TP 5 — LeetCode
+  
+  - file: SOURCES
