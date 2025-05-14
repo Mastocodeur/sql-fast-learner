@@ -1,5 +1,8 @@
 # <center> Cours complet SQL </center>
 
+
+[![Last Commit](https://img.shields.io/github/last-commit/Mastocodeur/sql-fast-learner)](https://github.com/Mastocodeur/sql-fast-learner/commits/main/?author=Mastocodeur)
+
 <p align="center">
     <img src="sql-tp-book/images/sql_librairie.png" width="500" height="400">
 </p>
