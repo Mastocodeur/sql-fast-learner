@@ -1,0 +1,1991 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>TP 4 : Les volcans correction &#8212; TP SQL — Jupyter Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tp4_volcans/tp_volcan_notebook_correction';</script>
+    <link rel="icon" href="../_static/sql_favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SQL 50" href="../tp5_leet_code/sql50.html" />
+    <link rel="prev" title="TP 4 : Les volcans sujet" href="tp_volcan_notebook_enonce.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="TP SQL — Jupyter Book - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="TP SQL — Jupyter Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    SQL : JupyterBook de TP
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutoriel/TUTO.html">Tutoriel pour faire du SQL sur son PC</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutoriel/TUTORIEL_DB_BROWSER.html">Tutoriel pour utiliser DB Browser (SQLite)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutoriel/TUTORIEL_SQL_NOTEBOOK.html">📘 Faire du SQL dans un notebook Jupyter avec ipython-sql</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tp1_lycee/TP_INTRO.html">TP 1 — Liste d’élèves</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tp1_lycee/sql_intro.html"><center>TP Prise en main SQL/Python </center></a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tp2_meurtre_sql_city/detective_sql.html">TP 2 — SQL City Murder</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tp2_meurtre_sql_city/sql_city_sujet_part1.html"><center>SQL City Episode 1 </center></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../tp2_meurtre_sql_city/sql_city_sujet_part2.html"><center>SQL City Episode 2 </center></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../tp2_meurtre_sql_city/sql_city_correction.html"><center>SQL City Correction </center></a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tp3_studio_ghilbi/CONSIGNES.html">TP 3 — Studio Ghilbi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tp3_studio_ghilbi/studio_ghilbi_enonce.html"><center>TP Studio Ghilbi Sujet </center></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../tp3_studio_ghilbi/studio_ghilbi_correction.html"><center>TP Studio Ghilbi Correction</center></a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="tp_volcan.html">TP 4 — Volcans</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="tp_volcan_notebook_enonce.html">TP 4 : Les volcans sujet</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">TP 4 : Les volcans correction</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../tp5_leet_code/sql50.html">TP 5 — LeetCode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SOURCES.html">Sources et Sitographie</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Mastocodeur/sql-fast-learner" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mastocodeur/sql-fast-learner/edit/main/tp4_volcans/tp_volcan_notebook_correction.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mastocodeur/sql-fast-learner/issues/new?title=Issue%20on%20page%20%2Ftp4_volcans/tp_volcan_notebook_correction.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/tp4_volcans/tp_volcan_notebook_correction.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>TP 4 : Les volcans correction</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-1-exploration-de-la-base">Partie 1 – Exploration de la base</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-2-analyse-temporelle">Partie 2 – Analyse temporelle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-3-donnees-geographiques">Partie 3 – Données géographiques</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-4-requete-avancee-bonus">Partie 4 – Requête avancée (bonus)</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tp-4-les-volcans-correction">
+<h1>TP 4 : Les volcans correction<a class="headerlink" href="#tp-4-les-volcans-correction" title="Link to this heading">#</a></h1>
+<p><a class="reference external" href="https://mybinder.org/v2/gh/Mastocodeur/sql-fast-learner/HEAD?urlpath=%2Fdoc%2Ftree%2Fsql-tp-book%2Ftp4_volcans%2Ftp_volcan_notebook_correction.ipynb"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a></p>
+<p><img alt="Volcans Correction" src="../_images/volcans.png" /></p>
+<p>On commence par éxécuter la commande <code class="docutils literal notranslate"><span class="pre">%load_ext</span> <span class="pre">sql</span></code> qui est une magic command spécifique à Jupyter Notebook. Elle sert à charger l’extension ipython-sql, qui permet d’exécuter du code SQL directement dans des cellules Jupyter comme si c’était du Python natif :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> sql
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ensuite, on établit une connexion SQL entre notre Jupyter et notre base de données SQLite locale nommée <code class="docutils literal notranslate"><span class="pre">volcans.db</span></code> :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">sql</span> sqlite:///volcans.db
+</pre></div>
+</div>
+</div>
+</div>
+<p>On exécute la cellule suivante pour configurer l’affichage des résultats SQL dans notre notebook Jupyter lorsqu’on utilise l’extension <code class="docutils literal notranslate"><span class="pre">ipython-sql</span></code> :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">config</span> SqlMagic.style = &#39;_DEPRECATED_DEFAULT&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ici on liste les tables présentes dans notre base de données :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT name FROM sqlite_master WHERE type=&#39;table&#39;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///volcans.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>volcans</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>Ensuite, on liste les colonnes dans la table volcans :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+PRAGMA table_info(volcans)
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///volcans.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>cid</th>
+            <th>name</th>
+            <th>type</th>
+            <th>notnull</th>
+            <th>dflt_value</th>
+            <th>pk</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0</td>
+            <td>volcano</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>name</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>wiki</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>elevation</td>
+            <td>INTEGER</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>lat</td>
+            <td>REAL</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>lon</td>
+            <td>REAL</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>eruption_date</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>eruption_year</td>
+            <td>INTEGER</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>abstract</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>photo</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>On peut alors proposer une correction au TP4.</p>
+<hr class="docutils" />
+<section id="partie-1-exploration-de-la-base">
+<h2>Partie 1 – Exploration de la base<a class="headerlink" href="#partie-1-exploration-de-la-base" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Lister les 10 volcans les plus hauts, classés par altitude décroissante. N’affichez que les noms et les altitudes.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT name, elevation FROM volcans ORDER BY elevation DESC LIMIT 10 ;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///volcans.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>elevation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Ojos del Salado</td>
+            <td>6893</td>
+        </tr>
+        <tr>
+            <td>Incahuasi</td>
+            <td>6621</td>
+        </tr>
+        <tr>
+            <td>Tupungato</td>
+            <td>6570</td>
+        </tr>
+        <tr>
+            <td>Antofalla</td>
+            <td>6409</td>
+        </tr>
+        <tr>
+            <td>Parina Quta</td>
+            <td>6380</td>
+        </tr>
+        <tr>
+            <td>Coropuna</td>
+            <td>6377</td>
+        </tr>
+        <tr>
+            <td>Ampato</td>
+            <td>6288</td>
+        </tr>
+        <tr>
+            <td>Pular</td>
+            <td>6233</td>
+        </tr>
+        <tr>
+            <td>Aucanquilcha</td>
+            <td>6176</td>
+        </tr>
+        <tr>
+            <td>San Pedro</td>
+            <td>6155</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Compter le nombre de volcans dont l’altitude est supérieure à 5000 mètres.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT COUNT(name) FROM volcans WHERE elevation &gt; 5000 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///volcans.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>COUNT(name)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>55</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Afficher le nom, l’altitude et le lien Wikipédia pour les volcans ayant une altitude inférieure à 300m.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT name, elevation, wiki FROM volcans 
+WHERE elevation &lt; 300 
+ORDER BY elevation DESC
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///volcans.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>elevation</th>
+            <th>wiki</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Jabal at-Tair</td>
+            <td>244</td>
+            <td>http://en.wikipedia.org/wiki/Jabal_al-Tair_Island</td>
+        </tr>
+        <tr>
+            <td>Babase</td>
+            <td>200</td>
+            <td>http://en.wikipedia.org/wiki/Babase_Island</td>
+        </tr>
+        <tr>
+            <td>Eldfell</td>
+            <td>200</td>
+            <td>http://en.wikipedia.org/wiki/Eldfell</td>
+        </tr>
+        <tr>
+            <td>Furnas</td>
+            <td>198</td>
+            <td>http://en.wikipedia.org/wiki/Furnas</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+</section>
+<section id="partie-2-analyse-temporelle">
+<h2>Partie 2 – Analyse temporelle<a class="headerlink" href="#partie-2-analyse-temporelle" title="Link to this heading">#</a></h2>
+<ol class="arabic simple" start="4">
+<li><p>Lister 10 volcans ayant eu une éruption après l’an 2000.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT name, eruption_year
+FROM volcans
+WHERE eruption_year &gt; 2000
+LIMIT 10;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///volcans.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>eruption_year</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Atlasov</td>
+            <td>2018</td>
+        </tr>
+        <tr>
+            <td>Avachinsky</td>
+            <td>2008</td>
+        </tr>
+        <tr>
+            <td>Bezymianny</td>
+            <td>2021</td>
+        </tr>
+        <tr>
+            <td>Brown Peak</td>
+            <td>2001</td>
+        </tr>
+        <tr>
+            <td>Bulusan Volcano</td>
+            <td>2017</td>
+        </tr>
+        <tr>
+            <td>Bárðarbunga</td>
+            <td>2014</td>
+        </tr>
+        <tr>
+            <td>Calbuco</td>
+            <td>2021</td>
+        </tr>
+        <tr>
+            <td>Chikurachki</td>
+            <td>2016</td>
+        </tr>
+        <tr>
+            <td>Concepción</td>
+            <td>2015</td>
+        </tr>
+        <tr>
+            <td>Copahue</td>
+            <td>2016</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Trouver combien de volcans ont une année d’éruption connue (c’est-à-dire non nulle).</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT COUNT(*)
+FROM volcans
+WHERE eruption_year IS NOT NULL;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///data///volcans.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>COUNT(*)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>351</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Trouver 10 volcans ayant l’éruption la plus lointaine, trier par ordre croissant d’année d’éruption.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT name, eruption_year
+FROM volcans
+ORDER BY eruption_year 
+LIMIT 10;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///volcans.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>eruption_year</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Acamarachi</td>
+            <td>-1000000000</td>
+        </tr>
+        <tr>
+            <td>Alid</td>
+            <td>-1000000000</td>
+        </tr>
+        <tr>
+            <td>Ampato</td>
+            <td>-1000000000</td>
+        </tr>
+        <tr>
+            <td>Antofalla</td>
+            <td>-1000000000</td>
+        </tr>
+        <tr>
+            <td>Arintica</td>
+            <td>-1000000000</td>
+        </tr>
+        <tr>
+            <td>Babase</td>
+            <td>-1000000000</td>
+        </tr>
+        <tr>
+            <td>Cabaraya</td>
+            <td>-1000000000</td>
+        </tr>
+        <tr>
+            <td>Carihuairazo</td>
+            <td>-1000000000</td>
+        </tr>
+        <tr>
+            <td>Cay</td>
+            <td>-1000000000</td>
+        </tr>
+        <tr>
+            <td>Cerro Miñiques</td>
+            <td>-1000000000</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+</section>
+<section id="partie-3-donnees-geographiques">
+<h2>Partie 3 – Données géographiques<a class="headerlink" href="#partie-3-donnees-geographiques" title="Link to this heading">#</a></h2>
+<ol class="arabic simple" start="7">
+<li><p>Trouver les volcans situés dans l’hémisphère sud.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> SELECT name, lat, lon
+FROM volcans
+WHERE lat &lt; 0;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///data///volcans.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>lat</th>
+            <th>lon</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Acamarachi</td>
+            <td>-23.3</td>
+            <td>-67.6167</td>
+        </tr>
+        <tr>
+            <td>Acotango</td>
+            <td>-18.3822</td>
+            <td>-69.0478</td>
+        </tr>
+        <tr>
+            <td>Aguilera</td>
+            <td>-50.3333</td>
+            <td>-73.75</td>
+        </tr>
+        <tr>
+            <td>Ambitle</td>
+            <td>-4.08333</td>
+            <td>153.65</td>
+        </tr>
+        <tr>
+            <td>Ampato</td>
+            <td>-15.8167</td>
+            <td>-71.8833</td>
+        </tr>
+        <tr>
+            <td>Antillanca Group</td>
+            <td>-40.7708</td>
+            <td>-72.1533</td>
+        </tr>
+        <tr>
+            <td>Antisana</td>
+            <td>-0.481389</td>
+            <td>-78.1408</td>
+        </tr>
+        <tr>
+            <td>Antofalla</td>
+            <td>-25.55</td>
+            <td>-67.8833</td>
+        </tr>
+        <tr>
+            <td>Antuco</td>
+            <td>-37.4058</td>
+            <td>-71.3492</td>
+        </tr>
+        <tr>
+            <td>Aracar</td>
+            <td>-24.29</td>
+            <td>-67.7833</td>
+        </tr>
+        <tr>
+            <td>Arintica</td>
+            <td>-18.7472</td>
+            <td>-69.0667</td>
+        </tr>
+        <tr>
+            <td>Arjuno‑Welirang</td>
+            <td>-7.76444</td>
+            <td>112.589</td>
+        </tr>
+        <tr>
+            <td>Atacazo</td>
+            <td>-0.352778</td>
+            <td>-78.6169</td>
+        </tr>
+        <tr>
+            <td>Aucanquilcha</td>
+            <td>-21.1833</td>
+            <td>-68.5833</td>
+        </tr>
+        <tr>
+            <td>Babase</td>
+            <td>-4.03333</td>
+            <td>153.717</td>
+        </tr>
+        <tr>
+            <td>Brown Peak</td>
+            <td>-67.6833</td>
+            <td>164.967</td>
+        </tr>
+        <tr>
+            <td>Cabaraya</td>
+            <td>-19.1458</td>
+            <td>-68.6983</td>
+        </tr>
+        <tr>
+            <td>Calbuco</td>
+            <td>-41.33</td>
+            <td>-72.6183</td>
+        </tr>
+        <tr>
+            <td>Callaqui</td>
+            <td>-37.9167</td>
+            <td>-71.45</td>
+        </tr>
+        <tr>
+            <td>Carihuairazo</td>
+            <td>-1.40694</td>
+            <td>-78.75</td>
+        </tr>
+        <tr>
+            <td>Carrán-Los Venados</td>
+            <td>-40.308</td>
+            <td>-72.07</td>
+        </tr>
+        <tr>
+            <td>Cay</td>
+            <td>-45.0625</td>
+            <td>-72.9858</td>
+        </tr>
+        <tr>
+            <td>Cerro Arenales</td>
+            <td>-47.1958</td>
+            <td>-73.4683</td>
+        </tr>
+        <tr>
+            <td>Cerro Azul</td>
+            <td>-35.653</td>
+            <td>-70.761</td>
+        </tr>
+        <tr>
+            <td>Cerro Macá</td>
+            <td>-45.1058</td>
+            <td>-73.1692</td>
+        </tr>
+        <tr>
+            <td>Cerro Miñiques</td>
+            <td>-23.8167</td>
+            <td>-67.7667</td>
+        </tr>
+        <tr>
+            <td>Cerro Overo</td>
+            <td>-23.5175</td>
+            <td>-67.6625</td>
+        </tr>
+        <tr>
+            <td>Cerro Pantojo</td>
+            <td>-40.7667</td>
+            <td>-71.95</td>
+        </tr>
+        <tr>
+            <td>Cerro del Azufre</td>
+            <td>-21.7872</td>
+            <td>-68.2375</td>
+        </tr>
+        <tr>
+            <td>Chiliques</td>
+            <td>-23.5833</td>
+            <td>-67.7</td>
+        </tr>
+        <tr>
+            <td>Colachi</td>
+            <td>-23.2364</td>
+            <td>-67.645</td>
+        </tr>
+        <tr>
+            <td>Copahue</td>
+            <td>-37.85</td>
+            <td>-71.1667</td>
+        </tr>
+        <tr>
+            <td>Copiapó</td>
+            <td>-27.3058</td>
+            <td>-69.1308</td>
+        </tr>
+        <tr>
+            <td>Corcovado</td>
+            <td>-43.1833</td>
+            <td>-72.8</td>
+        </tr>
+        <tr>
+            <td>Cordón de Puntas Negras</td>
+            <td>-23.7428</td>
+            <td>-67.5342</td>
+        </tr>
+        <tr>
+            <td>Coropuna</td>
+            <td>-15.55</td>
+            <td>-72.65</td>
+        </tr>
+        <tr>
+            <td>Cotopaxi</td>
+            <td>-0.680556</td>
+            <td>-78.4378</td>
+        </tr>
+        <tr>
+            <td>Dakataua</td>
+            <td>-5.05556</td>
+            <td>150.108</td>
+        </tr>
+        <tr>
+            <td>Descabezado Grande</td>
+            <td>-35.5833</td>
+            <td>-70.75</td>
+        </tr>
+        <tr>
+            <td>Domuyo</td>
+            <td>-36.6397</td>
+            <td>-70.433</td>
+        </tr>
+        <tr>
+            <td>El Altar</td>
+            <td>-1.66333</td>
+            <td>-78.4092</td>
+        </tr>
+        <tr>
+            <td>Galunggung</td>
+            <td>-7.25673</td>
+            <td>108.077</td>
+        </tr>
+        <tr>
+            <td>Garbuna Group</td>
+            <td>-5.45</td>
+            <td>150.033</td>
+        </tr>
+        <tr>
+            <td>Green Mountain, Ascension Island</td>
+            <td>-7.95</td>
+            <td>-14.35</td>
+        </tr>
+        <tr>
+            <td>Hualca Hualca</td>
+            <td>-15.7206</td>
+            <td>-71.8555</td>
+        </tr>
+        <tr>
+            <td>Hudson Mountains</td>
+            <td>-74.55</td>
+            <td>-99.1833</td>
+        </tr>
+        <tr>
+            <td>Ijen</td>
+            <td>-8.058</td>
+            <td>114.242</td>
+        </tr>
+        <tr>
+            <td>Incahuasi</td>
+            <td>-27.033</td>
+            <td>-68.296</td>
+        </tr>
+        <tr>
+            <td>Inierie</td>
+            <td>-8.875</td>
+            <td>120.95</td>
+        </tr>
+        <tr>
+            <td>Isluga</td>
+            <td>-19.15</td>
+            <td>-68.8333</td>
+        </tr>
+        <tr>
+            <td>Jayu Quta</td>
+            <td>-19.45</td>
+            <td>-67.4167</td>
+        </tr>
+        <tr>
+            <td>Kaba</td>
+            <td>-3.52</td>
+            <td>102.62</td>
+        </tr>
+        <tr>
+            <td>Kamojang</td>
+            <td>-7.125</td>
+            <td>107.8</td>
+        </tr>
+        <tr>
+            <td>Kao (volcano)</td>
+            <td>-19.67</td>
+            <td>-175.03</td>
+        </tr>
+        <tr>
+            <td>Kelud</td>
+            <td>-7.93</td>
+            <td>112.308</td>
+        </tr>
+        <tr>
+            <td>Lanín</td>
+            <td>-39.6328</td>
+            <td>-71.4997</td>
+        </tr>
+        <tr>
+            <td>Lascar</td>
+            <td>-23.3667</td>
+            <td>-67.7333</td>
+        </tr>
+        <tr>
+            <td>Lastarria</td>
+            <td>-25.1667</td>
+            <td>-68.5167</td>
+        </tr>
+        <tr>
+            <td>Lautaro</td>
+            <td>-49.0197</td>
+            <td>-73.5035</td>
+        </tr>
+        <tr>
+            <td>Licancabur</td>
+            <td>-22.8339</td>
+            <td>-67.8836</td>
+        </tr>
+        <tr>
+            <td>Llaima</td>
+            <td>-38.6958</td>
+            <td>-71.7317</td>
+        </tr>
+        <tr>
+            <td>Lonquimay</td>
+            <td>-38.3767</td>
+            <td>-71.5833</td>
+        </tr>
+        <tr>
+            <td>Lopevi</td>
+            <td>-16.5067</td>
+            <td>168.346</td>
+        </tr>
+        <tr>
+            <td>Maipo</td>
+            <td>-34.161</td>
+            <td>-69.833</td>
+        </tr>
+        <tr>
+            <td>Marmolejo</td>
+            <td>-33.734</td>
+            <td>-69.878</td>
+        </tr>
+        <tr>
+            <td>Melimoyu</td>
+            <td>-44.0758</td>
+            <td>-72.86</td>
+        </tr>
+        <tr>
+            <td>Michinmahuida</td>
+            <td>-42.7992</td>
+            <td>-72.4458</td>
+        </tr>
+        <tr>
+            <td>Misti</td>
+            <td>-16.2944</td>
+            <td>-71.4089</td>
+        </tr>
+        <tr>
+            <td>Mont Ross</td>
+            <td>-49.5922</td>
+            <td>69.4958</td>
+        </tr>
+        <tr>
+            <td>Mount Agung</td>
+            <td>-8.34083</td>
+            <td>115.503</td>
+        </tr>
+        <tr>
+            <td>Mount Balbi</td>
+            <td>-5.91417</td>
+            <td>154.982</td>
+        </tr>
+        <tr>
+            <td>Mount Belinda</td>
+            <td>-58.4333</td>
+            <td>-26.3333</td>
+        </tr>
+        <tr>
+            <td>Mount Bisoke</td>
+            <td>-1.46083</td>
+            <td>29.4817</td>
+        </tr>
+        <tr>
+            <td>Mount Butak</td>
+            <td>-7.92</td>
+            <td>112.45</td>
+        </tr>
+        <tr>
+            <td>Mount Ciremai</td>
+            <td>-6.892</td>
+            <td>108.4</td>
+        </tr>
+        <tr>
+            <td>Mount Dempo</td>
+            <td>-4.01583</td>
+            <td>103.128</td>
+        </tr>
+        <tr>
+            <td>Mount Discovery</td>
+            <td>-78.3667</td>
+            <td>165.017</td>
+        </tr>
+        <tr>
+            <td>Mount Egon</td>
+            <td>-8.66667</td>
+            <td>122.45</td>
+        </tr>
+        <tr>
+            <td>Mount Gahinga</td>
+            <td>-1.38694</td>
+            <td>29.6467</td>
+        </tr>
+        <tr>
+            <td>Mount Gede</td>
+            <td>-6.78</td>
+            <td>106.98</td>
+        </tr>
+        <tr>
+            <td>Mount Gharat (Mount Garet)</td>
+            <td>-14.27</td>
+            <td>167.5</td>
+        </tr>
+        <tr>
+            <td>Mount Gurumehr</td>
+            <td>-7.143</td>
+            <td>107.84</td>
+        </tr>
+        <tr>
+            <td>Mount Hudson</td>
+            <td>-45.9</td>
+            <td>-72.9667</td>
+        </tr>
+        <tr>
+            <td>Mount Karisimbi</td>
+            <td>-1.50833</td>
+            <td>29.445</td>
+        </tr>
+        <tr>
+            <td>Mount Kenya</td>
+            <td>-0.150833</td>
+            <td>37.3075</td>
+        </tr>
+        <tr>
+            <td>Mount Kerinci</td>
+            <td>-1.69667</td>
+            <td>101.266</td>
+        </tr>
+        <tr>
+            <td>Mount Kilimanjaro</td>
+            <td>-3.07583</td>
+            <td>37.3533</td>
+        </tr>
+        <tr>
+            <td>Mount Lamongan</td>
+            <td>-7.979</td>
+            <td>113.342</td>
+        </tr>
+        <tr>
+            <td>Mount Lawu</td>
+            <td>-7.625</td>
+            <td>111.192</td>
+        </tr>
+        <tr>
+            <td>Mount Longonot</td>
+            <td>-0.915278</td>
+            <td>36.4569</td>
+        </tr>
+        <tr>
+            <td>Mount Malabar</td>
+            <td>-7.13</td>
+            <td>107.65</td>
+        </tr>
+        <tr>
+            <td>Mount Melbourne</td>
+            <td>-74.35</td>
+            <td>164.7</td>
+        </tr>
+        <tr>
+            <td>Mount Merapi</td>
+            <td>-7.54083</td>
+            <td>110.445</td>
+        </tr>
+        <tr>
+            <td>Mount Merbabu</td>
+            <td>-7.455</td>
+            <td>110.44</td>
+        </tr>
+        <tr>
+            <td>Mount Meru</td>
+            <td>-3.24667</td>
+            <td>36.7483</td>
+        </tr>
+        <tr>
+            <td>Mount Mikeno</td>
+            <td>-1.46389</td>
+            <td>29.4183</td>
+        </tr>
+        <tr>
+            <td>Mount Muhabura</td>
+            <td>-1.38333</td>
+            <td>29.6667</td>
+        </tr>
+        <tr>
+            <td>Mount Ngauruhoe</td>
+            <td>-39.1568</td>
+            <td>175.632</td>
+        </tr>
+        <tr>
+            <td>Mount Pangrango</td>
+            <td>-6.7773</td>
+            <td>106.981</td>
+        </tr>
+        <tr>
+            <td>Mount Papandayan</td>
+            <td>-7.32</td>
+            <td>107.73</td>
+        </tr>
+        <tr>
+            <td>Mount Penanggungan</td>
+            <td>-7.62</td>
+            <td>112.63</td>
+        </tr>
+        <tr>
+            <td>Mount Raung</td>
+            <td>-8.125</td>
+            <td>114.042</td>
+        </tr>
+        <tr>
+            <td>Mount Ruapehu</td>
+            <td>-39.2833</td>
+            <td>175.567</td>
+        </tr>
+        <tr>
+            <td>Mount Sabyinyo</td>
+            <td>-1.4</td>
+            <td>29.6</td>
+        </tr>
+        <tr>
+            <td>Mount Salak</td>
+            <td>-6.72</td>
+            <td>106.73</td>
+        </tr>
+        <tr>
+            <td>Mount Slamet</td>
+            <td>-7.23917</td>
+            <td>109.22</td>
+        </tr>
+        <tr>
+            <td>Mount Sumbing</td>
+            <td>-7.385</td>
+            <td>110.073</td>
+        </tr>
+        <tr>
+            <td>Mount Tambora</td>
+            <td>-8.25</td>
+            <td>118.0</td>
+        </tr>
+        <tr>
+            <td>Mount Tampomas</td>
+            <td>-6.77</td>
+            <td>107.95</td>
+        </tr>
+        <tr>
+            <td>Mount Taranaki</td>
+            <td>-39.2964</td>
+            <td>174.065</td>
+        </tr>
+        <tr>
+            <td>Mount Telomoyo</td>
+            <td>-7.37</td>
+            <td>110.4</td>
+        </tr>
+        <tr>
+            <td>Mount Wurlali</td>
+            <td>-7.125</td>
+            <td>128.675</td>
+        </tr>
+        <tr>
+            <td>Mount Yasur</td>
+            <td>-19.5283</td>
+            <td>169.448</td>
+        </tr>
+        <tr>
+            <td>Nevado Anallajsi</td>
+            <td>-17.9167</td>
+            <td>-68.9167</td>
+        </tr>
+        <tr>
+            <td>Nevado San Francisco</td>
+            <td>-26.9188</td>
+            <td>-68.2627</td>
+        </tr>
+        <tr>
+            <td>Nevado de Longaví</td>
+            <td>-36.193</td>
+            <td>-71.161</td>
+        </tr>
+        <tr>
+            <td>Nevados de Chillán</td>
+            <td>-36.8633</td>
+            <td>-71.3767</td>
+        </tr>
+        <tr>
+            <td>Ojos del Salado</td>
+            <td>-27.1097</td>
+            <td>-68.5414</td>
+        </tr>
+        <tr>
+            <td>Ol Doinyo Lengai (Oldoinyo Lengai)</td>
+            <td>-2.76444</td>
+            <td>35.9161</td>
+        </tr>
+        <tr>
+            <td>Olca</td>
+            <td>-20.9333</td>
+            <td>-68.4833</td>
+        </tr>
+        <tr>
+            <td>Ollagüe</td>
+            <td>-21.2833</td>
+            <td>-68.1833</td>
+        </tr>
+        <tr>
+            <td>Osorno</td>
+            <td>-41.1</td>
+            <td>-72.4931</td>
+        </tr>
+        <tr>
+            <td>Paluweh</td>
+            <td>-8.32917</td>
+            <td>121.71</td>
+        </tr>
+        <tr>
+            <td>Parina Quta</td>
+            <td>-18.166</td>
+            <td>-69.142</td>
+        </tr>
+        <tr>
+            <td>Patilla Pata</td>
+            <td>-18.0611</td>
+            <td>-69.0567</td>
+        </tr>
+        <tr>
+            <td>Peinado</td>
+            <td>-26.62</td>
+            <td>-68.15</td>
+        </tr>
+        <tr>
+            <td>Pular</td>
+            <td>-24.1875</td>
+            <td>-68.0542</td>
+        </tr>
+        <tr>
+            <td>Puntiagudo-Cordón Cenizos</td>
+            <td>-40.9694</td>
+            <td>-72.2639</td>
+        </tr>
+        <tr>
+            <td>Quetrupillán</td>
+            <td>-39.5</td>
+            <td>-71.7</td>
+        </tr>
+        <tr>
+            <td>Raoul Island</td>
+            <td>-29.2667</td>
+            <td>-177.917</td>
+        </tr>
+        <tr>
+            <td>Reventador</td>
+            <td>-0.0775</td>
+            <td>-77.6558</td>
+        </tr>
+        <tr>
+            <td>San Pedro</td>
+            <td>-21.888</td>
+            <td>-68.391</td>
+        </tr>
+        <tr>
+            <td>Sangay</td>
+            <td>-2.0025</td>
+            <td>-78.3408</td>
+        </tr>
+        <tr>
+            <td>Semeru</td>
+            <td>-8.108</td>
+            <td>112.92</td>
+        </tr>
+        <tr>
+            <td>Sierra Nevada de Lagunas Bravas</td>
+            <td>-26.4908</td>
+            <td>-68.5591</td>
+        </tr>
+        <tr>
+            <td>Socompa</td>
+            <td>-24.3959</td>
+            <td>-68.246</td>
+        </tr>
+        <tr>
+            <td>Tacora</td>
+            <td>-17.7206</td>
+            <td>-69.7728</td>
+        </tr>
+        <tr>
+            <td>Tafahi</td>
+            <td>-15.85</td>
+            <td>-173.717</td>
+        </tr>
+        <tr>
+            <td>Talang</td>
+            <td>-0.978333</td>
+            <td>100.679</td>
+        </tr>
+        <tr>
+            <td>Tandikat</td>
+            <td>-0.432583</td>
+            <td>100.317</td>
+        </tr>
+        <tr>
+            <td>Tangkuban Parahu</td>
+            <td>-6.77</td>
+            <td>107.6</td>
+        </tr>
+        <tr>
+            <td>Tinakula</td>
+            <td>-10.3833</td>
+            <td>165.8</td>
+        </tr>
+        <tr>
+            <td>Tinguiririca Volcano</td>
+            <td>-34.8136</td>
+            <td>-70.3519</td>
+        </tr>
+        <tr>
+            <td>Tolhuaca</td>
+            <td>-38.31</td>
+            <td>-71.645</td>
+        </tr>
+        <tr>
+            <td>Tromen</td>
+            <td>-37.142</td>
+            <td>-70.03</td>
+        </tr>
+        <tr>
+            <td>Tronador</td>
+            <td>-41.1608</td>
+            <td>-71.8875</td>
+        </tr>
+        <tr>
+            <td>Tungurahua</td>
+            <td>-1.47</td>
+            <td>-78.4447</td>
+        </tr>
+        <tr>
+            <td>Tupungato</td>
+            <td>-33.3583</td>
+            <td>-69.77</td>
+        </tr>
+        <tr>
+            <td>Ubinas</td>
+            <td>-16.3486</td>
+            <td>-70.9022</td>
+        </tr>
+        <tr>
+            <td>Ulawun</td>
+            <td>-5.05</td>
+            <td>151.333</td>
+        </tr>
+        <tr>
+            <td>Villarrica Volcano</td>
+            <td>-39.4208</td>
+            <td>-71.9392</td>
+        </tr>
+        <tr>
+            <td>Volcán San José</td>
+            <td>-33.7864</td>
+            <td>-69.8987</td>
+        </tr>
+        <tr>
+            <td>Whakaari / White Island</td>
+            <td>-37.52</td>
+            <td>177.182</td>
+        </tr>
+        <tr>
+            <td>Yanteles</td>
+            <td>-43.5</td>
+            <td>-72.8</td>
+        </tr>
+        <tr>
+            <td>Yate</td>
+            <td>-41.7547</td>
+            <td>-72.3964</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>Compter le nombre de volcans situés entre l’équateur (lat = 0) et 30°N.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT COUNT(*)
+FROM volcans
+WHERE lat &gt; 0 AND lat &lt; 30;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///data///volcans.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>COUNT(*)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>100</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<ol class="arabic simple" start="9">
+<li><p>Identifier les 5 volcans les plus au nord (par latitude décroissante).</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT name, lat
+FROM volcans
+ORDER BY lat DESC
+LIMIT 5;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///data///volcans.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>lat</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Beerenberg</td>
+            <td>71.0767</td>
+        </tr>
+        <tr>
+            <td>Snæfellsjökull</td>
+            <td>64.8</td>
+        </tr>
+        <tr>
+            <td>Bárðarbunga</td>
+            <td>64.6411</td>
+        </tr>
+        <tr>
+            <td>Hekla</td>
+            <td>63.9922</td>
+        </tr>
+        <tr>
+            <td>Brennisteinsalda</td>
+            <td>63.9808</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+</section>
+<section id="partie-4-requete-avancee-bonus">
+<h2>Partie 4 – Requête avancée (bonus)<a class="headerlink" href="#partie-4-requete-avancee-bonus" title="Link to this heading">#</a></h2>
+<ol class="arabic simple" start="10">
+<li><p>Extraire 5 volcans ayant dans leur description (abstract) le mot “eruption”.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+SELECT name, abstract
+FROM volcans
+WHERE abstract LIKE &#39;%éruption%&#39;
+LIMIT 5;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///volcans.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>name</th>
+            <th>abstract</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Antisana</td>
+            <td>L&#x27;Antisana est un stratovolcan, culminant à 5 758 m, de la cordillère des Andes, situé en Équateur, dans la province de Napo. Sa dernière éruption remonte à 1801.</td>
+        </tr>
+        <tr>
+            <td>Arenal Volcano</td>
+            <td>L&#x27;Arenal, aussi appelé cerro Arenal, volcán de los Canaste, volcán de Costa Rica, Guatusos Peak, cerro de los Guatusos, Pan de Azúcar, Pelón, Los ahogados ou encore volcán de Río Frío, est un volcan du Costa Rica ayant une forme conique quasiment symétrique. Plus jeune volcan du Costa Rica, il est en éruption du 29 juillet 1968 à décembre 2010.</td>
+        </tr>
+        <tr>
+            <td>Aucanquilcha</td>
+            <td>L&#x27;Aucanquilcha est un stratovolcan situé dans le Nord du Chili dans la région d&#x27;Antofagasta, près de la frontière avec la Bolivie. Il culmine à l&#x27;altitude de 6 176 m. La dernière éruption date du Pléistocène. Une légère activité de fumeroles persiste cependant, et des dépôts de soufre se forment à son sommet. Une mine de sulfure ouverte en 1913 à 5 950 m d&#x27;altitude y a été en exploitation entre 1950 et 1992 ; c&#x27;était à cette époque la plus haute mine du monde.</td>
+        </tr>
+        <tr>
+            <td>Bezymianny</td>
+            <td>Le Bezymianny, en cyrillique Безымянный, terme russe qui signifie littéralement « sans nom » en français, est un volcan de Russie situé dans la péninsule du Kamtchatka. Il est voisin des volcans Kamen, Ouchkovski et Klioutchevskoï situés immédiatement au nord et du Tolbatchik situé au sud. Alors considéré comme éteint, le volcan entame une nouvelle phase éruptive en 1955 lorsqu&#x27;il entre dans une violente éruption qui sera suivie par des dizaines d&#x27;autres.</td>
+        </tr>
+        <tr>
+            <td>Calbuco</td>
+            <td>Le Calbuco est un volcan du Chili s&#x27;élevant au sud-est du lac Llanquihue, au nord-est de la ville de Puerto Montt et au nord-est du golfe du Seno de Reloncaví. Composé d&#x27;andésite et couvert à son sommet de glaciers, il culmine à 2 015 mètres d&#x27;altitude. Alors que sa dernière éruption remontait au 26 août 1972, il est, sans signe avant-coureur, brusquement entré en éruption le 22 avril 2015.</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./tp4_volcans"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="tp_volcan_notebook_enonce.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">TP 4 : Les volcans sujet</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../tp5_leet_code/sql50.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">SQL 50</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-1-exploration-de-la-base">Partie 1 – Exploration de la base</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-2-analyse-temporelle">Partie 2 – Analyse temporelle</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-3-donnees-geographiques">Partie 3 – Données géographiques</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-4-requete-avancee-bonus">Partie 4 – Requête avancée (bonus)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Gasmi Rémy
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  © 2025 — TP SQL
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

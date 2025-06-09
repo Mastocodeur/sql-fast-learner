@@ -1,0 +1,2718 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>TP Studio Ghilbi Correction &#8212; TP SQL — Jupyter Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tp3_studio_ghilbi/studio_ghilbi_correction';</script>
+    <link rel="icon" href="../_static/sql_favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="TP SQL Volcans" href="../tp4_volcans/tp_volcan.html" />
+    <link rel="prev" title="TP Studio Ghilbi Sujet" href="studio_ghilbi_enonce.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="TP SQL — Jupyter Book - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="TP SQL — Jupyter Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    SQL : JupyterBook de TP
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutoriel/TUTO.html">Tutoriel pour faire du SQL sur son PC</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutoriel/TUTORIEL_DB_BROWSER.html">Tutoriel pour utiliser DB Browser (SQLite)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutoriel/TUTORIEL_SQL_NOTEBOOK.html">📘 Faire du SQL dans un notebook Jupyter avec ipython-sql</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tp1_lycee/TP_INTRO.html">TP 1 — Liste d’élèves</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tp1_lycee/sql_intro.html"><center>TP Prise en main SQL/Python </center></a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tp2_meurtre_sql_city/detective_sql.html">TP 2 — SQL City Murder</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tp2_meurtre_sql_city/sql_city_sujet_part1.html"><center>SQL City Episode 1 </center></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../tp2_meurtre_sql_city/sql_city_sujet_part2.html"><center>SQL City Episode 2 </center></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../tp2_meurtre_sql_city/sql_city_correction.html"><center>SQL City Correction </center></a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="CONSIGNES.html">TP 3 — Studio Ghilbi</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="studio_ghilbi_enonce.html"><center>TP Studio Ghilbi Sujet </center></a></li>
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#"><center>TP Studio Ghilbi Correction</center></a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tp4_volcans/tp_volcan.html">TP 4 — Volcans</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tp4_volcans/tp_volcan_notebook_enonce.html">TP 4 : Les volcans sujet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tp4_volcans/tp_volcan_notebook_correction.html">TP 4 : Les volcans correction</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../tp5_leet_code/sql50.html">TP 5 — LeetCode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SOURCES.html">Sources et Sitographie</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Mastocodeur/sql-fast-learner" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mastocodeur/sql-fast-learner/edit/main/tp3_studio_ghilbi/studio_ghilbi_correction.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mastocodeur/sql-fast-learner/issues/new?title=Issue%20on%20page%20%2Ftp3_studio_ghilbi/studio_ghilbi_correction.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/tp3_studio_ghilbi/studio_ghilbi_correction.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><center>TP Studio Ghilbi Correction</center></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><center>TP Studio Ghilbi Correction</center></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs">Objectifs</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reponses">Réponses</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="tp-studio-ghilbi-correction">
+<h1><center>TP Studio Ghilbi Correction</center><a class="headerlink" href="#tp-studio-ghilbi-correction" title="Link to this heading">#</a></h1>
+<p><img alt="Ghilbi Intro" src="../_images/ghilbi.png" /></p>
+<section id="objectifs">
+<h2>Objectifs<a class="headerlink" href="#objectifs" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Visualiser et travailler avec plusieurs tables d’une base de données SQL</p></li>
+<li><p>Apprendre à écrire des lignes de commande SQL</p></li>
+<li><p>Extraire des informations d’une base de données SQL</p></li>
+<li><p>Développer un esprit critique sur les résultats obtenus</p></li>
+</ul>
+<p>On commence par charger les décorateurs qui vont nous permettre de taper des lignes de commandes SQL et la base de données sur laquelle on va travailler.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> sql
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">sql</span> sqlite:///studio_ghilbi.sqlite
+</pre></div>
+</div>
+</div>
+</div>
+<p>On visualise le ocntenu de notre base SQL :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT name FROM sqlite_master WHERE type=&#39;table&#39;;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studio_ghilbi.sqlite
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>film</td>
+        </tr>
+        <tr>
+            <td>personne</td>
+        </tr>
+        <tr>
+            <td>personnage</td>
+        </tr>
+        <tr>
+            <td>intervient_dans</td>
+        </tr>
+        <tr>
+            <td>est_de_type</td>
+        </tr>
+        <tr>
+            <td>produit_par</td>
+        </tr>
+        <tr>
+            <td>espece</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="reponses">
+<h1>Réponses<a class="headerlink" href="#reponses" title="Link to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p>Lister toutes les informations concernant tous les films de la BDD.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT * FROM film;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studio_ghilbi.sqlite
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>titre</th>
+            <th>titre_original</th>
+            <th>original_title_romanised</th>
+            <th>image</th>
+            <th>movie_banner</th>
+            <th>description</th>
+            <th>id_realisateur</th>
+            <th>date_sortie</th>
+            <th>duree</th>
+            <th>rt_score</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>2baf70d1-42bb-4437-b551-e5fed5a87abe</td>
+            <td>Castle in the Sky</td>
+            <td>天空の城ラピュタ</td>
+            <td>Tenkū no shiro Rapyuta</td>
+            <td>https://image.tmdb.org/t/p/w533_and_h300_bestv2/3cyjYtLWCBE1uvWINHFsFnE8LUK.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/npOnzAbLh6VOIu3naU5QaEcTepo.jpg&quot;</td>
+            <td>The orphan Sheeta inherited a mysterious crystal that links her to the mythical sky-kingdom of Laputa. With the help of resourceful Pazu and a rollicking band of sky pirates, she makes her way to the ruins of the once-great civilization. Sheeta and Pazu must outwit the evil Muska, who plans to use Laputa&#x27;s science to make himself ruler of the world.</td>
+            <td>1</td>
+            <td>1986</td>
+            <td>124</td>
+            <td>95</td>
+        </tr>
+        <tr>
+            <td>12cfb892-aac0-4c5b-94af-521852e46d6a</td>
+            <td>Grave of the Fireflies</td>
+            <td>火垂るの墓</td>
+            <td>Hotaru no haka</td>
+            <td>https://image.tmdb.org/t/p/original/vkZSd0Lp8iCVBGpFH9L7LzLusjS.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/qG3RYlIVpTYclR9TYIsy8p7m7AT.jpg</td>
+            <td>In the latter part of World War II, a boy and his sister, orphaned when their mother is killed in the firebombing of Tokyo, are left to survive on their own in what remains of civilian life in Japan. The plot follows this boy and his sister as they do their best to survive in the Japanese countryside, battling hunger, prejudice, and pride in their own quiet, personal battle.</td>
+            <td>2</td>
+            <td>1988</td>
+            <td>89</td>
+            <td>97</td>
+        </tr>
+        <tr>
+            <td>58611129-2dbc-4a81-a72f-77ddfc1b1b49</td>
+            <td>My Neighbor Totoro</td>
+            <td>となりのトトロ</td>
+            <td>Tonari no Totoro</td>
+            <td>https://image.tmdb.org/t/p/original/etqr6fOOCXQOgwrQXaKwenTSuzx.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/rtGDOeG9LzoerkDGZF9dnVeLppL.jpg</td>
+            <td>Two sisters move to the country with their father in order to be closer to their hospitalized mother, and discover the surrounding trees are inhabited by Totoros, magical spirits of the forest. When the youngest runs away from home, the older sister seeks help from the spirits to find her.</td>
+            <td>1</td>
+            <td>1988</td>
+            <td>86</td>
+            <td>93</td>
+        </tr>
+        <tr>
+            <td>ea660b10-85c4-4ae3-8a5f-41cea3648e3e</td>
+            <td>Kiki&#x27;s Delivery Service</td>
+            <td>魔女の宅急便</td>
+            <td>Majo no takkyūbin</td>
+            <td>https://image.tmdb.org/t/p/original/h5pAEVma835u8xoE60kmLVopLct.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/7nO5DUMnGUuXrA4r2h6ESOKQRrx.jpg</td>
+            <td>A young witch, on her mandatory year of independent life, finds fitting into a new community difficult while she supports herself by running an air courier service.</td>
+            <td>1</td>
+            <td>1989</td>
+            <td>102</td>
+            <td>96</td>
+        </tr>
+        <tr>
+            <td>4e236f34-b981-41c3-8c65-f8c9000b94e7</td>
+            <td>Only Yesterday</td>
+            <td>おもひでぽろぽろ</td>
+            <td>Omoide poro poro</td>
+            <td>https://image.tmdb.org/t/p/w533_and_h300_bestv2/isCrlWWI4JrdLKAUAwFb5cjAsH4.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/xjJU6rwzLX7Jk8HFQfVW6H5guMC.jpg</td>
+            <td>It’s 1982, and Taeko is 27 years old, unmarried, and has lived her whole life in Tokyo. She decides to visit her family in the countryside, and as the train travels through the night, memories flood back of her younger years: the first immature stirrings of romance, the onset of puberty, and the frustrations of math and boys. At the station she is met by young farmer Toshio, and the encounters with him begin to reconnect her to forgotten longings. In lyrical switches between the present and the past, Taeko contemplates the arc of her life, and wonders if she has been true to the dreams of her childhood self.</td>
+            <td>2</td>
+            <td>1991</td>
+            <td>118</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>ebbb6b7c-945c-41ee-a792-de0e43191bd8</td>
+            <td>Porco Rosso</td>
+            <td>紅の豚</td>
+            <td>Kurenai no buta</td>
+            <td>https://image.tmdb.org/t/p/original/nAeCzilMRXvGaxiCpv63ZRVRVgh.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/byKAndF6KQSDpGxp1mTr23jPbYp.jpg</td>
+            <td>Porco Rosso, known in Japan as Crimson Pig (Kurenai no Buta) is the sixth animated film by Hayao Miyazaki and released in 1992. You&#x27;re introduced to an Italian World War I fighter ace, now living as a freelance bounty hunter chasing &#x27;air pirates&#x27; in the Adriatic Sea. He has been given a curse that changed his head to that of a pig. Once called Marco Pagot, he is now known to the world as &#x27;Porco Rosso&#x27;, Italian for &#x27;Red Pig.&#x27;</td>
+            <td>1</td>
+            <td>1992</td>
+            <td>93</td>
+            <td>94</td>
+        </tr>
+        <tr>
+            <td>1b67aa9a-2e4a-45af-ac98-64d6ad15b16c</td>
+            <td>Pom Poko</td>
+            <td>平成狸合戦ぽんぽこ</td>
+            <td>Heisei tanuki gassen Ponpoko</td>
+            <td>https://image.tmdb.org/t/p/original/jScPd0u0jeo66l8gwDl7W9hDUnM.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/kowo9E1e1JcWLXj9cCvAOFZcy5n.jpg</td>
+            <td>As the human city development encroaches on the raccoon population&#x27;s forest and meadow habitat, the raccoons find themselves faced with the very real possibility of extinction. In response, the raccoons engage in a desperate struggle to stop the construction and preserve their home.</td>
+            <td>2</td>
+            <td>1994</td>
+            <td>119</td>
+            <td>78</td>
+        </tr>
+        <tr>
+            <td>ff24da26-a969-4f0e-ba1e-a122ead6c6e3</td>
+            <td>Whisper of the Heart</td>
+            <td>耳をすませば</td>
+            <td>Mimi wo sumaseba</td>
+            <td>https://image.tmdb.org/t/p/original/fRtaDgmj0CirvqFUG1XN48BDY1l.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/5E3Hvbu0bg38ouYf6chGftVGqZ7.jpg</td>
+            <td>Shizuku lives a simple life, dominated by her love for stories and writing. One day she notices that all the library books she has have been previously checked out by the same person: &#x27;Seiji Amasawa&#x27;. Curious as to who he is, Shizuku meets a boy her age whom she finds infuriating, but discovers to her shock that he is her &#x27;Prince of Books&#x27;. As she grows closer to him, she realises that he merely read all those books to bring himself closer to her. The boy Seiji aspires to be a violin maker in Italy, and it is his dreams that make Shizuku realise that she has no clear path for her life. Knowing that her strength lies in writing, she tests her talents by writing a story about Baron, a cat statuette belonging to Seiji&#x27;s grandfather.</td>
+            <td>5</td>
+            <td>1995</td>
+            <td>111</td>
+            <td>91</td>
+        </tr>
+        <tr>
+            <td>0440483e-ca0e-4120-8c50-4c8cd9b965d6</td>
+            <td>Princess Mononoke</td>
+            <td>もののけ姫</td>
+            <td>Mononoke hime</td>
+            <td>https://image.tmdb.org/t/p/original/6pTqSq0zYIWCsucJys8q5L92kUY.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/jHWmNr7m544fJ8eItsfNk8fs2Ed.jpg</td>
+            <td>Ashitaka, a prince of the disappearing Ainu tribe, is cursed by a demonized boar god and must journey to the west to find a cure. Along the way, he encounters San, a young human woman fighting to protect the forest, and Lady Eboshi, who is trying to destroy it. Ashitaka must find a way to bring balance to this conflict.</td>
+            <td>1</td>
+            <td>1997</td>
+            <td>134</td>
+            <td>92</td>
+        </tr>
+        <tr>
+            <td>45204234-adfd-45cb-a505-a8e7a676b114</td>
+            <td>My Neighbors the Yamadas</td>
+            <td>ホーホケキョ となりの山田くん</td>
+            <td>Hōhokekyo tonari no Yamada-kun</td>
+            <td>https://image.tmdb.org/t/p/original/nDOsicEg4RHDq0t23JKGSb58z6u.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/wTGuHmMIBBgKakY80J1D52VvQKI.jpg</td>
+            <td>The Yamadas are a typical middle class Japanese family in urban Tokyo and this film shows us a variety of episodes of their lives. With tales that range from the humourous to the heartbreaking, we see this family cope with life&#x27;s little conflicts, problems and joys in their own way.</td>
+            <td>2</td>
+            <td>1999</td>
+            <td>104</td>
+            <td>75</td>
+        </tr>
+        <tr>
+            <td>dc2e6bd1-8156-4886-adff-b39e6043af0c</td>
+            <td>Spirited Away</td>
+            <td>千と千尋の神隠し</td>
+            <td>Sen to Chihiro no kamikakushi</td>
+            <td>https://image.tmdb.org/t/p/original/bSXfU4dwZyBA1vMmXvejdRXBvuF.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg</td>
+            <td>Spirited Away is an Oscar winning Japanese animated film about a ten year old girl who wanders away from her parents along a path that leads to a world ruled by strange and unusual monster-like animals. Her parents have been changed into pigs along with others inside a bathhouse full of these creatures. Will she ever see the world how it once was?</td>
+            <td>1</td>
+            <td>2001</td>
+            <td>124</td>
+            <td>97</td>
+        </tr>
+        <tr>
+            <td>90b72513-afd4-4570-84de-a56c312fdf81</td>
+            <td>The Cat Returns</td>
+            <td>猫の恩返し</td>
+            <td>Neko no ongaeshi</td>
+            <td>https://image.tmdb.org/t/p/original/d4BTZvckFTthyhGX27LZnWxl0tl.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/avPMO5cnaGHgLaNiAIhy33WoQLm.jpg</td>
+            <td>Haru, a schoolgirl bored by her ordinary routine, saves the life of an unusual cat and suddenly her world is transformed beyond anything she ever imagined. The Cat King rewards her good deed with a flurry of presents, including a very shocking proposal of marriage to his son! Haru embarks on an unexpected journey to the Kingdom of Cats where her eyes are opened to a whole other world.</td>
+            <td>6</td>
+            <td>2002</td>
+            <td>75</td>
+            <td>89</td>
+        </tr>
+        <tr>
+            <td>cd3d059c-09f4-4ff3-8d63-bc765a5184fa</td>
+            <td>Howl&#x27;s Moving Castle</td>
+            <td>ハウルの動く城</td>
+            <td>Hauru no ugoku shiro</td>
+            <td>https://image.tmdb.org/t/p/original/hjlvbMKhQm7N8tYynr8yQ8GBmqe.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/TkTPELv4kC3u1lkloush8skOjE.jpg</td>
+            <td>When Sophie, a shy young woman, is cursed with an old body by a spiteful witch, her only chance of breaking the spell lies with a self-indulgent yet insecure young wizard and his companions in his legged, walking home.</td>
+            <td>1</td>
+            <td>2004</td>
+            <td>119</td>
+            <td>87</td>
+        </tr>
+        <tr>
+            <td>112c1e67-726f-40b1-ac17-6974127bb9b9</td>
+            <td>Tales from Earthsea</td>
+            <td>ゲド戦記</td>
+            <td>Gedo senki</td>
+            <td>https://image.tmdb.org/t/p/original/j276noIGGmfi66EnCfewsL2OVTX.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/67yYwCPq7NbxSF6BIIXCMD34sY0.jpg</td>
+            <td>Something bizarre has come over the land. The kingdom is deteriorating. People are beginning to act strange... What&#x27;s even more strange is that people are beginning to see dragons, which shouldn&#x27;t enter the world of humans. Due to all these bizarre events, Ged, a wandering wizard, is investigating the cause. During his journey, he meets Prince Arren, a young distraught teenage boy. While Arren may look like a shy young teen, he has a severe dark side, which grants him strength, hatred, ruthlessness and has no mercy, especially when it comes to protecting Teru. For the witch Kumo this is a perfect opportunity. She can use the boy&#x27;s &#x27;fears&#x27; against the very one who would help him, Ged.</td>
+            <td>7</td>
+            <td>2006</td>
+            <td>116</td>
+            <td>41</td>
+        </tr>
+        <tr>
+            <td>758bf02e-3122-46e0-884e-67cf83df1786</td>
+            <td>Ponyo</td>
+            <td>崖の上のポニョ</td>
+            <td>Gake no ue no Ponyo</td>
+            <td>https://image.tmdb.org/t/p/original/6a1qZ1qat26mAIK3Lq8iYdGpyHm.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/mikKSEdk5kLhflWXbp4S5mmHsDo.jpg</td>
+            <td>The son of a sailor, 5-year old Sosuke lives a quiet life on an oceanside cliff with his mother Lisa. One fateful day, he finds a beautiful goldfish trapped in a bottle on the beach and upon rescuing her, names her Ponyo. But she is no ordinary goldfish. The daughter of a masterful wizard and a sea goddess, Ponyo uses her father&#x27;s magic to transform herself into a young girl and quickly falls in love with Sosuke, but the use of such powerful sorcery causes a dangerous imbalance in the world. As the moon steadily draws nearer to the earth and Ponyo&#x27;s father sends the ocean&#x27;s mighty waves to find his daughter, the two children embark on an adventure of a lifetime to save the world and fulfill Ponyo&#x27;s dreams of becoming human.</td>
+            <td>1</td>
+            <td>2008</td>
+            <td>100</td>
+            <td>92</td>
+        </tr>
+        <tr>
+            <td>2de9426b-914a-4a06-a3a0-5e6d9d3886f6</td>
+            <td>Arrietty</td>
+            <td>借りぐらしのアリエッティ</td>
+            <td>Karigurashi no Arietti</td>
+            <td>https://image.tmdb.org/t/p/original/7Z7WVzJsSReG8B0CaPk0bvWD7tK.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/oc2OB2KDmSRDMelKEAA1n4YRQL0.jpg</td>
+            <td>14-year-old Arrietty and the rest of the Clock family live in peaceful anonymity as they make their own home from items &#x27;borrowed&#x27; from the house&#x27;s human inhabitants. However, life changes for the Clocks when a human boy discovers Arrietty.</td>
+            <td>8</td>
+            <td>2010</td>
+            <td>94</td>
+            <td>95</td>
+        </tr>
+        <tr>
+            <td>45db04e4-304a-4933-9823-33f389e8d74d</td>
+            <td>From Up on Poppy Hill</td>
+            <td>コクリコ坂から</td>
+            <td>Kokuriko zaka kara</td>
+            <td>https://image.tmdb.org/t/p/original/xtPBZYaWQMQxRpy7mkdk5n1bTxs.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/rRLYX4RZIyloHSJwvZKAhphAjiB.jpg</td>
+            <td>The story is set in 1963 in Yokohama. Kokuriko Manor sits on a hill overlooking the harbour. A 16 year-old girl, Umi, lives in that house. Every morning she raises a signal flag facing the sea. The flag means “I pray for safe voyages”. A 17 year-old boy, Shun, always sees this flag from the sea as he rides a tugboat to school. Gradually the pair are drawn to each other but they are faced with a sudden trial. Even so, they keep going without running from facing the hardships of reality.</td>
+            <td>7</td>
+            <td>2011</td>
+            <td>91</td>
+            <td>83</td>
+        </tr>
+        <tr>
+            <td>67405111-37a5-438f-81cc-4666af60c800</td>
+            <td>The Wind Rises</td>
+            <td>風立ちぬ</td>
+            <td>Kaze tachinu</td>
+            <td>https://image.tmdb.org/t/p/original/stM3jlD4nSJhlvR2DE7XnB0eN25.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/jfwSexzlIzaOgxP9A8bTA6t8YYb.jpg</td>
+            <td>A lifelong love of flight inspires Japanese aviation engineer Jiro Horikoshi, whose storied career includes the creation of the A-6M World War II fighter plane.</td>
+            <td>1</td>
+            <td>2013</td>
+            <td>126</td>
+            <td>89</td>
+        </tr>
+        <tr>
+            <td>578ae244-7750-4d9f-867b-f3cd3d6fecf4</td>
+            <td>The Tale of the Princess Kaguya</td>
+            <td>かぐや姫の物語</td>
+            <td>Kaguya-Hime no Monogatari</td>
+            <td>https://image.tmdb.org/t/p/original/lMaWlYThCSnsmW3usxWTpSuyZp1.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/mWRQNlWXYYfd2z4FRm99MsgHgiA.jpg</td>
+            <td>A bamboo cutter named Sanuki no Miyatsuko discovers a miniature girl inside a glowing bamboo shoot. Believing her to be a divine presence, he and his wife decide to raise her as their own, calling her &#x27;Princess&#x27;.</td>
+            <td>2</td>
+            <td>2013</td>
+            <td>137</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>5fdfb320-2a02-49a7-94ff-5ca418cae602</td>
+            <td>When Marnie Was There</td>
+            <td>思い出のマーニー</td>
+            <td>Omoide no Marnie</td>
+            <td>https://image.tmdb.org/t/p/original/axUX7urQDwCGQ9qbgh2Yys7qY9J.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/vug1dvDI1tSa60Z8qjCuUE7ntkO.jpg</td>
+            <td>The film follows Anna Sasaki living with her relatives in the seaside town. Anna comes across a nearby abandoned mansion, where she meets Marnie, a mysterious girl who asks her to promise to keep their secrets from everyone. As the summer progresses, Anna spends more time with Marnie, and eventually Anna learns the truth about her family and foster care.</td>
+            <td>8</td>
+            <td>2014</td>
+            <td>103</td>
+            <td>92</td>
+        </tr>
+        <tr>
+            <td>d868e6ec-c44a-405b-8fa6-f7f0f8cfb500</td>
+            <td>The Red Turtle</td>
+            <td>レッドタートル ある島の物語</td>
+            <td>Reddotātoru aru shima no monogatari</td>
+            <td>https://image.tmdb.org/t/p/original/kjXdW5H3myRBmTMYgKayjphr2FA.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/wOBU3SLjQ9358Km9YWYasPZyebp.jpg</td>
+            <td>A man set adrift by a storm wakes up on a beach. He discovers that he is on a deserted island with plenty of fresh water, fruit and a dense bamboo forest. He builds a raft from bamboo and attempts to sail away, but his raft is destroyed by an unseen monster in the sea, forcing him back to the island. He tries again with another, larger raft, but is again foiled by the creature. A third attempt again ends with the raft destroyed, but this time he is confronted by a giant red turtle, which stares at him, and forces him back to the island.</td>
+            <td>10</td>
+            <td>2016</td>
+            <td>80</td>
+            <td>93</td>
+        </tr>
+        <tr>
+            <td>790e0028-a31c-4626-a694-86b7a8cada40</td>
+            <td>Earwig and the Witch</td>
+            <td>アーヤと魔女</td>
+            <td>Āya to Majo</td>
+            <td>https://www.themoviedb.org/t/p/original/qMxpGzmmnY1jLd4p7EhhoW43wWF.jpg</td>
+            <td>https://www.themoviedb.org/t/p/w600_and_h900_bestv2/sJhFtY3eHuvvACaPpxpzdCLQqpQ.jpg</td>
+            <td>An orphan girl, Earwig, is adopted by a witch and comes home to a spooky house filled with mystery and magic.</td>
+            <td>7</td>
+            <td>2021</td>
+            <td>82</td>
+            <td>30</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Comme les informations sont trop nombreuses, et que tout ne nous intéresse pas, on se contentera de la liste des titres et de leur année de réalisation seulement. On les rangera du film le moins récent au plus récent.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT titre, date_sortie 
+FROM film
+ORDER BY date_sortie ASC;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studio_ghilbi.sqlite
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>titre</th>
+            <th>date_sortie</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Castle in the Sky</td>
+            <td>1986</td>
+        </tr>
+        <tr>
+            <td>Grave of the Fireflies</td>
+            <td>1988</td>
+        </tr>
+        <tr>
+            <td>My Neighbor Totoro</td>
+            <td>1988</td>
+        </tr>
+        <tr>
+            <td>Kiki&#x27;s Delivery Service</td>
+            <td>1989</td>
+        </tr>
+        <tr>
+            <td>Only Yesterday</td>
+            <td>1991</td>
+        </tr>
+        <tr>
+            <td>Porco Rosso</td>
+            <td>1992</td>
+        </tr>
+        <tr>
+            <td>Pom Poko</td>
+            <td>1994</td>
+        </tr>
+        <tr>
+            <td>Whisper of the Heart</td>
+            <td>1995</td>
+        </tr>
+        <tr>
+            <td>Princess Mononoke</td>
+            <td>1997</td>
+        </tr>
+        <tr>
+            <td>My Neighbors the Yamadas</td>
+            <td>1999</td>
+        </tr>
+        <tr>
+            <td>Spirited Away</td>
+            <td>2001</td>
+        </tr>
+        <tr>
+            <td>The Cat Returns</td>
+            <td>2002</td>
+        </tr>
+        <tr>
+            <td>Howl&#x27;s Moving Castle</td>
+            <td>2004</td>
+        </tr>
+        <tr>
+            <td>Tales from Earthsea</td>
+            <td>2006</td>
+        </tr>
+        <tr>
+            <td>Ponyo</td>
+            <td>2008</td>
+        </tr>
+        <tr>
+            <td>Arrietty</td>
+            <td>2010</td>
+        </tr>
+        <tr>
+            <td>From Up on Poppy Hill</td>
+            <td>2011</td>
+        </tr>
+        <tr>
+            <td>The Wind Rises</td>
+            <td>2013</td>
+        </tr>
+        <tr>
+            <td>The Tale of the Princess Kaguya</td>
+            <td>2013</td>
+        </tr>
+        <tr>
+            <td>When Marnie Was There</td>
+            <td>2014</td>
+        </tr>
+        <tr>
+            <td>The Red Turtle</td>
+            <td>2016</td>
+        </tr>
+        <tr>
+            <td>Earwig and the Witch</td>
+            <td>2021</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Déterminer la table nécessaire et faire apparaître le nom de tous les personnages ainsi que leur âge. On les affichera par ordre alphabétique.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT nom
+FROM personnage
+ORDER BY nom ASC;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studio_ghilbi.sqlite
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>nom</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Ashitaka</td>
+        </tr>
+        <tr>
+            <td>Baron Humbert von Gikkingen</td>
+        </tr>
+        <tr>
+            <td>Bella Yaga</td>
+        </tr>
+        <tr>
+            <td>Captain Dola</td>
+        </tr>
+        <tr>
+            <td>Cat King</td>
+        </tr>
+        <tr>
+            <td>Catbus</td>
+        </tr>
+        <tr>
+            <td>Charles</td>
+        </tr>
+        <tr>
+            <td>Chibi Totoro</td>
+        </tr>
+        <tr>
+            <td>Chihiro Ogino</td>
+        </tr>
+        <tr>
+            <td>Chu Totoro</td>
+        </tr>
+        <tr>
+            <td>Colonel Muska</td>
+        </tr>
+        <tr>
+            <td>Custard</td>
+        </tr>
+        <tr>
+            <td>Duffi</td>
+        </tr>
+        <tr>
+            <td>Earwig</td>
+        </tr>
+        <tr>
+            <td>Eboshi</td>
+        </tr>
+        <tr>
+            <td>General Mouro</td>
+        </tr>
+        <tr>
+            <td>Gonza</td>
+        </tr>
+        <tr>
+            <td>Granny</td>
+        </tr>
+        <tr>
+            <td>Haku</td>
+        </tr>
+        <tr>
+            <td>Haru</td>
+        </tr>
+        <tr>
+            <td>Henri</td>
+        </tr>
+        <tr>
+            <td>Hii-sama</td>
+        </tr>
+        <tr>
+            <td>Jigo</td>
+        </tr>
+        <tr>
+            <td>Jiji</td>
+        </tr>
+        <tr>
+            <td>Kanta Ōgaki</td>
+        </tr>
+        <tr>
+            <td>Kiki</td>
+        </tr>
+        <tr>
+            <td>Kohroku</td>
+        </tr>
+        <tr>
+            <td>Laputian Robot</td>
+        </tr>
+        <tr>
+            <td>Louis</td>
+        </tr>
+        <tr>
+            <td>Lusheeta Toel Ul Laputa</td>
+        </tr>
+        <tr>
+            <td>Madame</td>
+        </tr>
+        <tr>
+            <td>Mandrake</td>
+        </tr>
+        <tr>
+            <td>Mei Kusakabe</td>
+        </tr>
+        <tr>
+            <td>Moro</td>
+        </tr>
+        <tr>
+            <td>Motro</td>
+        </tr>
+        <tr>
+            <td>Natori</td>
+        </tr>
+        <tr>
+            <td>Niya</td>
+        </tr>
+        <tr>
+            <td>Okami</td>
+        </tr>
+        <tr>
+            <td>Osono</td>
+        </tr>
+        <tr>
+            <td>Pazu</td>
+        </tr>
+        <tr>
+            <td>Porco Rosso</td>
+        </tr>
+        <tr>
+            <td>Renaldo Moon aka Moon aka Muta</td>
+        </tr>
+        <tr>
+            <td>Romska Palo Ul Laputa</td>
+        </tr>
+        <tr>
+            <td>San</td>
+        </tr>
+        <tr>
+            <td>Satsuki Kusakabe</td>
+        </tr>
+        <tr>
+            <td>Scarlet Rose</td>
+        </tr>
+        <tr>
+            <td>Shishigami</td>
+        </tr>
+        <tr>
+            <td>Sosuke</td>
+        </tr>
+        <tr>
+            <td>Tatsuo Kusakabe</td>
+        </tr>
+        <tr>
+            <td>Thomas</td>
+        </tr>
+        <tr>
+            <td>Tombo</td>
+        </tr>
+        <tr>
+            <td>Totoro</td>
+        </tr>
+        <tr>
+            <td>Uncle Pom</td>
+        </tr>
+        <tr>
+            <td>Ursula</td>
+        </tr>
+        <tr>
+            <td>Yakul</td>
+        </tr>
+        <tr>
+            <td>Yasuko Kusakabe</td>
+        </tr>
+        <tr>
+            <td>Yuki</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Recommencer la même sélection, mais en faisant un tri croissant sur l’âge des personnages.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT nom, age
+FROM personnage
+ORDER BY age ASC;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studio_ghilbi.sqlite
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>nom</th>
+            <th>age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Totoro</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Chu Totoro</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Chibi Totoro</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Chihiro Ogino</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>Earwig</td>
+            <td>10</td>
+        </tr>
+        <tr>
+            <td>Satsuki Kusakabe</td>
+            <td>11</td>
+        </tr>
+        <tr>
+            <td>Kanta Ōgaki</td>
+            <td>11</td>
+        </tr>
+        <tr>
+            <td>Haku</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>Pazu</td>
+            <td>13</td>
+        </tr>
+        <tr>
+            <td>Lusheeta Toel Ul Laputa</td>
+            <td>13</td>
+        </tr>
+        <tr>
+            <td>Haru</td>
+            <td>13</td>
+        </tr>
+        <tr>
+            <td>Tombo</td>
+            <td>13</td>
+        </tr>
+        <tr>
+            <td>Kiki</td>
+            <td>13</td>
+        </tr>
+        <tr>
+            <td>San</td>
+            <td>17</td>
+        </tr>
+        <tr>
+            <td>Ursula</td>
+            <td>18</td>
+        </tr>
+        <tr>
+            <td>Osono</td>
+            <td>26</td>
+        </tr>
+        <tr>
+            <td>Louis</td>
+            <td>30</td>
+        </tr>
+        <tr>
+            <td>Moro</td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td>Romska Palo Ul Laputa</td>
+            <td>33</td>
+        </tr>
+        <tr>
+            <td>Colonel Muska</td>
+            <td>33</td>
+        </tr>
+        <tr>
+            <td>Tatsuo Kusakabe</td>
+            <td>37</td>
+        </tr>
+        <tr>
+            <td>Mei Kusakabe</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>Shishigami</td>
+            <td>400</td>
+        </tr>
+        <tr>
+            <td>Porco Rosso</td>
+            <td>47</td>
+        </tr>
+        <tr>
+            <td>Sosuke</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>Okami</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>Captain Dola</td>
+            <td>60</td>
+        </tr>
+        <tr>
+            <td>Madame</td>
+            <td>60</td>
+        </tr>
+        <tr>
+            <td>Cat King</td>
+            <td>87</td>
+        </tr>
+        <tr>
+            <td>Kohroku</td>
+            <td>Adult</td>
+        </tr>
+        <tr>
+            <td>Gonza</td>
+            <td>Adult</td>
+        </tr>
+        <tr>
+            <td>Yasuko Kusakabe</td>
+            <td>Adult</td>
+        </tr>
+        <tr>
+            <td>Granny</td>
+            <td>Elder</td>
+        </tr>
+        <tr>
+            <td>Jigo</td>
+            <td>Middle age</td>
+        </tr>
+        <tr>
+            <td>Jiji</td>
+            <td>NA</td>
+        </tr>
+        <tr>
+            <td>Catbus</td>
+            <td>NA</td>
+        </tr>
+        <tr>
+            <td>Niya</td>
+            <td>NA</td>
+        </tr>
+        <tr>
+            <td>Renaldo Moon aka Moon aka Muta</td>
+            <td>NA</td>
+        </tr>
+        <tr>
+            <td>Yuki</td>
+            <td>NA</td>
+        </tr>
+        <tr>
+            <td>Baron Humbert von Gikkingen</td>
+            <td>NA</td>
+        </tr>
+        <tr>
+            <td>Natori</td>
+            <td>NA</td>
+        </tr>
+        <tr>
+            <td>Bella Yaga</td>
+            <td>NA</td>
+        </tr>
+        <tr>
+            <td>Mandrake</td>
+            <td>NA</td>
+        </tr>
+        <tr>
+            <td>Scarlet Rose</td>
+            <td>NA</td>
+        </tr>
+        <tr>
+            <td>Thomas</td>
+            <td>NA</td>
+        </tr>
+        <tr>
+            <td>Custard</td>
+            <td>NA</td>
+        </tr>
+        <tr>
+            <td>Hii-sama</td>
+            <td>Over 50</td>
+        </tr>
+        <tr>
+            <td>Laputian Robot</td>
+            <td>Really Old</td>
+        </tr>
+        <tr>
+            <td>Yakul</td>
+            <td>Unknown</td>
+        </tr>
+        <tr>
+            <td>General Mouro</td>
+            <td>Unspecified/Adult</td>
+        </tr>
+        <tr>
+            <td>Duffi</td>
+            <td>Unspecified/Adult</td>
+        </tr>
+        <tr>
+            <td>Charles</td>
+            <td>Unspecified/Adult</td>
+        </tr>
+        <tr>
+            <td>Henri</td>
+            <td>Unspecified/Adult</td>
+        </tr>
+        <tr>
+            <td>Motro</td>
+            <td>Unspecified/Adult</td>
+        </tr>
+        <tr>
+            <td>Eboshi</td>
+            <td>Unspecified/Adult</td>
+        </tr>
+        <tr>
+            <td>Uncle Pom</td>
+            <td>Unspecified/Elderly</td>
+        </tr>
+        <tr>
+            <td>Ashitaka</td>
+            <td>late teens</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<ul class="simple">
+<li><p>Vérifier que le personnage le plus jeune avec un âge connu est «Mei Kusakabe».</p></li>
+<li></li>
+</ul>
+<p>Quelle remarque peut-on faire ?-
+Comment expliquer ce résultat ? Comment aurait-on pu éviter le problème ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT nom, age
+FROM personnage
+ORDER BY age ASC
+LIMIT 1;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studio_ghilbi.sqlite
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>nom</th>
+            <th>age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Totoro</td>
+            <td></td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>Ce résultat est probablement dû à la façon dont les valeurs NULL ou vides sont traitées dans SQL. Par défaut, les valeurs NULL ou les chaînes vides peuvent être considérées comme les “plus petites” valeurs lors du tri. Ainsi, lors d’un tri ascendant, un enregistrement sans valeur d’âge ou avec une chaîne vide pourrait apparaître en premier, même si ce n’est pas l’intention.</p>
+<p>Pour éviter ce problème et s’assurer que seuls les personnages avec un âge connu et valide sont pris en compte, il faut explicitement exclure les enregistrements sans âge défini (c’est-à-dire NULL ou vides) et ceux avec des âges textuels non numériques. Voici comment procéder :</p>
+<p>Exclure les valeurs NULL et les chaînes vides : En utilisant une clause WHERE pour filtrer les âges valides.
+Vérifier la validité des âges : S’assurer que les âges sont des valeurs numériques valides.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT nom, age
+FROM personnage
+WHERE age IS NOT NULL AND age != &#39;&#39; 
+AND age REGEXP &quot;^[0-9]+$&quot;
+ORDER BY CAST(age AS UNSIGNED) ASC
+LIMIT 1;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studio_ghilbi.sqlite
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>nom</th>
+            <th>age</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Mei Kusakabe</td>
+            <td>4</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Afficher maintenant les titres des 5 films les plus courts ainsi que leur durée.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+SELECT titre, duree
+FROM film
+ORDER BY duree ASC
+LIMIT 5;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studio_ghilbi.sqlite
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>titre</th>
+            <th>duree</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Ponyo</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>Kiki&#x27;s Delivery Service</td>
+            <td>102</td>
+        </tr>
+        <tr>
+            <td>When Marnie Was There</td>
+            <td>103</td>
+        </tr>
+        <tr>
+            <td>My Neighbors the Yamadas</td>
+            <td>104</td>
+        </tr>
+        <tr>
+            <td>Whisper of the Heart</td>
+            <td>111</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<ol class="arabic simple" start="6">
+<li><p>Afficher l’URL de l’affiche du film «Castle in the Sky», il s’agit de la colonne <code class="docutils literal notranslate"><span class="pre">movie_banner</span></code>. Visualiser le résultat dans un nouvel onglet.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT movie_banner
+FROM film
+WHERE titre = &quot;Castle in the Sky&quot;;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studio_ghilbi.sqlite
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>movie_banner</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/npOnzAbLh6VOIu3naU5QaEcTepo.jpg&quot;</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<ol class="arabic simple" start="7">
+<li><p>Compter le nombre de personnages dans la BDD.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT COUNT(nom) as &quot;Nombre de personnage&quot;
+FROM personnage;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studio_ghilbi.sqlite
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>Nombre de personnage</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>57</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<ol class="arabic simple" start="8">
+<li><p>Afficher la liste des films réalisés entre les années 1995 et 2005 exclues.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+PRAGMA table_info(film);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studio_ghilbi.sqlite
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>cid</th>
+            <th>name</th>
+            <th>type</th>
+            <th>notnull</th>
+            <th>dflt_value</th>
+            <th>pk</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0</td>
+            <td>id</td>
+            <td></td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>titre</td>
+            <td></td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>titre_original</td>
+            <td></td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>original_title_romanised</td>
+            <td></td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>image</td>
+            <td></td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>movie_banner</td>
+            <td></td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>description</td>
+            <td></td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>id_realisateur</td>
+            <td></td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>date_sortie</td>
+            <td></td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>duree</td>
+            <td></td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>rt_score</td>
+            <td></td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT titre, date_sortie
+FROM film
+WHERE date_sortie &gt; &quot;1995&quot; 
+AND date_sortie &lt; &quot;2005&quot;;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studio_ghilbi.sqlite
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>titre</th>
+            <th>date_sortie</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Princess Mononoke</td>
+            <td>1997</td>
+        </tr>
+        <tr>
+            <td>My Neighbors the Yamadas</td>
+            <td>1999</td>
+        </tr>
+        <tr>
+            <td>Spirited Away</td>
+            <td>2001</td>
+        </tr>
+        <tr>
+            <td>The Cat Returns</td>
+            <td>2002</td>
+        </tr>
+        <tr>
+            <td>Howl&#x27;s Moving Castle</td>
+            <td>2004</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<ol class="arabic simple" start="9">
+<li><p>Afficher les films réalisés par «Hayao Miyazaki»</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT *
+FROM personne;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studio_ghilbi.sqlite
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>nom</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Hayao Miyazaki</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Isao Takahata</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Toru Hara</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Toshio Suzuki</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Yoshifumi Kondō</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Hiroyuki Morita</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Gorō Miyazaki</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Hiromasa Yonebayashi</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>Yoshiaki Nishimura</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Michaël Dudok de Wit</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>Vincent Maraval</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>Pascal Caucheteux</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Grégoire Sorlat</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT DISTINCT film.titre
+FROM film
+JOIN produit_par ON film.id_realisateur=produit_par.id_personne
+WHERE film.id_realisateur = &quot;1&quot;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studio_ghilbi.sqlite
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>titre</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Castle in the Sky</td>
+        </tr>
+        <tr>
+            <td>My Neighbor Totoro</td>
+        </tr>
+        <tr>
+            <td>Kiki&#x27;s Delivery Service</td>
+        </tr>
+        <tr>
+            <td>Porco Rosso</td>
+        </tr>
+        <tr>
+            <td>Princess Mononoke</td>
+        </tr>
+        <tr>
+            <td>Spirited Away</td>
+        </tr>
+        <tr>
+            <td>Howl&#x27;s Moving Castle</td>
+        </tr>
+        <tr>
+            <td>Ponyo</td>
+        </tr>
+        <tr>
+            <td>The Wind Rises</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<ol class="arabic simple" start="10">
+<li><p>Afficher les films réalisés par la famille «Miyazaki»</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT DISTINCT film.titre
+FROM film
+WHERE film.id_realisateur = &#39;1&#39; or film.id_realisateur = &quot;7&quot;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studio_ghilbi.sqlite
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>titre</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Castle in the Sky</td>
+        </tr>
+        <tr>
+            <td>My Neighbor Totoro</td>
+        </tr>
+        <tr>
+            <td>Kiki&#x27;s Delivery Service</td>
+        </tr>
+        <tr>
+            <td>Porco Rosso</td>
+        </tr>
+        <tr>
+            <td>Princess Mononoke</td>
+        </tr>
+        <tr>
+            <td>Spirited Away</td>
+        </tr>
+        <tr>
+            <td>Howl&#x27;s Moving Castle</td>
+        </tr>
+        <tr>
+            <td>Tales from Earthsea</td>
+        </tr>
+        <tr>
+            <td>Ponyo</td>
+        </tr>
+        <tr>
+            <td>From Up on Poppy Hill</td>
+        </tr>
+        <tr>
+            <td>The Wind Rises</td>
+        </tr>
+        <tr>
+            <td>Earwig and the Witch</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<ol class="arabic simple" start="11">
+<li><p>Compter le nombre de films réalisés par «Isao Takahata»</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT COUNT(DISTINCT film.titre) as &quot;nombre de films réalisés par «Isao Takahata»&quot;
+FROM film
+JOIN produit_par ON film.id_realisateur=produit_par.id_personne
+WHERE film.id_realisateur = &#39;2&#39; 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studio_ghilbi.sqlite
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>nombre de films réalisés par «Isao Takahata»</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>5</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<ol class="arabic simple" start="12">
+<li><p>Afficher les films dont le réalisateur est aussi le producteur.</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+SELECT DISTINCT titre
+FROM film
+JOIN produit_par ON film.id_realisateur=produit_par.id_personne
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studio_ghilbi.sqlite
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>titre</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Castle in the Sky</td>
+        </tr>
+        <tr>
+            <td>Grave of the Fireflies</td>
+        </tr>
+        <tr>
+            <td>My Neighbor Totoro</td>
+        </tr>
+        <tr>
+            <td>Kiki&#x27;s Delivery Service</td>
+        </tr>
+        <tr>
+            <td>Only Yesterday</td>
+        </tr>
+        <tr>
+            <td>Porco Rosso</td>
+        </tr>
+        <tr>
+            <td>Pom Poko</td>
+        </tr>
+        <tr>
+            <td>Princess Mononoke</td>
+        </tr>
+        <tr>
+            <td>My Neighbors the Yamadas</td>
+        </tr>
+        <tr>
+            <td>Spirited Away</td>
+        </tr>
+        <tr>
+            <td>Howl&#x27;s Moving Castle</td>
+        </tr>
+        <tr>
+            <td>Ponyo</td>
+        </tr>
+        <tr>
+            <td>The Wind Rises</td>
+        </tr>
+        <tr>
+            <td>The Tale of the Princess Kaguya</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+SELECT *
+FROM film
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studio_ghilbi.sqlite
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>titre</th>
+            <th>titre_original</th>
+            <th>original_title_romanised</th>
+            <th>image</th>
+            <th>movie_banner</th>
+            <th>description</th>
+            <th>id_realisateur</th>
+            <th>date_sortie</th>
+            <th>duree</th>
+            <th>rt_score</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>2baf70d1-42bb-4437-b551-e5fed5a87abe</td>
+            <td>Castle in the Sky</td>
+            <td>天空の城ラピュタ</td>
+            <td>Tenkū no shiro Rapyuta</td>
+            <td>https://image.tmdb.org/t/p/w533_and_h300_bestv2/3cyjYtLWCBE1uvWINHFsFnE8LUK.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/npOnzAbLh6VOIu3naU5QaEcTepo.jpg&quot;</td>
+            <td>The orphan Sheeta inherited a mysterious crystal that links her to the mythical sky-kingdom of Laputa. With the help of resourceful Pazu and a rollicking band of sky pirates, she makes her way to the ruins of the once-great civilization. Sheeta and Pazu must outwit the evil Muska, who plans to use Laputa&#x27;s science to make himself ruler of the world.</td>
+            <td>1</td>
+            <td>1986</td>
+            <td>124</td>
+            <td>95</td>
+        </tr>
+        <tr>
+            <td>12cfb892-aac0-4c5b-94af-521852e46d6a</td>
+            <td>Grave of the Fireflies</td>
+            <td>火垂るの墓</td>
+            <td>Hotaru no haka</td>
+            <td>https://image.tmdb.org/t/p/original/vkZSd0Lp8iCVBGpFH9L7LzLusjS.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/qG3RYlIVpTYclR9TYIsy8p7m7AT.jpg</td>
+            <td>In the latter part of World War II, a boy and his sister, orphaned when their mother is killed in the firebombing of Tokyo, are left to survive on their own in what remains of civilian life in Japan. The plot follows this boy and his sister as they do their best to survive in the Japanese countryside, battling hunger, prejudice, and pride in their own quiet, personal battle.</td>
+            <td>2</td>
+            <td>1988</td>
+            <td>89</td>
+            <td>97</td>
+        </tr>
+        <tr>
+            <td>58611129-2dbc-4a81-a72f-77ddfc1b1b49</td>
+            <td>My Neighbor Totoro</td>
+            <td>となりのトトロ</td>
+            <td>Tonari no Totoro</td>
+            <td>https://image.tmdb.org/t/p/original/etqr6fOOCXQOgwrQXaKwenTSuzx.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/rtGDOeG9LzoerkDGZF9dnVeLppL.jpg</td>
+            <td>Two sisters move to the country with their father in order to be closer to their hospitalized mother, and discover the surrounding trees are inhabited by Totoros, magical spirits of the forest. When the youngest runs away from home, the older sister seeks help from the spirits to find her.</td>
+            <td>1</td>
+            <td>1988</td>
+            <td>86</td>
+            <td>93</td>
+        </tr>
+        <tr>
+            <td>ea660b10-85c4-4ae3-8a5f-41cea3648e3e</td>
+            <td>Kiki&#x27;s Delivery Service</td>
+            <td>魔女の宅急便</td>
+            <td>Majo no takkyūbin</td>
+            <td>https://image.tmdb.org/t/p/original/h5pAEVma835u8xoE60kmLVopLct.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/7nO5DUMnGUuXrA4r2h6ESOKQRrx.jpg</td>
+            <td>A young witch, on her mandatory year of independent life, finds fitting into a new community difficult while she supports herself by running an air courier service.</td>
+            <td>1</td>
+            <td>1989</td>
+            <td>102</td>
+            <td>96</td>
+        </tr>
+        <tr>
+            <td>4e236f34-b981-41c3-8c65-f8c9000b94e7</td>
+            <td>Only Yesterday</td>
+            <td>おもひでぽろぽろ</td>
+            <td>Omoide poro poro</td>
+            <td>https://image.tmdb.org/t/p/w533_and_h300_bestv2/isCrlWWI4JrdLKAUAwFb5cjAsH4.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/xjJU6rwzLX7Jk8HFQfVW6H5guMC.jpg</td>
+            <td>It’s 1982, and Taeko is 27 years old, unmarried, and has lived her whole life in Tokyo. She decides to visit her family in the countryside, and as the train travels through the night, memories flood back of her younger years: the first immature stirrings of romance, the onset of puberty, and the frustrations of math and boys. At the station she is met by young farmer Toshio, and the encounters with him begin to reconnect her to forgotten longings. In lyrical switches between the present and the past, Taeko contemplates the arc of her life, and wonders if she has been true to the dreams of her childhood self.</td>
+            <td>2</td>
+            <td>1991</td>
+            <td>118</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>ebbb6b7c-945c-41ee-a792-de0e43191bd8</td>
+            <td>Porco Rosso</td>
+            <td>紅の豚</td>
+            <td>Kurenai no buta</td>
+            <td>https://image.tmdb.org/t/p/original/nAeCzilMRXvGaxiCpv63ZRVRVgh.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/byKAndF6KQSDpGxp1mTr23jPbYp.jpg</td>
+            <td>Porco Rosso, known in Japan as Crimson Pig (Kurenai no Buta) is the sixth animated film by Hayao Miyazaki and released in 1992. You&#x27;re introduced to an Italian World War I fighter ace, now living as a freelance bounty hunter chasing &#x27;air pirates&#x27; in the Adriatic Sea. He has been given a curse that changed his head to that of a pig. Once called Marco Pagot, he is now known to the world as &#x27;Porco Rosso&#x27;, Italian for &#x27;Red Pig.&#x27;</td>
+            <td>1</td>
+            <td>1992</td>
+            <td>93</td>
+            <td>94</td>
+        </tr>
+        <tr>
+            <td>1b67aa9a-2e4a-45af-ac98-64d6ad15b16c</td>
+            <td>Pom Poko</td>
+            <td>平成狸合戦ぽんぽこ</td>
+            <td>Heisei tanuki gassen Ponpoko</td>
+            <td>https://image.tmdb.org/t/p/original/jScPd0u0jeo66l8gwDl7W9hDUnM.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/kowo9E1e1JcWLXj9cCvAOFZcy5n.jpg</td>
+            <td>As the human city development encroaches on the raccoon population&#x27;s forest and meadow habitat, the raccoons find themselves faced with the very real possibility of extinction. In response, the raccoons engage in a desperate struggle to stop the construction and preserve their home.</td>
+            <td>2</td>
+            <td>1994</td>
+            <td>119</td>
+            <td>78</td>
+        </tr>
+        <tr>
+            <td>ff24da26-a969-4f0e-ba1e-a122ead6c6e3</td>
+            <td>Whisper of the Heart</td>
+            <td>耳をすませば</td>
+            <td>Mimi wo sumaseba</td>
+            <td>https://image.tmdb.org/t/p/original/fRtaDgmj0CirvqFUG1XN48BDY1l.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/5E3Hvbu0bg38ouYf6chGftVGqZ7.jpg</td>
+            <td>Shizuku lives a simple life, dominated by her love for stories and writing. One day she notices that all the library books she has have been previously checked out by the same person: &#x27;Seiji Amasawa&#x27;. Curious as to who he is, Shizuku meets a boy her age whom she finds infuriating, but discovers to her shock that he is her &#x27;Prince of Books&#x27;. As she grows closer to him, she realises that he merely read all those books to bring himself closer to her. The boy Seiji aspires to be a violin maker in Italy, and it is his dreams that make Shizuku realise that she has no clear path for her life. Knowing that her strength lies in writing, she tests her talents by writing a story about Baron, a cat statuette belonging to Seiji&#x27;s grandfather.</td>
+            <td>5</td>
+            <td>1995</td>
+            <td>111</td>
+            <td>91</td>
+        </tr>
+        <tr>
+            <td>0440483e-ca0e-4120-8c50-4c8cd9b965d6</td>
+            <td>Princess Mononoke</td>
+            <td>もののけ姫</td>
+            <td>Mononoke hime</td>
+            <td>https://image.tmdb.org/t/p/original/6pTqSq0zYIWCsucJys8q5L92kUY.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/jHWmNr7m544fJ8eItsfNk8fs2Ed.jpg</td>
+            <td>Ashitaka, a prince of the disappearing Ainu tribe, is cursed by a demonized boar god and must journey to the west to find a cure. Along the way, he encounters San, a young human woman fighting to protect the forest, and Lady Eboshi, who is trying to destroy it. Ashitaka must find a way to bring balance to this conflict.</td>
+            <td>1</td>
+            <td>1997</td>
+            <td>134</td>
+            <td>92</td>
+        </tr>
+        <tr>
+            <td>45204234-adfd-45cb-a505-a8e7a676b114</td>
+            <td>My Neighbors the Yamadas</td>
+            <td>ホーホケキョ となりの山田くん</td>
+            <td>Hōhokekyo tonari no Yamada-kun</td>
+            <td>https://image.tmdb.org/t/p/original/nDOsicEg4RHDq0t23JKGSb58z6u.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/wTGuHmMIBBgKakY80J1D52VvQKI.jpg</td>
+            <td>The Yamadas are a typical middle class Japanese family in urban Tokyo and this film shows us a variety of episodes of their lives. With tales that range from the humourous to the heartbreaking, we see this family cope with life&#x27;s little conflicts, problems and joys in their own way.</td>
+            <td>2</td>
+            <td>1999</td>
+            <td>104</td>
+            <td>75</td>
+        </tr>
+        <tr>
+            <td>dc2e6bd1-8156-4886-adff-b39e6043af0c</td>
+            <td>Spirited Away</td>
+            <td>千と千尋の神隠し</td>
+            <td>Sen to Chihiro no kamikakushi</td>
+            <td>https://image.tmdb.org/t/p/original/bSXfU4dwZyBA1vMmXvejdRXBvuF.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg</td>
+            <td>Spirited Away is an Oscar winning Japanese animated film about a ten year old girl who wanders away from her parents along a path that leads to a world ruled by strange and unusual monster-like animals. Her parents have been changed into pigs along with others inside a bathhouse full of these creatures. Will she ever see the world how it once was?</td>
+            <td>1</td>
+            <td>2001</td>
+            <td>124</td>
+            <td>97</td>
+        </tr>
+        <tr>
+            <td>90b72513-afd4-4570-84de-a56c312fdf81</td>
+            <td>The Cat Returns</td>
+            <td>猫の恩返し</td>
+            <td>Neko no ongaeshi</td>
+            <td>https://image.tmdb.org/t/p/original/d4BTZvckFTthyhGX27LZnWxl0tl.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/avPMO5cnaGHgLaNiAIhy33WoQLm.jpg</td>
+            <td>Haru, a schoolgirl bored by her ordinary routine, saves the life of an unusual cat and suddenly her world is transformed beyond anything she ever imagined. The Cat King rewards her good deed with a flurry of presents, including a very shocking proposal of marriage to his son! Haru embarks on an unexpected journey to the Kingdom of Cats where her eyes are opened to a whole other world.</td>
+            <td>6</td>
+            <td>2002</td>
+            <td>75</td>
+            <td>89</td>
+        </tr>
+        <tr>
+            <td>cd3d059c-09f4-4ff3-8d63-bc765a5184fa</td>
+            <td>Howl&#x27;s Moving Castle</td>
+            <td>ハウルの動く城</td>
+            <td>Hauru no ugoku shiro</td>
+            <td>https://image.tmdb.org/t/p/original/hjlvbMKhQm7N8tYynr8yQ8GBmqe.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/TkTPELv4kC3u1lkloush8skOjE.jpg</td>
+            <td>When Sophie, a shy young woman, is cursed with an old body by a spiteful witch, her only chance of breaking the spell lies with a self-indulgent yet insecure young wizard and his companions in his legged, walking home.</td>
+            <td>1</td>
+            <td>2004</td>
+            <td>119</td>
+            <td>87</td>
+        </tr>
+        <tr>
+            <td>112c1e67-726f-40b1-ac17-6974127bb9b9</td>
+            <td>Tales from Earthsea</td>
+            <td>ゲド戦記</td>
+            <td>Gedo senki</td>
+            <td>https://image.tmdb.org/t/p/original/j276noIGGmfi66EnCfewsL2OVTX.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/67yYwCPq7NbxSF6BIIXCMD34sY0.jpg</td>
+            <td>Something bizarre has come over the land. The kingdom is deteriorating. People are beginning to act strange... What&#x27;s even more strange is that people are beginning to see dragons, which shouldn&#x27;t enter the world of humans. Due to all these bizarre events, Ged, a wandering wizard, is investigating the cause. During his journey, he meets Prince Arren, a young distraught teenage boy. While Arren may look like a shy young teen, he has a severe dark side, which grants him strength, hatred, ruthlessness and has no mercy, especially when it comes to protecting Teru. For the witch Kumo this is a perfect opportunity. She can use the boy&#x27;s &#x27;fears&#x27; against the very one who would help him, Ged.</td>
+            <td>7</td>
+            <td>2006</td>
+            <td>116</td>
+            <td>41</td>
+        </tr>
+        <tr>
+            <td>758bf02e-3122-46e0-884e-67cf83df1786</td>
+            <td>Ponyo</td>
+            <td>崖の上のポニョ</td>
+            <td>Gake no ue no Ponyo</td>
+            <td>https://image.tmdb.org/t/p/original/6a1qZ1qat26mAIK3Lq8iYdGpyHm.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/mikKSEdk5kLhflWXbp4S5mmHsDo.jpg</td>
+            <td>The son of a sailor, 5-year old Sosuke lives a quiet life on an oceanside cliff with his mother Lisa. One fateful day, he finds a beautiful goldfish trapped in a bottle on the beach and upon rescuing her, names her Ponyo. But she is no ordinary goldfish. The daughter of a masterful wizard and a sea goddess, Ponyo uses her father&#x27;s magic to transform herself into a young girl and quickly falls in love with Sosuke, but the use of such powerful sorcery causes a dangerous imbalance in the world. As the moon steadily draws nearer to the earth and Ponyo&#x27;s father sends the ocean&#x27;s mighty waves to find his daughter, the two children embark on an adventure of a lifetime to save the world and fulfill Ponyo&#x27;s dreams of becoming human.</td>
+            <td>1</td>
+            <td>2008</td>
+            <td>100</td>
+            <td>92</td>
+        </tr>
+        <tr>
+            <td>2de9426b-914a-4a06-a3a0-5e6d9d3886f6</td>
+            <td>Arrietty</td>
+            <td>借りぐらしのアリエッティ</td>
+            <td>Karigurashi no Arietti</td>
+            <td>https://image.tmdb.org/t/p/original/7Z7WVzJsSReG8B0CaPk0bvWD7tK.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/oc2OB2KDmSRDMelKEAA1n4YRQL0.jpg</td>
+            <td>14-year-old Arrietty and the rest of the Clock family live in peaceful anonymity as they make their own home from items &#x27;borrowed&#x27; from the house&#x27;s human inhabitants. However, life changes for the Clocks when a human boy discovers Arrietty.</td>
+            <td>8</td>
+            <td>2010</td>
+            <td>94</td>
+            <td>95</td>
+        </tr>
+        <tr>
+            <td>45db04e4-304a-4933-9823-33f389e8d74d</td>
+            <td>From Up on Poppy Hill</td>
+            <td>コクリコ坂から</td>
+            <td>Kokuriko zaka kara</td>
+            <td>https://image.tmdb.org/t/p/original/xtPBZYaWQMQxRpy7mkdk5n1bTxs.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/rRLYX4RZIyloHSJwvZKAhphAjiB.jpg</td>
+            <td>The story is set in 1963 in Yokohama. Kokuriko Manor sits on a hill overlooking the harbour. A 16 year-old girl, Umi, lives in that house. Every morning she raises a signal flag facing the sea. The flag means “I pray for safe voyages”. A 17 year-old boy, Shun, always sees this flag from the sea as he rides a tugboat to school. Gradually the pair are drawn to each other but they are faced with a sudden trial. Even so, they keep going without running from facing the hardships of reality.</td>
+            <td>7</td>
+            <td>2011</td>
+            <td>91</td>
+            <td>83</td>
+        </tr>
+        <tr>
+            <td>67405111-37a5-438f-81cc-4666af60c800</td>
+            <td>The Wind Rises</td>
+            <td>風立ちぬ</td>
+            <td>Kaze tachinu</td>
+            <td>https://image.tmdb.org/t/p/original/stM3jlD4nSJhlvR2DE7XnB0eN25.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/jfwSexzlIzaOgxP9A8bTA6t8YYb.jpg</td>
+            <td>A lifelong love of flight inspires Japanese aviation engineer Jiro Horikoshi, whose storied career includes the creation of the A-6M World War II fighter plane.</td>
+            <td>1</td>
+            <td>2013</td>
+            <td>126</td>
+            <td>89</td>
+        </tr>
+        <tr>
+            <td>578ae244-7750-4d9f-867b-f3cd3d6fecf4</td>
+            <td>The Tale of the Princess Kaguya</td>
+            <td>かぐや姫の物語</td>
+            <td>Kaguya-Hime no Monogatari</td>
+            <td>https://image.tmdb.org/t/p/original/lMaWlYThCSnsmW3usxWTpSuyZp1.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/mWRQNlWXYYfd2z4FRm99MsgHgiA.jpg</td>
+            <td>A bamboo cutter named Sanuki no Miyatsuko discovers a miniature girl inside a glowing bamboo shoot. Believing her to be a divine presence, he and his wife decide to raise her as their own, calling her &#x27;Princess&#x27;.</td>
+            <td>2</td>
+            <td>2013</td>
+            <td>137</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>5fdfb320-2a02-49a7-94ff-5ca418cae602</td>
+            <td>When Marnie Was There</td>
+            <td>思い出のマーニー</td>
+            <td>Omoide no Marnie</td>
+            <td>https://image.tmdb.org/t/p/original/axUX7urQDwCGQ9qbgh2Yys7qY9J.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/vug1dvDI1tSa60Z8qjCuUE7ntkO.jpg</td>
+            <td>The film follows Anna Sasaki living with her relatives in the seaside town. Anna comes across a nearby abandoned mansion, where she meets Marnie, a mysterious girl who asks her to promise to keep their secrets from everyone. As the summer progresses, Anna spends more time with Marnie, and eventually Anna learns the truth about her family and foster care.</td>
+            <td>8</td>
+            <td>2014</td>
+            <td>103</td>
+            <td>92</td>
+        </tr>
+        <tr>
+            <td>d868e6ec-c44a-405b-8fa6-f7f0f8cfb500</td>
+            <td>The Red Turtle</td>
+            <td>レッドタートル ある島の物語</td>
+            <td>Reddotātoru aru shima no monogatari</td>
+            <td>https://image.tmdb.org/t/p/original/kjXdW5H3myRBmTMYgKayjphr2FA.jpg</td>
+            <td>https://image.tmdb.org/t/p/w600_and_h900_bestv2/wOBU3SLjQ9358Km9YWYasPZyebp.jpg</td>
+            <td>A man set adrift by a storm wakes up on a beach. He discovers that he is on a deserted island with plenty of fresh water, fruit and a dense bamboo forest. He builds a raft from bamboo and attempts to sail away, but his raft is destroyed by an unseen monster in the sea, forcing him back to the island. He tries again with another, larger raft, but is again foiled by the creature. A third attempt again ends with the raft destroyed, but this time he is confronted by a giant red turtle, which stares at him, and forces him back to the island.</td>
+            <td>10</td>
+            <td>2016</td>
+            <td>80</td>
+            <td>93</td>
+        </tr>
+        <tr>
+            <td>790e0028-a31c-4626-a694-86b7a8cada40</td>
+            <td>Earwig and the Witch</td>
+            <td>アーヤと魔女</td>
+            <td>Āya to Majo</td>
+            <td>https://www.themoviedb.org/t/p/original/qMxpGzmmnY1jLd4p7EhhoW43wWF.jpg</td>
+            <td>https://www.themoviedb.org/t/p/w600_and_h900_bestv2/sJhFtY3eHuvvACaPpxpzdCLQqpQ.jpg</td>
+            <td>An orphan girl, Earwig, is adopted by a witch and comes home to a spooky house filled with mystery and magic.</td>
+            <td>7</td>
+            <td>2021</td>
+            <td>82</td>
+            <td>30</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+SELECT *
+FROM personne
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studio_ghilbi.sqlite
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>nom</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>Hayao Miyazaki</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Isao Takahata</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Toru Hara</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Toshio Suzuki</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Yoshifumi Kondō</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Hiroyuki Morita</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Gorō Miyazaki</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>Hiromasa Yonebayashi</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>Yoshiaki Nishimura</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>Michaël Dudok de Wit</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>Vincent Maraval</td>
+        </tr>
+        <tr>
+            <td>12</td>
+            <td>Pascal Caucheteux</td>
+        </tr>
+        <tr>
+            <td>13</td>
+            <td>Grégoire Sorlat</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+SELECT *
+FROM produit_par
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///studio_ghilbi.sqlite
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>id_film</th>
+            <th>id_personne</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>2baf70d1-42bb-4437-b551-e5fed5a87abe</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>12cfb892-aac0-4c5b-94af-521852e46d6a</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>58611129-2dbc-4a81-a72f-77ddfc1b1b49</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>ea660b10-85c4-4ae3-8a5f-41cea3648e3e</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>4e236f34-b981-41c3-8c65-f8c9000b94e7</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>ebbb6b7c-945c-41ee-a792-de0e43191bd8</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>1b67aa9a-2e4a-45af-ac98-64d6ad15b16c</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>ff24da26-a969-4f0e-ba1e-a122ead6c6e3</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>0440483e-ca0e-4120-8c50-4c8cd9b965d6</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>45204234-adfd-45cb-a505-a8e7a676b114</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>dc2e6bd1-8156-4886-adff-b39e6043af0c</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>90b72513-afd4-4570-84de-a56c312fdf81</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>cd3d059c-09f4-4ff3-8d63-bc765a5184fa</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>112c1e67-726f-40b1-ac17-6974127bb9b9</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>758bf02e-3122-46e0-884e-67cf83df1786</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>2de9426b-914a-4a06-a3a0-5e6d9d3886f6</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>45db04e4-304a-4933-9823-33f389e8d74d</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>67405111-37a5-438f-81cc-4666af60c800</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>578ae244-7750-4d9f-867b-f3cd3d6fecf4</td>
+            <td>9</td>
+        </tr>
+        <tr>
+            <td>5fdfb320-2a02-49a7-94ff-5ca418cae602</td>
+            <td>9</td>
+        </tr>
+        <tr>
+            <td>790e0028-a31c-4626-a694-86b7a8cada40</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>d868e6ec-c44a-405b-8fa6-f7f0f8cfb500</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>d868e6ec-c44a-405b-8fa6-f7f0f8cfb500</td>
+            <td>4</td>
+        </tr>
+        <tr>
+            <td>d868e6ec-c44a-405b-8fa6-f7f0f8cfb500</td>
+            <td>11</td>
+        </tr>
+        <tr>
+            <td>d868e6ec-c44a-405b-8fa6-f7f0f8cfb500</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>d868e6ec-c44a-405b-8fa6-f7f0f8cfb500</td>
+            <td>13</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<ol class="arabic simple" start="13">
+<li><p>Afficher les films produits par «Hayao Miyazaki»</p></li>
+</ol>
+<ol class="arabic simple" start="14">
+<li><p>Afficher les personnages du film «My Neighbor Totoro»</p></li>
+</ol>
+<ol class="arabic simple" start="15">
+<li><p>Dans quels films apparaît le personnage du «Baron Humbert von Gikkingen»</p></li>
+</ol>
+<ol class="arabic simple" start="16">
+<li><p>Donner la liste de tous les personnages non “Human” et leur type.</p></li>
+</ol>
+<ol class="arabic simple" start="17">
+<li><p>Donner la liste de tous les personnages non humains du film «My Neighbor Totoro», ainsi que leur espèce.</p></li>
+</ol>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./tp3_studio_ghilbi"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="studio_ghilbi_enonce.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><center>TP Studio Ghilbi Sujet </center></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../tp4_volcans/tp_volcan.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">TP SQL Volcans</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><center>TP Studio Ghilbi Correction</center></a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#objectifs">Objectifs</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#reponses">Réponses</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Gasmi Rémy
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  © 2025 — TP SQL
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

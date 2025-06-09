@@ -1,0 +1,2118 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SQL 50 &#8212; TP SQL — Jupyter Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tp5_leet_code/sql50';</script>
+    <link rel="icon" href="../_static/sql_favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Sources et Sitographie" href="../SOURCES.html" />
+    <link rel="prev" title="TP 4 : Les volcans correction" href="../tp4_volcans/tp_volcan_notebook_correction.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="TP SQL — Jupyter Book - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="TP SQL — Jupyter Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    SQL : JupyterBook de TP
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutoriel/TUTO.html">Tutoriel pour faire du SQL sur son PC</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutoriel/TUTORIEL_DB_BROWSER.html">Tutoriel pour utiliser DB Browser (SQLite)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutoriel/TUTORIEL_SQL_NOTEBOOK.html">📘 Faire du SQL dans un notebook Jupyter avec ipython-sql</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tp1_lycee/TP_INTRO.html">TP 1 — Liste d’élèves</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tp1_lycee/sql_intro.html"><center>TP Prise en main SQL/Python </center></a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tp2_meurtre_sql_city/detective_sql.html">TP 2 — SQL City Murder</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tp2_meurtre_sql_city/sql_city_sujet_part1.html"><center>SQL City Episode 1 </center></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../tp2_meurtre_sql_city/sql_city_sujet_part2.html"><center>SQL City Episode 2 </center></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../tp2_meurtre_sql_city/sql_city_correction.html"><center>SQL City Correction </center></a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tp3_studio_ghilbi/CONSIGNES.html">TP 3 — Studio Ghilbi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tp3_studio_ghilbi/studio_ghilbi_enonce.html"><center>TP Studio Ghilbi Sujet </center></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../tp3_studio_ghilbi/studio_ghilbi_correction.html"><center>TP Studio Ghilbi Correction</center></a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tp4_volcans/tp_volcan.html">TP 4 — Volcans</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tp4_volcans/tp_volcan_notebook_enonce.html">TP 4 : Les volcans sujet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tp4_volcans/tp_volcan_notebook_correction.html">TP 4 : Les volcans correction</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">TP 5 — LeetCode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SOURCES.html">Sources et Sitographie</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Mastocodeur/sql-fast-learner" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mastocodeur/sql-fast-learner/edit/main/tp5_leet_code/sql50.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mastocodeur/sql-fast-learner/issues/new?title=Issue%20on%20page%20%2Ftp5_leet_code/sql50.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/tp5_leet_code/sql50.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>SQL 50</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-exos-select">📍Les exos Select</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recyclable-and-low-fat-products">1757. Recyclable and Low Fat Products ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-customer-referee">584. Find Customer Referee ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#big-countries">595. Big Countries ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#article-views-i">1148. Article Views I ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#invalid-tweets">1683. Invalid Tweets ✅</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-joins">🔗Basic Joins</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replace-employee-id-with-the-unique-identifier">1378. Replace Employee ID With The Unique Identifier ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#product-sales-analysis-i">1068. Product Sales Analysis I ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customer-who-visited-but-did-not-make-any-transactions">1581. Customer Who Visited but Did Not Make Any Transactions ⚠️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rising-temperature">197. Rising Temperature ⚠️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#average-time-of-process-per-machine">1661. Average Time of Process per Machine ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#employee-bonus">577. Employee Bonus ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#students-and-examinations">1280. Students and Examinations ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#managers-with-at-least-5-direct-reports">570. Managers with at Least 5 Direct Reports ⚠️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confirmation-rate">1934. Confirmation Rate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-aggregate-functions">Basic Aggregate Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not-boring-movies">620. Not Boring Movies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#average-selling-price">1251. Average Selling Price</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-employees-i">1075. Project Employees I</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#percentage-of-users-attended-a-contest">1633. Percentage of Users Attended a Contest</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#queries-quality-and-percentage">1211. Queries Quality and Percentage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monthly-transactions-i">1193. Monthly Transactions I</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#immediate-food-delivery-ii">1174. Immediate Food Delivery II</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#game-play-analysis-iv">550. Game Play Analysis IV</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-and-grouping">Sorting and Grouping</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#number-of-unique-subjects-taught-by-each-teacher">2356. Number of Unique Subjects Taught by Each Teacher ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-activity-for-the-past-30-days-i">1141. User Activity for the Past 30 Days I ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#product-sales-analysis-iii">1070. Product Sales Analysis III</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-more-than-5-students">596. Classes More Than 5 Students ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-followers-count">1729. Find Followers Count ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#biggest-single-number">619. Biggest Single Number  ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customers-who-bought-all-products">1045. Customers Who Bought All Products</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-string-functions-regex-clause">Advanced String Functions / Regex / Clause</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fix-names-in-table">1667. Fix Names in Table ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#patients-with-a-condition">1527. Patients With a Condition ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-duplicate-emails">196. Delete Duplicate Emails</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#second-highest-salary">176. Second Highest Salary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#group-sold-products-by-the-date">1484. Group Sold Products By The Date</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-the-products-ordered-in-a-period">1327. List the Products Ordered in a Period</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-users-with-valid-e-mails">1517. Find Users With Valid E-Mails</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-select-and-joins">Advanced Select and Joins</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-number-of-employees-which-report-to-each-employee">1731. The Number of Employees Which Report to Each Employee ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-department-for-each-employee">1789. Primary Department for Each Employee</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triangle-judgement">610. Triangle Judgement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consecutive-numbers">180. Consecutive Numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#product-price-at-a-given-date">1164. Product Price at a Given Date</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#last-person-to-fit-in-the-bus">1204. Last Person to Fit in the Bus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#count-salary-categories">1907. Count Salary Categories</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subqueries">Subqueries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#employees-whose-manager-left-the-company">1978. Employees Whose Manager Left the Company</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exchange-seats">626. Exchange Seats</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sql-50">
+<h1>SQL 50<a class="headerlink" href="#sql-50" title="Link to this heading">#</a></h1>
+<p>Ce notebook retrace mon travail sur la plateforme leetcode qui propose 50 exercices pour s’entrainer en SQL : <a class="reference external" href="https://leetcode.com/studyplan/top-sql-50/">https://leetcode.com/studyplan/top-sql-50/</a></p>
+<hr class="docutils" />
+<section id="les-exos-select">
+<h2>📍Les exos Select<a class="headerlink" href="#les-exos-select" title="Link to this heading">#</a></h2>
+<section id="recyclable-and-low-fat-products">
+<h3>1757. Recyclable and Low Fat Products ✅<a class="headerlink" href="#recyclable-and-low-fat-products" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Products</p>
+<p><img alt="table" src="../_images/exo1_table.png" /></p>
+<p>product_id is the primary key (column with unique values) for this table.
+low_fats is an ENUM (category) of type (‘Y’, ‘N’) where ‘Y’ means this product is low fat and ‘N’ means it is not.
+recyclable is an ENUM (category) of types (‘Y’, ‘N’) where ‘Y’ means this product is recyclable and ‘N’ means it is not.</p>
+<p>Write a solution to find the ids of products that are both low fat and recyclable.</p>
+<p>Return the result table in any order.</p>
+<p><img alt="table" src="../_images/exo1_exemple_1.png" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<p>SELECT product_id</p>
+<p>FROM Products</p>
+<p>WHERE low_fats = “Y” AND recyclable = “Y”;</p>
+</details></section>
+<section id="find-customer-referee">
+<h3>584. Find Customer Referee ✅<a class="headerlink" href="#find-customer-referee" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Customer</p>
+<p><img alt="table" src="../_images/exo2_table.png" /></p>
+<p>In SQL, id is the primary key column for this table.
+Each row of this table indicates the id of a customer, their name, and the id of the customer who referred them.</p>
+<p>Find the names of the customer that are not referred by the customer with id = 2.</p>
+<p>Return the result table in any order.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo2_exemple_2.png" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT name
+FROM Customer
+WHERE referee_id != 2 OR referee_id IS NULL;
+</pre></div>
+</div>
+</details></section>
+<section id="big-countries">
+<h3>595. Big Countries ✅<a class="headerlink" href="#big-countries" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: World</p>
+<p><img alt="table" src="../_images/exo3_table.jpg" /></p>
+<p>name is the primary key (column with unique values) for this table.
+Each row of this table gives information about the name of a country, the continent to which it belongs, its area, the population, and its GDP value.</p>
+<p>A country is big if:</p>
+<p>it has an area of at least three million (i.e., 3000000 km2), or
+it has a population of at least twenty-five million (i.e., 25000000).
+Write a solution to find the name, population, and area of the big countries.</p>
+<p>Return the result table in any order.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo3_exemple.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT name, population, area
+FROM World
+WHERE area &gt;= 3000000 OR population &gt;= 25000000;
+</pre></div>
+</div>
+</details></section>
+<section id="article-views-i">
+<h3>1148. Article Views I ✅<a class="headerlink" href="#article-views-i" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Views</p>
+<p><img alt="table" src="../_images/exo4_table.jpg" /></p>
+<p>There is no primary key (column with unique values) for this table, the table may have duplicate rows.
+Each row of this table indicates that some viewer viewed an article (written by some author) on some date.
+Note that equal author_id and viewer_id indicate the same person.</p>
+<p>Write a solution to find all the authors that viewed at least one of their own articles.</p>
+<p>Return the result table sorted by <code class="docutils literal notranslate"><span class="pre">id</span></code> in ascending order. The result format is in the following example</p>
+<p><img alt="table" src="../_images/exo4_exemple.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT DISTINCT author_id as id
+FROM Views
+WHERE author_id = viewer_id
+ORDER BY id;
+</pre></div>
+</div>
+</details></section>
+<section id="invalid-tweets">
+<h3>1683. Invalid Tweets ✅<a class="headerlink" href="#invalid-tweets" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Tweets</p>
+<p><img alt="table" src="../_images/exo5_table.jpg" /></p>
+<p>tweet_id is the primary key (column with unique values) for this table.
+content consists of characters on an American Keyboard, and no other special characters.
+This table contains all the tweets in a social media app.</p>
+<p>Write a solution to find the IDs of the invalid tweets. The tweet is invalid if the number of characters used in the content of the tweet is strictly greater than <code class="docutils literal notranslate"><span class="pre">15</span></code>.</p>
+<p>Return the result table in any order.</p>
+<p>The result format is in the following example</p>
+<p><img alt="table" src="../_images/exo5_exemple.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT tweet_id
+FROM Tweets
+WHERE LENGTH(content)&gt;15;
+</pre></div>
+</div>
+</details></section>
+</section>
+<hr class="docutils" />
+<section id="basic-joins">
+<h2>🔗Basic Joins<a class="headerlink" href="#basic-joins" title="Link to this heading">#</a></h2>
+<section id="replace-employee-id-with-the-unique-identifier">
+<h3>1378. Replace Employee ID With The Unique Identifier ✅<a class="headerlink" href="#replace-employee-id-with-the-unique-identifier" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Employees</p>
+<p><img alt="table" src="../_images/exo6_table1.jpg" /></p>
+<p>id is the primary key (column with unique values) for this table.
+Each row of this table contains the id and the name of an employee in a company.</p>
+<p>Table: EmployeeUNI</p>
+<p><img alt="table" src="../_images/exo6_table2.jpg" /></p>
+<p>(id, unique_id) is the primary key (combination of columns with unique values) for this table.
+Each row of this table contains the id and the corresponding unique id of an employee in the company.</p>
+<p>Write a solution to show the unique ID of each user, If a user does not have a unique ID replace just show null.</p>
+<p>Return the result table in any order.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo6_exemple1.jpg" />
+<img alt="table" src="../_images/exo6_exemple2.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT e.name, eu.unique_id
+FROM Employees e
+LEFT JOIN EmployeeUNI eu
+ON e.id = eu.id;
+</pre></div>
+</div>
+</details></section>
+<section id="product-sales-analysis-i">
+<h3>1068. Product Sales Analysis I ✅<a class="headerlink" href="#product-sales-analysis-i" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Sales</p>
+<p><img alt="table" src="../_images/exo7_table1.jpg" /></p>
+<p>(sale_id, year) is the primary key (combination of columns with unique values) of this table.
+product_id is a foreign key (reference column) to Product table.
+Each row of this table shows a sale on the product product_id in a certain year.
+Note that the price is per unit.</p>
+<p>Table: Product</p>
+<p><img alt="table" src="../_images/exo7_table2.jpg" /></p>
+<p>product_id is the primary key (column with unique values) of this table.
+Each row of this table indicates the product name of each product.</p>
+<p>Write a solution to report the <code class="docutils literal notranslate"><span class="pre">product_name</span></code>, <code class="docutils literal notranslate"><span class="pre">year</span></code>, and <code class="docutils literal notranslate"><span class="pre">price</span></code> for each <code class="docutils literal notranslate"><span class="pre">sale_id</span></code> in the Sales table.</p>
+<p>Return the resulting table in any order.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo7_exemple1.jpg" />
+<img alt="table" src="../_images/exo7_exemple2.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT p.product_name, s.year, s.price
+FROM Product p
+RIGHT JOIN Sales s
+ON p.product_id = s.product_id;
+</pre></div>
+</div>
+</details></section>
+<section id="customer-who-visited-but-did-not-make-any-transactions">
+<h3>1581. Customer Who Visited but Did Not Make Any Transactions ⚠️<a class="headerlink" href="#customer-who-visited-but-did-not-make-any-transactions" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Visits</p>
+<p><img alt="table" src="../_images/exo8_table1.jpg" /></p>
+<p>visit_id is the column with unique values for this table.
+This table contains information about the customers who visited the mall</p>
+<p>Table: Transaction</p>
+<p><img alt="table" src="../_images/exo8_table2.jpg" /></p>
+<p>transaction_id is column with unique values for this table.
+This table contains information about the transactions made during the visit_id.</p>
+<p>Write a solution to find the IDs of the users who visited without making any transactions and the number of times they made these types of visits.</p>
+<p>Return the result table sorted in any order.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo8_exemple1.jpg" />
+<img alt="table" src="../_images/exo8_exemple2.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT v.customer_id, COUNT(v.visit_id) AS count_no_trans
+FROM Visits v
+LEFT JOIN Transactions t
+ON v.visit_id = t.visit_id
+WHERE t.transaction_id IS NULL
+GROUP BY v.customer_id;
+</pre></div>
+</div>
+</details></section>
+<section id="rising-temperature">
+<h3>197. Rising Temperature ⚠️<a class="headerlink" href="#rising-temperature" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Weather</p>
+<p><img alt="table" src="../_images/exo9_table.jpg" /></p>
+<p>id is the column with unique values for this table.
+There are no different rows with the same recordDate.
+This table contains information about the temperature on a certain day.</p>
+<p>Write a solution to find all dates’ id with higher temperatures compared to its previous dates (yesterday).</p>
+<p>Return the result table in any order.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo9_exemple.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT w.id
+FROM Weather w
+LEFT JOIN Weather w1
+ON w.recordDate = DATE_ADD(w1.recordDate, INTERVAL 1 DAY)
+WHERE w.temperature&gt;w1.temperature;
+</pre></div>
+</div>
+<p>OU</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT w1.id
+FROM Weather w1, Weather w2
+WHERE DATEDIFF(w1.recordDate, w2.recordDate) = 1 AND w1.temperature &gt; w2.temperature;
+</pre></div>
+</div>
+</details></section>
+<section id="average-time-of-process-per-machine">
+<h3>1661. Average Time of Process per Machine ✅<a class="headerlink" href="#average-time-of-process-per-machine" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Activity</p>
+<p><img alt="table" src="../_images/exo10_table.jpg" /></p>
+<p>The table shows the user activities for a factory website.
+(machine_id, process_id, activity_type) is the primary key (combination of columns with unique values) of this table.
+machine_id is the ID of a machine.
+process_id is the ID of a process running on the machine with ID machine_id.
+activity_type is an ENUM (category) of type (‘start’, ‘end’).
+timestamp is a float representing the current time in seconds.
+‘start’ means the machine starts the process at the given timestamp and ‘end’ means the machine ends the process at the given timestamp.
+The ‘start’ timestamp will always be before the ‘end’ timestamp for every (machine_id, process_id) pair.
+It is guaranteed that each (machine_id, process_id) pair has a ‘start’ and ‘end’ timestamp.</p>
+<p>There is a factory website that has several machines each running the same number of processes. Write a solution to find the average time each machine takes to complete a process.</p>
+<p>The time to complete a process is the ‘end’ timestamp minus the ‘start’ timestamp. The average time is calculated by the total time to complete every process on the machine divided by the number of processes that were run.</p>
+<p>The resulting table should have the machine_id along with the average time as processing_time, which should be rounded to 3 decimal places.</p>
+<p>Return the result table in any order.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo10_exemple1.jpg" /></p>
+<p><img alt="table" src="../_images/exo10_exemple2.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT a.machine_id, ROUND(AVG(a2.timestamp-a.timestamp),3) as processing_time
+FROM Activity a, Activity a2
+WHERE a.machine_id = a2.machine_id AND a.activity_type = &#39;start&#39; AND a2.activity_type = &#39;end&#39;
+GROUP BY machine_id
+</pre></div>
+</div>
+<p>OU</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Write your MySQL query statement below
+SELECT a.machine_id, ROUND(AVG(b.timestamp-a.timestamp),3) AS processing_time
+FROM Activity a
+JOIN Activity b
+ON a.machine_id = b.machine_id
+AND a.process_id = b.process_id
+AND a.activity_type = &#39;start&#39;
+AND b.activity_type = &#39;end&#39;
+GROUP BY machine_id;
+</pre></div>
+</div>
+</details></section>
+<section id="employee-bonus">
+<h3>577. Employee Bonus ✅<a class="headerlink" href="#employee-bonus" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Employee</p>
+<p><img alt="table" src="../_images/exo11_table1.jpg" /></p>
+<p>empId is the column with unique values for this table.
+Each row of this table indicates the name and the ID of an employee in addition to their salary and the id of their manager.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Table: Bonus
+</pre></div>
+</div>
+<p><img alt="table" src="../_images/exo11_table2.jpg" /></p>
+<p>empId is the column of unique values for this table.
+empId is a foreign key (reference column) to empId from the Employee table.
+Each row of this table contains the id of an employee and their respective bonus.</p>
+<p>Write a solution to report the name and bonus amount of each employee with a bonus less than 1000.</p>
+<p>Return the result table in any order.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo11_exemple.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT e.name, b.bonus
+FROM Employee e
+LEFT JOIN Bonus b
+ON e.empId = b.empId
+WHERE b.bonus &lt; 1000 OR b.bonus IS NULL;
+</pre></div>
+</div>
+</details></section>
+<section id="students-and-examinations">
+<h3>1280. Students and Examinations ✅<a class="headerlink" href="#students-and-examinations" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Students</p>
+<p><img alt="table" src="../_images/exo12_table1.jpg" /></p>
+<p>student_id is the primary key (column with unique values) for this table.
+Each row of this table contains the ID and the name of one student in the school.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Table: Subjects
+</pre></div>
+</div>
+<p><img alt="table" src="../_images/exo12_table2.jpg" /></p>
+<p>subject_name is the primary key (column with unique values) for this table.
+Each row of this table contains the name of one subject in the school.</p>
+<p>Table: Examinations</p>
+<p><img alt="table" src="../_images/exo12_table3.jpg" /></p>
+<p>There is no primary key (column with unique values) for this table. It may contain duplicates.
+Each student from the Students table takes every course from the Subjects table.
+Each row of this table indicates that a student with ID student_id attended the exam of subject_name.</p>
+<p>Write a solution to find the number of times each student attended each exam.</p>
+<p>Return the result table ordered by student_id and subject_name.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo12_example1.jpg" /></p>
+<p><img alt="table" src="../_images/exo12_example2.jpg" /></p>
+<p><img alt="table" src="../_images/exo12_example3.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT s.student_id,s.student_name,su.subject_name,COUNT(e.student_id) AS attended_exams
+FROM Students s
+CROSS JOIN Subjects su
+LEFT JOIN Examinations e
+ON s.student_id = e.student_id AND su.subject_name = e.subject_name
+GROUP BY s.student_id, s.student_name, su.subject_name
+ORDER BY s.student_id, su.subject_name;
+</pre></div>
+</div>
+</details></section>
+<section id="managers-with-at-least-5-direct-reports">
+<h3>570. Managers with at Least 5 Direct Reports ⚠️<a class="headerlink" href="#managers-with-at-least-5-direct-reports" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Employee</p>
+<p><img alt="table" src="../_images/exo13_table.jpg" /></p>
+<p>id is the primary key (column with unique values) for this table.
+Each row of this table indicates the name of an employee, their department, and the id of their manager.
+If managerId is null, then the employee does not have a manager.
+No employee will be the manager of themself.</p>
+<p>Write a solution to find managers with at least five direct reports.</p>
+<p>Return the result table in any order.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo13_exemple.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT e.name
+FROM Employee e
+JOIN Employee m
+ON e.id = m.managerId
+GROUP BY e.id, e.name
+HAVING COUNT(e.id) &gt;= 5;
+</pre></div>
+</div>
+</details></section>
+<section id="confirmation-rate">
+<h3>1934. Confirmation Rate<a class="headerlink" href="#confirmation-rate" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Signups</p>
+<p><img alt="table" src="../_images/exo14_table1.jpg" /></p>
+<p>user_id is the column of unique values for this table.
+Each row contains information about the signup time for the user with ID user_id.</p>
+<p>Table: Confirmations</p>
+<p><img alt="table" src="../_images/exo14_table2.jpg" /></p>
+<p>(user_id, time_stamp) is the primary key (combination of columns with unique values) for this table.
+user_id is a foreign key (reference column) to the Signups table.
+action is an ENUM (category) of the type (‘confirmed’, ‘timeout’)
+Each row of this table indicates that the user with ID user_id requested a confirmation message at time_stamp and that confirmation message was either confirmed (‘confirmed’) or expired without confirming (‘timeout’).</p>
+<p>The confirmation rate of a user is the number of ‘confirmed’ messages divided by the total number of requested confirmation messages. The confirmation rate of a user that did not request any confirmation messages is 0. Round the confirmation rate to two decimal places.</p>
+<p>Write a solution to find the confirmation rate of each user.</p>
+<p>Return the result table in any order.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo14_example1.jpg" /></p>
+<p><img alt="table" src="../_images/exo14_example2.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT 
+s.user_id, 
+COALESCE(ROUND(
+    COALESCE(SUM(CASE WHEN c.action = &#39;confirmed&#39; THEN 1 ELSE 0 END), 0) 
+    / NULLIF(COUNT(c.action), 0), 
+    2
+),0) AS confirmation_rate
+FROM 
+    Signups s
+LEFT JOIN 
+    Confirmations c
+ON 
+    s.user_id = c.user_id
+GROUP BY 
+    s.user_id;
+</pre></div>
+</div>
+<p>OR</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT s.user_id, round(avg(if(c.action=&quot;confirmed&quot;,1,0)),2) as confirmation_rate
+FROM Signups as s 
+LEFT JOIN Confirmations as c 
+ON s.user_id= c.user_id 
+GROUP BY user_id;
+</pre></div>
+</div>
+</details></section>
+</section>
+<hr class="docutils" />
+<section id="basic-aggregate-functions">
+<h2>Basic Aggregate Functions<a class="headerlink" href="#basic-aggregate-functions" title="Link to this heading">#</a></h2>
+<section id="not-boring-movies">
+<h3>620. Not Boring Movies<a class="headerlink" href="#not-boring-movies" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Cinema</p>
+<p><img alt="table" src="../_images/exo15_table.jpg" /></p>
+<p>Write a solution to report the movies with an odd-numbered ID and a description that is not “boring”.</p>
+<p>Return the result table ordered by rating in descending order.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo15_exemple.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT *
+FROM Cinema
+WHERE description!=&quot;boring&quot; 
+HAVING id%2=1
+ORDER BY rating DESC
+</pre></div>
+</div>
+</details></section>
+<section id="average-selling-price">
+<h3>1251. Average Selling Price<a class="headerlink" href="#average-selling-price" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Prices</p>
+<p><img alt="table" src="../_images/exo16_table1.jpg" /></p>
+<p>(product_id, start_date, end_date) is the primary key (combination of columns with unique values) for this table.
+Each row of this table indicates the price of the product_id in the period from start_date to end_date.
+For each product_id there will be no two overlapping periods. That means there will be no two intersecting periods for the same product_id.</p>
+<p>Table: UnitsSold</p>
+<p><img alt="table" src="../_images/exo16_table2.jpg" /></p>
+<p>This table may contain duplicate rows.
+Each row of this table indicates the date, units, and product_id of each product sold.</p>
+<p>Write a solution to find the average selling price for each product. average_price should be rounded to 2 decimal places. If a product does not have any sold units, its average selling price is assumed to be 0.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Return the result table in any order.
+
+The result format is in the following example.
+</pre></div>
+</div>
+<p><img alt="table" src="../_images/exo16_exemple1.jpg" /></p>
+<p><img alt="table" src="../_images/exo16_exemple2.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT 
+    p.product_id, 
+    ROUND(IF(SUM(s.units) IS NULL, 0, SUM(s.units*p.price)/SUM(s.units)), 2) as average_price
+FROM Prices p 
+LEFT JOIN UnitsSold s 
+ON p.product_id = s.product_id AND s.purchase_date BETWEEN p.start_date AND p.end_date
+GROUP BY p.product_id;
+</pre></div>
+</div>
+</details></section>
+<section id="project-employees-i">
+<h3>1075. Project Employees I<a class="headerlink" href="#project-employees-i" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Project</p>
+<p><img alt="table" src="../_images/exo17_table1.jpg" /></p>
+<p>Table: Employee</p>
+<p><img alt="table" src="../_images/exo17_table2.jpg" /></p>
+<p>Write an SQL query that reports the average experience years of all the employees for each project, rounded to 2 digits.</p>
+<p>Return the result table in any order.</p>
+<p>The query result format is in the following example.
+<img alt="table" src="../_images/exo17_exemple1.jpg" /></p>
+<p><img alt="table" src="../_images/exo17_exemple2.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT p.project_id, ROUND(AVG(e.experience_years), 2) as average_years
+FROM Project p 
+LEFT JOIN Employee e
+ON p.employee_id = e.employee_id
+GROUP BY p.project_id;
+</pre></div>
+</div>
+</details></section>
+<section id="percentage-of-users-attended-a-contest">
+<h3>1633. Percentage of Users Attended a Contest<a class="headerlink" href="#percentage-of-users-attended-a-contest" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Users</p>
+<p><img alt="table" src="../_images/exo18_table1.jpg" /></p>
+<p>Table: Register</p>
+<p><img alt="table" src="../_images/exo18_table2.jpg" /></p>
+<p>Write a solution to find the percentage of the users registered in each contest rounded to two decimals.</p>
+<p>Return the result table ordered by percentage in descending order. In case of a tie, order it by contest_id in ascending order.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo18_exemple1.jpg" /></p>
+<p><img alt="table" src="../_images/exo18_exemple2.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT r.contest_id, ROUND((COUNT(r.contest_id)/(SELECT COUNT(*) FROM Users))* 100, 2) as percentage
+FROM Register r
+LEFT JOIN Users u
+ON r.user_id = u.user_id
+GROUP BY r.contest_id
+ORDER BY percentage DESC, r.contest_id ASC;
+</pre></div>
+</div>
+</details></section>
+<section id="queries-quality-and-percentage">
+<h3>1211. Queries Quality and Percentage<a class="headerlink" href="#queries-quality-and-percentage" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Queries</p>
+<p><img alt="table" src="../_images/exo19_table1.jpg" /></p>
+<p>We define query quality as:</p>
+<p>The average of the ratio between query rating and its position.</p>
+<p>We also define poor query percentage as:</p>
+<p>The percentage of all queries with rating less than 3.</p>
+<p>Write a solution to find each query_name, the quality and poor_query_percentage.</p>
+<p>Both quality and poor_query_percentage should be rounded to 2 decimal places.</p>
+<p>Return the result table in any order.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo19_exemple1.jpg" /></p>
+<p><img alt="table" src="../_images/exo19_exemple2.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT 
+query_name, 
+ROUND(AVG(rating/position),2) as quality,
+ROUND((SUM(CASE WHEN rating &lt; 3 THEN 1 ELSE 0 END) * 100.0) / COUNT(*), 2)
+as poor_query_percentage
+FROM Queries
+GROUP BY query_name;
+</pre></div>
+</div>
+</details></section>
+<section id="monthly-transactions-i">
+<h3>1193. Monthly Transactions I<a class="headerlink" href="#monthly-transactions-i" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Queries</p>
+<p><img alt="table" src="../_images/exo20_table1.jpg" /></p>
+<p>Write an SQL query to find for each month and country, the number of transactions and their total amount, the number of approved transactions and their total amount.</p>
+<p>Return the result table in any order.</p>
+<p>The query result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo20_exemple1.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT 
+  DATE_FORMAT(trans_date, &#39;%Y-%m&#39;) as month,   
+  country, 
+  COUNT(id) as trans_count, 
+  SUM(CASE WHEN state=&quot;approved&quot; THEN 1 ELSE 0 END) as approved_count, 
+  SUM(amount) as trans_µtotal_amount, 
+  SUM(CASE WHEN state=&quot;approved&quot; THEN amount ELSE 0 END) as approved_total_amount 
+FROM Transactions
+GROUP BY month, country;
+</pre></div>
+</div>
+</details></section>
+<section id="immediate-food-delivery-ii">
+<h3>1174. Immediate Food Delivery II<a class="headerlink" href="#immediate-food-delivery-ii" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Delivery</p>
+<p><img alt="table" src="../_images/exo21_table1.jpg" /></p>
+<p>If the customer’s preferred delivery date is the same as the order date, then the order is called immediate; otherwise, it is called scheduled.</p>
+<p>The first order of a customer is the order with the earliest order date that the customer made. It is guaranteed that a customer has precisely one first order.</p>
+<p>Write a solution to find the percentage of immediate orders in the first orders of all customers, rounded to 2 decimal places.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo21_exemple1.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT 
+    ROUND(AVG(order_date = customer_pref_delivery_date)*100, 2) AS immediate_percentage
+FROM Delivery
+WHERE (customer_id, order_date) IN (
+    SELECT customer_id, min(order_date) 
+    FROM Delivery
+    GROUP BY customer_id);
+</pre></div>
+</div>
+</details></section>
+<section id="game-play-analysis-iv">
+<h3>550. Game Play Analysis IV<a class="headerlink" href="#game-play-analysis-iv" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Activity</p>
+<p><img alt="table" src="../_images/exo22_table1.jpg" /></p>
+<p>Write a solution to report the fraction of players that logged in again on the day after the day they first logged in, rounded to 2 decimal places. In other words, you need to count the number of players that logged in for at least two consecutive days starting from their first login date, then divide that number by the total number of players.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo22_exemple1.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># First, let&#39;s store the first login date of each player.
+WITH temp AS (
+    SELECT player_id, MIN(event_date) AS first_login_date
+    FROM Activity 
+    GROUP BY player_id
+)
+
+# Calculate the fraction of players who logged in exactly one day after their first login.
+SELECT 
+    ROUND(
+        SUM(DATEDIFF(a.event_date, t.first_login_date) = 1) / COUNT(DISTINCT a.player_id), 2
+    ) AS fraction
+FROM Activity a
+JOIN temp t ON a.player_id = t.player_id;
+</pre></div>
+</div>
+</details></section>
+</section>
+<section id="sorting-and-grouping">
+<h2>Sorting and Grouping<a class="headerlink" href="#sorting-and-grouping" title="Link to this heading">#</a></h2>
+<section id="number-of-unique-subjects-taught-by-each-teacher">
+<h3>2356. Number of Unique Subjects Taught by Each Teacher ✅<a class="headerlink" href="#number-of-unique-subjects-taught-by-each-teacher" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Teacher</p>
+<p><img alt="table" src="../_images/exo23_table1.jpg" /></p>
+<p>Write a solution to calculate the number of unique subjects each teacher teaches in the university.</p>
+<p>Return the result table in any order.</p>
+<p>The result format is shown in the following example.</p>
+<p><img alt="table" src="../_images/exo23_exemple1.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT teacher_id, COUNT(DISTINCT subject_id) as cnt
+FROM Teacher
+GROUP BY teacher_id;
+</pre></div>
+</div>
+</details></section>
+<section id="user-activity-for-the-past-30-days-i">
+<h3>1141. User Activity for the Past 30 Days I ✅<a class="headerlink" href="#user-activity-for-the-past-30-days-i" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Teacher</p>
+<p><img alt="table" src="../_images/exo24_table1.jpg" /></p>
+<p>Write a solution to find the daily active user count for a period of 30 days ending 2019-07-27 inclusively. A user was active on someday if they made at least one activity on that day.</p>
+<p>Return the result table in any order.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo24_exemple1.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT activity_date as day, COUNT(DISTINCT user_id) as active_users
+FROM Activity
+WHERE 
+    (
+    activity_type = &quot;scroll_down&quot; 
+    OR activity_type = &quot;send_message&quot; 
+    OR activity_type =&quot;open_session&quot; 
+    OR activity_type =&quot;end_session&quot;
+    ) 
+    AND 
+    DATEDIFF(&quot;2019-07-27&quot;, activity_date)&lt;DATEDIFF(&quot;2019-07-27&quot;, &quot;2019-06-28&quot;)+1
+    AND activity_date &lt;= &quot;2019-07-27&quot;
+GROUP BY day;
+</pre></div>
+</div>
+</details></section>
+<section id="product-sales-analysis-iii">
+<h3>1070. Product Sales Analysis III<a class="headerlink" href="#product-sales-analysis-iii" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Sales</p>
+<p><img alt="table" src="../_images/exo25_table1.jpg" /></p>
+<p>Table: Product</p>
+<p><img alt="table" src="../_images/exo25_table2.jpg" /></p>
+<p>Write a solution to select the product id, year, quantity, and price for the first year of every product sold.</p>
+<p>Return the resulting table in any order.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo25_exemple1.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<p>Avec sous-requête :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  select product_id, year as first_year, quantity, price 
+  from sales where (product_id, year) in (
+      select product_id, min(year)
+      from sales
+      group by product_id
+</pre></div>
+</div>
+<p>)</p>
+<p>Avec CTE :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    WITH FirstYear AS (
+    SELECT product_id, MIN(year) AS first_year
+    FROM Sales
+    GROUP BY product_id
+        )
+
+    SELECT s.product_id, s.year as first_year, s.quantity, s.price
+    FROM Sales s 
+    JOIN FirstYear n
+    ON s.product_id = n.product_id AND s.year = n.first_year
+    ORDER BY first_year
+</pre></div>
+</div>
+</details></section>
+<section id="classes-more-than-5-students">
+<h3>596. Classes More Than 5 Students ✅<a class="headerlink" href="#classes-more-than-5-students" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Courses</p>
+<p><img alt="table" src="../_images/exo26_table1.jpg" /></p>
+<p>Write a solution to find all the classes that have at least five students.</p>
+<p>Return the result table in any order.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo26_exemple1.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT class
+FROM Courses
+GROUP BY class
+HAVING COUNT(class)&gt;=5;
+</pre></div>
+</div>
+</details></section>
+<section id="find-followers-count">
+<h3>1729. Find Followers Count ✅<a class="headerlink" href="#find-followers-count" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Followers</p>
+<p><img alt="table" src="../_images/exo27_table1.jpg" /></p>
+<p>Write a solution to find all the classes that have at least five students.</p>
+<p>Return the result table in any order.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo27_exemple1.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT user_id, COUNT(follower_id) AS followers_count
+FROM Followers 
+GROUP BY user_id
+ORDER BY user_id;
+</pre></div>
+</div>
+</details></section>
+<section id="biggest-single-number">
+<h3>619. Biggest Single Number  ✅<a class="headerlink" href="#biggest-single-number" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: MyNumbers</p>
+<p><img alt="table" src="../_images/exo28_table1.jpg" /></p>
+<p>A single number is a number that appeared only once in the MyNumbers table.</p>
+<p>Find the largest single number. If there is no single number, report null.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo28_exemple1.jpg" /></p>
+<p><img alt="table" src="../_images/exo28_exemple2.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT MAX(num) AS num
+FROM (
+    SELECT num
+    FROM MyNumbers
+    GROUP BY num
+    HAVING COUNT(num) = 1
+) AS unique_numbers;
+
+OR
+
+SELECT num 
+FROM (
+    SELECT num 
+    FROM MyNumbers
+    GROUP BY num
+    HAVING COUNT(num) = 1
+    UNION ALL
+    SELECT NULL) AS combined_results
+ORDER BY num DESC
+LIMIT 1;
+</pre></div>
+</div>
+</details></section>
+<section id="customers-who-bought-all-products">
+<h3>1045. Customers Who Bought All Products<a class="headerlink" href="#customers-who-bought-all-products" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p><img alt="table" src="../_images/exo29_table1.jpg" /></p>
+<p>Write a solution to report the customer ids from the Customer table that bought all the products in the Product table.</p>
+<p>Return the result table in any order.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo29_exemple1.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT c.customer_id
+FROM Customer c
+JOIN Product p
+ON c.product_key = p.product_key
+GROUP BY c.customer_id
+HAVING COUNT(DISTINCT c.product_key) = (SELECT COUNT(*) FROM Product);
+</pre></div>
+</div>
+</details></section>
+</section>
+<section id="advanced-string-functions-regex-clause">
+<h2>Advanced String Functions / Regex / Clause<a class="headerlink" href="#advanced-string-functions-regex-clause" title="Link to this heading">#</a></h2>
+<section id="fix-names-in-table">
+<h3>1667. Fix Names in Table ✅<a class="headerlink" href="#fix-names-in-table" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Users</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+----------------+---------+
+| Column Name    | Type    |
++----------------+---------+
+| user_id        | int     |
+| name           | varchar |
++----------------+---------+
+</pre></div>
+</div>
+<p>user_id is the primary key (column with unique values) for this table.
+This table contains the ID and the name of the user. The name consists of only lowercase and uppercase characters.</p>
+<p>Write a solution to fix the names so that only the first character is uppercase and the rest are lowercase.</p>
+<p>Return the result table ordered by user_id.</p>
+<p>The result format is in the following example.</p>
+</details><details>
+  <summary>Réponse</summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT  user_id, CONCAT(UPPER(LEFT(name,1)),LOWER(RIGHT(name,LENGTH(name)-1))) as name
+FROM Users
+ORDER BY user_id;
+
+OU
+
+SELECT user_id,CONCAT(UPPER(SUBSTR(name,1,1)),LOWER(SUBSTR(name,2,length(name)))) AS name
+FROM Users ORDER BY user_id;
+</pre></div>
+</div>
+</details></section>
+<section id="patients-with-a-condition">
+<h3>1527. Patients With a Condition ✅<a class="headerlink" href="#patients-with-a-condition" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Patients</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+--------------+---------+
+| Column Name  | Type    |
++--------------+---------+
+| patient_id   | int     |
+| patient_name | varchar |
+| conditions   | varchar |
++--------------+---------+
+</pre></div>
+</div>
+<p>patient_id is the primary key (column with unique values) for this table.
+‘conditions’ contains 0 or more code separated by spaces.
+This table contains information of the patients in the hospital.</p>
+<p>Write a solution to find the patient_id, patient_name, and conditions of the patients who have Type I Diabetes. Type I Diabetes always starts with DIAB1 prefix.</p>
+<p>Return the result table in any order.</p>
+<p>The result format is in the following example.</p>
+<p>Example 1:</p>
+<p>Input:
+Patients table:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  +------------+--------------+--------------+
+  | patient_id | patient_name | conditions   |
+  +------------+--------------+--------------+
+  | 1          | Daniel       | YFEV COUGH   |
+  | 2          | Alice        |              |
+  | 3          | Bob          | DIAB100 MYOP |
+  | 4          | George       | ACNE DIAB100 |
+  | 5          | Alain        | DIAB201      |
+  +------------+--------------+--------------+
+  Output: 
+  +------------+--------------+--------------+
+  | patient_id | patient_name | conditions   |
+  +------------+--------------+--------------+
+  | 3          | Bob          | DIAB100 MYOP |
+  | 4          | George       | ACNE DIAB100 | 
+  +------------+--------------+--------------+
+</pre></div>
+</div>
+<p>Explanation: Bob and George both have a condition that starts with DIAB1.</p>
+</details><details>
+  <summary>Réponse</summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT *
+FROM Patients
+WHERE conditions LIKE &quot;% DIAB1%&quot; OR conditions LIKE &quot;DIAB1%&quot;;
+</pre></div>
+</div>
+</details></section>
+<section id="delete-duplicate-emails">
+<h3>196. Delete Duplicate Emails<a class="headerlink" href="#delete-duplicate-emails" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Person</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| id          | int     |
+| email       | varchar |
++-------------+---------+
+</pre></div>
+</div>
+<p>id is the primary key (column with unique values) for this table.
+Each row of this table contains an email. The emails will not contain uppercase letters.</p>
+<p>Write a solution to delete all duplicate emails, keeping only one unique email with the smallest id.</p>
+<p>For SQL users, please note that you are supposed to write a DELETE statement and not a SELECT one.</p>
+<p>For Pandas users, please note that you are supposed to modify Person in place.</p>
+<p>After running your script, the answer shown is the Person table. The driver will first compile and run your piece of code and then show the Person table. The final order of the Person table does not matter.</p>
+<p>The result format is in the following example.</p>
+<p>Example 1:</p>
+<p>Input:
+Person table:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+----+------------------+
+| id | email            |
++----+------------------+
+| 1  | john@example.com |
+| 2  | bob@example.com  |
+| 3  | john@example.com |
++----+------------------+
+Output: 
++----+------------------+
+| id | email            |
++----+------------------+
+| 1  | john@example.com |
+| 2  | bob@example.com  |
++----+------------------+
+</pre></div>
+</div>
+<p>Explanation: <a class="reference external" href="mailto:john&#37;&#52;&#48;example&#46;com">john<span>&#64;</span>example<span>&#46;</span>com</a> is repeated two times. We keep the row with the smallest Id = 1.</p>
+</details><details>
+  <summary>Réponse</summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>DELETE p FROM Person p, Person p2
+WHERE p.email=p2.email and p.id&gt;p2.id;
+</pre></div>
+</div>
+</details></section>
+<section id="second-highest-salary">
+<h3>176. Second Highest Salary<a class="headerlink" href="#second-highest-salary" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Employee</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+-------------+------+
+| Column Name | Type |
++-------------+------+
+| id          | int  |
+| salary      | int  |
++-------------+------+
+</pre></div>
+</div>
+<p>id is the primary key (column with unique values) for this table.
+Each row of this table contains information about the salary of an employee.</p>
+<p>Write a solution to find the second highest distinct salary from the Employee table. If there is no second highest salary, return null (return None in Pandas).</p>
+<p>The result format is in the following example.</p>
+<p>Example 1:</p>
+<p>Input:
+Employee table:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+----+--------+
+| id | salary |
++----+--------+
+| 1  | 100    |
+| 2  | 200    |
+| 3  | 300    |
++----+--------+
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+---------------------+
+| SecondHighestSalary |
++---------------------+
+| 200                 |
++---------------------+
+</pre></div>
+</div>
+<p>Example 2:</p>
+<p>Input:
+Employee table:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+----+--------+
+| id | salary |
++----+--------+
+| 1  | 100    |
++----+--------+
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+---------------------+
+| SecondHighestSalary |
++---------------------+
+| null                |
++---------------------+
+</pre></div>
+</div>
+</details><details>
+  <summary>Réponse</summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT 
+(SELECT DISTINCT salary
+ FROM Employee
+ ORDER BY salary DESC
+ LIMIT 1 OFFSET 1) AS SecondHighestSalary;
+
+
+OU
+
+WITH max_salary AS (
+SELECT MAX(salary) AS maximum
+FROM Employee
+)
+SELECT 
+    (SELECT MAX(salary) 
+    FROM Employee 
+    WHERE salary &lt; (SELECT maximum FROM max_salary)
+    ) AS SecondHighestSalary;
+</pre></div>
+</div>
+</details></section>
+<section id="group-sold-products-by-the-date">
+<h3>1484. Group Sold Products By The Date<a class="headerlink" href="#group-sold-products-by-the-date" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table Activities:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| sell_date   | date    |
+| product     | varchar |
++-------------+---------+
+</pre></div>
+</div>
+<p>There is no primary key (column with unique values) for this table. It may contain duplicates.
+Each row of this table contains the product name and the date it was sold in a market.</p>
+<p>Write a solution to find for each date the number of different products sold and their names.</p>
+<p>The sold products names for each date should be sorted lexicographically.</p>
+<p>Return the result table ordered by sell_date.</p>
+<p>The result format is in the following example.</p>
+<p>Example 1:</p>
+<p>Input:
+Activities table:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+------------+------------+
+| sell_date  | product     |
++------------+------------+
+| 2020-05-30 | Headphone  |
+| 2020-06-01 | Pencil     |
+| 2020-06-02 | Mask       |
+| 2020-05-30 | Basketball |
+| 2020-06-01 | Bible      |
+| 2020-06-02 | Mask       |
+| 2020-05-30 | T-Shirt    |
++------------+------------+
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+------------+----------+------------------------------+
+| sell_date  | num_sold | products                     |
++------------+----------+------------------------------+
+| 2020-05-30 | 3        | Basketball,Headphone,T-shirt |
+| 2020-06-01 | 2        | Bible,Pencil                 |
+| 2020-06-02 | 1        | Mask                         |
++------------+----------+------------------------------+
+</pre></div>
+</div>
+<p>Explanation:
+For 2020-05-30, Sold items were (Headphone, Basketball, T-shirt), we sort them lexicographically and separate them by a comma.
+For 2020-06-01, Sold items were (Pencil, Bible), we sort them lexicographically and separate them by a comma.
+For 2020-06-02, the Sold item is (Mask), we just return it.</p>
+</details><details>
+  <summary>Réponse</summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT sell_date, COUNT(DISTINCT product) as num_sold, GROUP_CONCAT(DISTINCT product ORDER BY product ASC SEPARATOR &#39;,&#39;) AS products
+FROM Activities
+GROUP BY sell_date;
+</pre></div>
+</div>
+</details></section>
+<section id="list-the-products-ordered-in-a-period">
+<h3>1327. List the Products Ordered in a Period<a class="headerlink" href="#list-the-products-ordered-in-a-period" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Products</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+------------------+---------+
+| Column Name      | Type    |
++------------------+---------+
+| product_id       | int     |
+| product_name     | varchar |
+| product_category | varchar |
++------------------+---------+
+</pre></div>
+</div>
+<p>product_id is the primary key (column with unique values) for this table.
+This table contains data about the company’s products.</p>
+<p>Table: Orders</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+---------------+---------+
+| Column Name   | Type    |
++---------------+---------+
+| product_id    | int     |
+| order_date    | date    |
+| unit          | int     |
++---------------+---------+
+</pre></div>
+</div>
+<p>This table may have duplicate rows.
+product_id is a foreign key (reference column) to the Products table.
+unit is the number of products ordered in order_date.</p>
+<p>Write a solution to get the names of products that have at least 100 units ordered in February 2020 and their amount.</p>
+<p>Return the result table in any order.</p>
+<p>The result format is in the following example.</p>
+<p>Example 1:</p>
+<p>Input:
+Products table:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+-------------+-----------------------+------------------+
+| product_id  | product_name          | product_category |
++-------------+-----------------------+------------------+
+| 1           | Leetcode Solutions    | Book             |
+| 2           | Jewels of Stringology | Book             |
+| 3           | HP                    | Laptop           |
+| 4           | Lenovo                | Laptop           |
+| 5           | Leetcode Kit          | T-shirt          |
++-------------+-----------------------+------------------+
+</pre></div>
+</div>
+<p>Orders table:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+--------------+--------------+----------+
+| product_id   | order_date   | unit     |
++--------------+--------------+----------+
+| 1            | 2020-02-05   | 60       |
+| 1            | 2020-02-10   | 70       |
+| 2            | 2020-01-18   | 30       |
+| 2            | 2020-02-11   | 80       |
+| 3            | 2020-02-17   | 2        |
+| 3            | 2020-02-24   | 3        |
+| 4            | 2020-03-01   | 20       |
+| 4            | 2020-03-04   | 30       |
+| 4            | 2020-03-04   | 60       |
+| 5            | 2020-02-25   | 50       |
+| 5            | 2020-02-27   | 50       |
+| 5            | 2020-03-01   | 50       |
++--------------+--------------+----------+
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+--------------------+---------+
+| product_name       | unit    |
++--------------------+---------+
+| Leetcode Solutions | 130     |
+| Leetcode Kit       | 100     |
++--------------------+---------+
+</pre></div>
+</div>
+<p>Explanation:
+Products with product_id = 1 is ordered in February a total of (60 + 70) = 130.
+Products with product_id = 2 is ordered in February a total of 80.
+Products with product_id = 3 is ordered in February a total of (2 + 3) = 5.
+Products with product_id = 4 was not ordered in February 2020.
+Products with product_id = 5 is ordered in February a total of (50 + 50) = 100.</p>
+</details><details>
+  <summary>Réponse</summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT p.product_name, SUM(o.unit) AS unit
+FROM Products p
+LEFT JOIN Orders o
+ON p.product_id = o.product_id
+WHERE (MONTH(o.order_date) = 2 AND YEAR(o.order_date) = 2020) 
+GROUP BY p.product_id
+HAVING SUM(o.unit)&gt;=100;
+
+Note : On aurait pu également écrire WHERE DATE_FORMAT(o.order_date, &#39;%Y-%m&#39;) = &#39;2020-02&#39;
+</pre></div>
+</div>
+</details></section>
+<section id="find-users-with-valid-e-mails">
+<h3>1517. Find Users With Valid E-Mails<a class="headerlink" href="#find-users-with-valid-e-mails" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Users</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+---------------+---------+
+| Column Name   | Type    |
++---------------+---------+
+| user_id       | int     |
+| name          | varchar |
+| mail          | varchar |
++---------------+---------+
+</pre></div>
+</div>
+<p>user_id is the primary key (column with unique values) for this table.
+This table contains information of the users signed up in a website. Some e-mails are invalid.</p>
+<p>Write a solution to find the users who have valid emails.</p>
+<p>A valid e-mail has a prefix name and a domain where:</p>
+<p>The prefix name is a string that may contain letters (upper or lower case), digits, underscore ‘_’, period ‘.’, and/or dash ‘-’. The prefix name must start with a letter.
+The domain is ‘&#64;leetcode.com’.
+Return the result table in any order.</p>
+<p>The result format is in the following example.</p>
+<p>Example 1:</p>
+<p>Input:
+Users table:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+---------+-----------+-------------------------+
+| user_id | name      | mail                    |
++---------+-----------+-------------------------+
+| 1       | Winston   | winston@leetcode.com    |
+| 2       | Jonathan  | jonathanisgreat         |
+| 3       | Annabelle | bella-@leetcode.com     |
+| 4       | Sally     | sally.come@leetcode.com |
+| 5       | Marwan    | quarz#2020@leetcode.com |
+| 6       | David     | david69@gmail.com       |
+| 7       | Shapiro   | .shapo@leetcode.com     |
++---------+-----------+-------------------------+
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+---------+-----------+-------------------------+
+| user_id | name      | mail                    |
++---------+-----------+-------------------------+
+| 1       | Winston   | winston@leetcode.com    |
+| 3       | Annabelle | bella-@leetcode.com     |
+| 4       | Sally     | sally.come@leetcode.com |
++---------+-----------+-------------------------+
+</pre></div>
+</div>
+<p>Explanation:
+The mail of user 2 does not have a domain.
+The mail of user 5 has the # sign which is not allowed.
+The mail of user 6 does not have the leetcode domain.
+The mail of user 7 starts with a period.</p>
+</details><details>
+  <summary>Réponse</summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT *
+FROM Users
+WHERE mail REGEXP &#39;^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode[.]com$&#39;;
+</pre></div>
+</div>
+</details></section>
+</section>
+<section id="advanced-select-and-joins">
+<h2>Advanced Select and Joins<a class="headerlink" href="#advanced-select-and-joins" title="Link to this heading">#</a></h2>
+<section id="the-number-of-employees-which-report-to-each-employee">
+<h3>1731. The Number of Employees Which Report to Each Employee ✅<a class="headerlink" href="#the-number-of-employees-which-report-to-each-employee" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p><img alt="table" src="../_images/exo30_table1.jpg" /></p>
+<p>For this problem, we will consider a manager an employee who has at least 1 other employee reporting to them.</p>
+<p>Write a solution to report the ids and the names of all managers, the number of employees who report directly to them, and the average age of the reports rounded to the nearest integer.</p>
+<p>Return the result table ordered by employee_id.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo30_exemple1.jpg" /></p>
+<p><img alt="table" src="../_images/exo30_exemple2.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Ma solution :
+
+SELECT e.employee_id, e.name, 
+(SELECT COUNT(e2.reports_to) FROM Employees e2 WHERE e2.reports_to = e.employee_id) AS reports_count, 
+ROUND((SELECT AVG(e3.age) FROM Employees e3 WHERE e3.reports_to = e.employee_id)  , 0) AS average_age
+FROM Employees e
+JOIN Employees e1
+ON e.employee_id = e1.employee_id
+GROUP BY e.employee_id
+HAVING reports_count &gt; 0
+ORDER BY e.employee_id;
+
+Solution optimisée : 
+
+SELECT 
+e1.employee_id,
+e1.name,
+count(e2.reports_to) as reports_count,
+round(avg(e2.age)) as average_age 
+FROM employees e1 
+JOIN employees e2 ON e1.employee_id=e2.reports_to 
+WHERE e2.reports_to is not null 
+GROUP BY e1.employee_id 
+ORDER BY e1.employee_id;
+</pre></div>
+</div>
+</details></section>
+<section id="primary-department-for-each-employee">
+<h3>1789. Primary Department for Each Employee<a class="headerlink" href="#primary-department-for-each-employee" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p><img alt="table" src="../_images/exo31_table1.jpg" /></p>
+<p>Employees can belong to multiple departments. When the employee joins other departments, they need to decide which department is their primary department. Note that when an employee belongs to only one department, their primary column is ‘N’.</p>
+<p>Write a solution to report all the employees with their primary department. For employees who belong to one department, report their only department.</p>
+<p>Return the result table in any order.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo31_exemple1.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Ma solution :
+
+SELECT employee_id, department_id
+FROM Employee
+WHERE primary_flag = &quot;Y&quot; OR employee_id IN (SELECT employee_id 
+                                            FROM Employee
+                                            GROUP BY employee_id
+                                            HAVING COUNT(employee_id)=1)
+</pre></div>
+</div>
+</details></section>
+<section id="triangle-judgement">
+<h3>610. Triangle Judgement<a class="headerlink" href="#triangle-judgement" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p><img alt="table" src="../_images/exo32_table1.jpg" /></p>
+<p>Report for every three line segments whether they can form a triangle.</p>
+<p>Return the result table in any order.</p>
+<p>The result format is in the following example.</p>
+<p><img alt="table" src="../_images/exo32_exemple1.jpg" /></p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT x, y, z, IF(x+y &gt; z AND y+z&gt;x AND x+z&gt;y, &quot;Yes&quot;, &quot;No&quot;) as triangle
+FROM Triangle
+</pre></div>
+</div>
+</details></section>
+<section id="consecutive-numbers">
+<h3>180. Consecutive Numbers<a class="headerlink" href="#consecutive-numbers" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Logs</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+-------------+---------+
+| Column Name | Type    |
++-------------+---------+
+| id          | int     |
+| num         | varchar |
++-------------+---------+
+</pre></div>
+</div>
+<p>In SQL, id is the primary key for this table.
+id is an autoincrement column starting from 1.</p>
+<p>Find all numbers that appear at least three times consecutively.</p>
+<p>Return the result table in any order.</p>
+<p>The result format is in the following example.</p>
+<p>Example 1:</p>
+<p>Input:
+Logs table:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+----+-----+
+| id | num |
++----+-----+
+| 1  | 1   |
+| 2  | 1   |
+| 3  | 1   |
+| 4  | 2   |
+| 5  | 1   |
+| 6  | 2   |
+| 7  | 2   |
++----+-----+
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+-----------------+
+| ConsecutiveNums |
++-----------------+
+| 1               |
++-----------------+
+</pre></div>
+</div>
+<p>Explanation: 1 is the only number that appears consecutively for at least three times.</p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT DISTINCT l1.num AS ConsecutiveNums
+FROM Logs l1
+JOIN Logs l2 ON l1.id = l2.id + 1 AND l1.num = l2.num
+JOIN Logs l3 ON l1.id = l3.id + 2 AND l1.num = l3.num
+</pre></div>
+</div>
+</details></section>
+<section id="product-price-at-a-given-date">
+<h3>1164. Product Price at a Given Date<a class="headerlink" href="#product-price-at-a-given-date" title="Link to this heading">#</a></h3>
+</section>
+<section id="last-person-to-fit-in-the-bus">
+<h3>1204. Last Person to Fit in the Bus<a class="headerlink" href="#last-person-to-fit-in-the-bus" title="Link to this heading">#</a></h3>
+</section>
+<section id="count-salary-categories">
+<h3>1907. Count Salary Categories<a class="headerlink" href="#count-salary-categories" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="subqueries">
+<h2>Subqueries<a class="headerlink" href="#subqueries" title="Link to this heading">#</a></h2>
+<section id="employees-whose-manager-left-the-company">
+<h3>1978. Employees Whose Manager Left the Company<a class="headerlink" href="#employees-whose-manager-left-the-company" title="Link to this heading">#</a></h3>
+<details>
+  <summary>Enoncé</summary>
+<p>Table: Employees</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+-------------+----------+
+| Column Name | Type     |
++-------------+----------+
+| employee_id | int      |
+| name        | varchar  |
+| manager_id  | int      |
+| salary      | int      |
++-------------+----------+
+</pre></div>
+</div>
+<p>In SQL, employee_id is the primary key for this table.
+This table contains information about the employees, their salary, and the ID of their manager. Some employees do not have a manager (manager_id is null).</p>
+<p>Find the IDs of the employees whose salary is strictly less than $30000 and whose manager left the company. When a manager leaves the company, their information is deleted from the Employees table, but the reports still have their manager_id set to the manager that left.</p>
+<p>Return the result table ordered by employee_id.</p>
+<p>The result format is in the following example.</p>
+<p>Example 1:</p>
+<p>Input:<br />
+Employees table:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+-------------+-----------+------------+--------+
+| employee_id | name      | manager_id | salary |
++-------------+-----------+------------+--------+
+| 3           | Mila      | 9          | 60301  |
+| 12          | Antonella | null       | 31000  |
+| 13          | Emery     | null       | 67084  |
+| 1           | Kalel     | 11         | 21241  |
+| 9           | Mikaela   | null       | 50937  |
+| 11          | Joziah    | 6          | 28485  |
++-------------+-----------+------------+--------+
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>+-------------+
+| employee_id |
++-------------+
+| 11          |
++-------------+
+</pre></div>
+</div>
+<p>Explanation:
+The employees with a salary less than $30000 are 1 (Kalel) and 11 (Joziah).
+Kalel’s manager is employee 11, who is still in the company (Joziah).
+Joziah’s manager is employee 6, who left the company because there is no row for employee 6 as it was deleted.</p>
+</details><details>
+  <summary>Réponse </summary>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SELECT employee_id
+FROM Employees
+WHERE salary &lt; 30000 and manager_id NOT IN (SELECT employee_id FROM Employees)
+ORDER BY employee_id;
+</pre></div>
+</div>
+</details></section>
+<section id="exchange-seats">
+<h3>626. Exchange Seats<a class="headerlink" href="#exchange-seats" title="Link to this heading">#</a></h3>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./tp5_leet_code"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../tp4_volcans/tp_volcan_notebook_correction.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">TP 4 : Les volcans correction</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../SOURCES.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Sources et Sitographie</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#les-exos-select">📍Les exos Select</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recyclable-and-low-fat-products">1757. Recyclable and Low Fat Products ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-customer-referee">584. Find Customer Referee ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#big-countries">595. Big Countries ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#article-views-i">1148. Article Views I ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#invalid-tweets">1683. Invalid Tweets ✅</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-joins">🔗Basic Joins</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#replace-employee-id-with-the-unique-identifier">1378. Replace Employee ID With The Unique Identifier ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#product-sales-analysis-i">1068. Product Sales Analysis I ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customer-who-visited-but-did-not-make-any-transactions">1581. Customer Who Visited but Did Not Make Any Transactions ⚠️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rising-temperature">197. Rising Temperature ⚠️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#average-time-of-process-per-machine">1661. Average Time of Process per Machine ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#employee-bonus">577. Employee Bonus ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#students-and-examinations">1280. Students and Examinations ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#managers-with-at-least-5-direct-reports">570. Managers with at Least 5 Direct Reports ⚠️</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#confirmation-rate">1934. Confirmation Rate</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-aggregate-functions">Basic Aggregate Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#not-boring-movies">620. Not Boring Movies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#average-selling-price">1251. Average Selling Price</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#project-employees-i">1075. Project Employees I</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#percentage-of-users-attended-a-contest">1633. Percentage of Users Attended a Contest</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#queries-quality-and-percentage">1211. Queries Quality and Percentage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monthly-transactions-i">1193. Monthly Transactions I</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#immediate-food-delivery-ii">1174. Immediate Food Delivery II</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#game-play-analysis-iv">550. Game Play Analysis IV</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-and-grouping">Sorting and Grouping</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#number-of-unique-subjects-taught-by-each-teacher">2356. Number of Unique Subjects Taught by Each Teacher ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#user-activity-for-the-past-30-days-i">1141. User Activity for the Past 30 Days I ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#product-sales-analysis-iii">1070. Product Sales Analysis III</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#classes-more-than-5-students">596. Classes More Than 5 Students ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-followers-count">1729. Find Followers Count ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#biggest-single-number">619. Biggest Single Number  ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#customers-who-bought-all-products">1045. Customers Who Bought All Products</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-string-functions-regex-clause">Advanced String Functions / Regex / Clause</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#fix-names-in-table">1667. Fix Names in Table ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#patients-with-a-condition">1527. Patients With a Condition ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-duplicate-emails">196. Delete Duplicate Emails</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#second-highest-salary">176. Second Highest Salary</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#group-sold-products-by-the-date">1484. Group Sold Products By The Date</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#list-the-products-ordered-in-a-period">1327. List the Products Ordered in a Period</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-users-with-valid-e-mails">1517. Find Users With Valid E-Mails</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-select-and-joins">Advanced Select and Joins</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-number-of-employees-which-report-to-each-employee">1731. The Number of Employees Which Report to Each Employee ✅</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#primary-department-for-each-employee">1789. Primary Department for Each Employee</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triangle-judgement">610. Triangle Judgement</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#consecutive-numbers">180. Consecutive Numbers</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#product-price-at-a-given-date">1164. Product Price at a Given Date</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#last-person-to-fit-in-the-bus">1204. Last Person to Fit in the Bus</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#count-salary-categories">1907. Count Salary Categories</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#subqueries">Subqueries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#employees-whose-manager-left-the-company">1978. Employees Whose Manager Left the Company</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exchange-seats">626. Exchange Seats</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Gasmi Rémy
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  © 2025 — TP SQL
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

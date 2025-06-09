@@ -1,0 +1,1754 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>SQL City Correction &#8212; TP SQL — Jupyter Book</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tp2_meurtre_sql_city/sql_city_correction';</script>
+    <link rel="icon" href="../_static/sql_favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="TP SQL sur les films du Studio Ghilbi" href="../tp3_studio_ghilbi/CONSIGNES.html" />
+    <link rel="prev" title="SQL City Episode 2" href="sql_city_sujet_part2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../README.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="TP SQL — Jupyter Book - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="TP SQL — Jupyter Book - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../README.html">
+                    SQL : JupyterBook de TP
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutoriel/TUTO.html">Tutoriel pour faire du SQL sur son PC</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tutoriel/TUTORIEL_DB_BROWSER.html">Tutoriel pour utiliser DB Browser (SQLite)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tutoriel/TUTORIEL_SQL_NOTEBOOK.html">📘 Faire du SQL dans un notebook Jupyter avec ipython-sql</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tp1_lycee/TP_INTRO.html">TP 1 — Liste d’élèves</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tp1_lycee/sql_intro.html"><center>TP Prise en main SQL/Python </center></a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="detective_sql.html">TP 2 — SQL City Murder</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="sql_city_sujet_part1.html"><center>SQL City Episode 1 </center></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="sql_city_sujet_part2.html"><center>SQL City Episode 2 </center></a></li>
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#"><center>SQL City Correction </center></a></li>
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tp3_studio_ghilbi/CONSIGNES.html">TP 3 — Studio Ghilbi</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tp3_studio_ghilbi/studio_ghilbi_enonce.html"><center>TP Studio Ghilbi Sujet </center></a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../tp3_studio_ghilbi/studio_ghilbi_correction.html"><center>TP Studio Ghilbi Correction</center></a></li>
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tp4_volcans/tp_volcan.html">TP 4 — Volcans</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tp4_volcans/tp_volcan_notebook_enonce.html">TP 4 : Les volcans sujet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tp4_volcans/tp_volcan_notebook_correction.html">TP 4 : Les volcans correction</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../tp5_leet_code/sql50.html">TP 5 — LeetCode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SOURCES.html">Sources et Sitographie</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Mastocodeur/sql-fast-learner" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mastocodeur/sql-fast-learner/edit/main/tp2_meurtre_sql_city/sql_city_correction.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Mastocodeur/sql-fast-learner/issues/new?title=Issue%20on%20page%20%2Ftp2_meurtre_sql_city/sql_city_correction.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/tp2_meurtre_sql_city/sql_city_correction.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1><center>SQL City Correction </center></h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><center>SQL City Correction </center></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-1-reconstitution-du-dossier">Partie 1 : Reconstitution du dossier</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#premiere-etape-lire-la-base-de-donnees-et-visualiser-ce-qu-elle-contient">Première étape : Lire la base de données et visualiser ce qu’elle contient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deuxieme-etape-recuperer-le-rapport-de-la-scene-de-crime">Deuxième étape : Récupérer le rapport de la scène de crime</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troisieme-etape-se-renseigner-sur-les-temoignages">Troisième étape : Se renseigner sur les témoignages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quatrieme-etape-se-renseigner-sur-les-temoignages">Quatrième étape : Se renseigner sur les témoignages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quatrieme-etape-menons-l-enquete">Quatrième étape : Menons l’enquête !</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-2-votre-enquete">Partie 2 : Votre enquête</a></li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sql-city-correction">
+<h1><center>SQL City Correction </center><a class="headerlink" href="#sql-city-correction" title="Link to this heading">#</a></h1>
+<p><img alt="SQL CITY" src="../_images/sqlcity.png" /></p>
+<p>Un meurtre a eu lieu à SQL City ! SQL Murder Mystery est conçu pour être à la fois une leçon autodirigée pour apprendre les concepts et les commandes SQL et un jeu amusant pour les utilisateurs SQL expérimentés pour résoudre un crime intriguant.</p>
+<p>Un crime a eu lieu et le détective a besoin de votre aide. Le détective vous a remis le rapport de scène de crime, mais vous l’avez perdu. Vous vous souvenez vaguement que le crime était un ​meurtre​ qui a eu lieu le ​15 janvier 2018​ et qu’il a eu lieu à ​SQL City.​</p>
+<p>Commencez par récupérer le rapport de scène de crime correspondant dans la base de données du service de police <code class="docutils literal notranslate"><span class="pre">crime_scene_report</span></code></p>
+<p><a class="reference external" href="https://www.kaggle.com/datasets/johnp47/sql-murder-mystery-database/data">https://www.kaggle.com/datasets/johnp47/sql-murder-mystery-database/data</a></p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="partie-1-reconstitution-du-dossier">
+<h1>Partie 1 : Reconstitution du dossier<a class="headerlink" href="#partie-1-reconstitution-du-dossier" title="Link to this heading">#</a></h1>
+<section id="premiere-etape-lire-la-base-de-donnees-et-visualiser-ce-qu-elle-contient">
+<h2>Première étape : Lire la base de données et visualiser ce qu’elle contient<a class="headerlink" href="#premiere-etape-lire-la-base-de-donnees-et-visualiser-ce-qu-elle-contient" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> sql
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">sql</span> sqlite:///sql-murder-mystery.db
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT name FROM sqlite_master WHERE type=&#39;table&#39;;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>crime_scene_report</td>
+        </tr>
+        <tr>
+            <td>drivers_license</td>
+        </tr>
+        <tr>
+            <td>person</td>
+        </tr>
+        <tr>
+            <td>facebook_event_checkin</td>
+        </tr>
+        <tr>
+            <td>interview</td>
+        </tr>
+        <tr>
+            <td>get_fit_now_member</td>
+        </tr>
+        <tr>
+            <td>get_fit_now_check_in</td>
+        </tr>
+        <tr>
+            <td>income</td>
+        </tr>
+        <tr>
+            <td>solution</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+</section>
+<section id="deuxieme-etape-recuperer-le-rapport-de-la-scene-de-crime">
+<h2>Deuxième étape : Récupérer le rapport de la scène de crime<a class="headerlink" href="#deuxieme-etape-recuperer-le-rapport-de-la-scene-de-crime" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+PRAGMA table_info(crime_scene_report);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>cid</th>
+            <th>name</th>
+            <th>type</th>
+            <th>notnull</th>
+            <th>dflt_value</th>
+            <th>pk</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0</td>
+            <td>date</td>
+            <td>INTEGER</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>type</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>description</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>city</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>On cherche à récuperer les information sur un meurtre qui a eu lieu le 15 janvier 2018 :</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+SELECT * FROM crime_scene_report  WHERE date == 20180115 AND city == &quot;SQL City&quot; AND type ==&quot;murder&quot; ;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>date</th>
+            <th>type</th>
+            <th>description</th>
+            <th>city</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>20180115</td>
+            <td>murder</td>
+            <td>Security footage shows that there were 2 witnesses. The first witness lives at the last house on &quot;Northwestern Dr&quot;. The second witness, named Annabel, lives somewhere on &quot;Franklin Ave&quot;.</td>
+            <td>SQL City</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>Dans notre base de données, seulement une ligne correspond à cela. On obtient des informations sur des témoins. On va donc ouvrir la base de données pour savoir de qui il s’agit.</p>
+</section>
+<section id="troisieme-etape-se-renseigner-sur-les-temoignages">
+<h2>Troisième étape : Se renseigner sur les témoignages<a class="headerlink" href="#troisieme-etape-se-renseigner-sur-les-temoignages" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+PRAGMA table_info(person);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>cid</th>
+            <th>name</th>
+            <th>type</th>
+            <th>notnull</th>
+            <th>dflt_value</th>
+            <th>pk</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0</td>
+            <td>id</td>
+            <td>INTEGER</td>
+            <td>0</td>
+            <td>None</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>name</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>license_id</td>
+            <td>INTEGER</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>address_number</td>
+            <td>INTEGER</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>address_street_name</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>ssn</td>
+            <td>INTEGER</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+SELECT * FROM person 
+WHERE (address_street_name==&quot;Northwestern Dr&quot; AND address_number = (SELECT MAX(address_number) FROM person)) OR (address_street_name==&quot;Franklin Ave&quot; AND name LIKE &quot;Annabel %&quot;) ;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>license_id</th>
+            <th>address_number</th>
+            <th>address_street_name</th>
+            <th>ssn</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>14887</td>
+            <td>Morty Schapiro</td>
+            <td>118009</td>
+            <td>4919</td>
+            <td>Northwestern Dr</td>
+            <td>111564949</td>
+        </tr>
+        <tr>
+            <td>16371</td>
+            <td>Annabel Miller</td>
+            <td>490173</td>
+            <td>103</td>
+            <td>Franklin Ave</td>
+            <td>318771143</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>Voici donc nos deux témoins ! Morty Schapiro et Annabel Miller. Allons voir leur témoignage</p>
+</section>
+<section id="quatrieme-etape-se-renseigner-sur-les-temoignages">
+<h2>Quatrième étape : Se renseigner sur les témoignages<a class="headerlink" href="#quatrieme-etape-se-renseigner-sur-les-temoignages" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+PRAGMA table_info(interview);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>cid</th>
+            <th>name</th>
+            <th>type</th>
+            <th>notnull</th>
+            <th>dflt_value</th>
+            <th>pk</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0</td>
+            <td>person_id</td>
+            <td>INTEGER</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>transcript</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+SELECT * FROM interview
+WHERE person_id == 14887 OR person_id==16371;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>person_id</th>
+            <th>transcript</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>14887</td>
+            <td>I heard a gunshot and then saw a man run out. He had a &quot;Get Fit Now Gym&quot; bag. The membership number on the bag started with &quot;48Z&quot;. Only gold members have those bags. The man got into a car with a plate that included &quot;H42W&quot;.</td>
+        </tr>
+        <tr>
+            <td>16371</td>
+            <td>I saw the murder happen, and I recognized the killer from my gym when I was working out last week on January the 9th.</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>Nos témoins nous enseignent qu’un homme portait un sac “get fit now gym bag” avec les initiales 48Z qui est le sac typique des abonnés gold. Il est parti dans une voiture dont l’imatriculation comportait la séquence H42W.</p>
+<p>Le criminel a été vu et le 9 janvier il était bien à la salle.</p>
+</section>
+<section id="quatrieme-etape-menons-l-enquete">
+<h2>Quatrième étape : Menons l’enquête !<a class="headerlink" href="#quatrieme-etape-menons-l-enquete" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+PRAGMA table_info(get_fit_now_member);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>cid</th>
+            <th>name</th>
+            <th>type</th>
+            <th>notnull</th>
+            <th>dflt_value</th>
+            <th>pk</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0</td>
+            <td>id</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>person_id</td>
+            <td>INTEGER</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>name</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>membership_start_date</td>
+            <td>INTEGER</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>membership_status</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+SELECT * FROM get_fit_now_member 
+WHERE id LIKE &quot;48Z%&quot; and membership_status ==&quot;gold&quot;;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>person_id</th>
+            <th>name</th>
+            <th>membership_start_date</th>
+            <th>membership_status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>48Z7A</td>
+            <td>28819</td>
+            <td>Joe Germuska</td>
+            <td>20160305</td>
+            <td>gold</td>
+        </tr>
+        <tr>
+            <td>48Z55</td>
+            <td>67318</td>
+            <td>Jeremy Bowers</td>
+            <td>20160101</td>
+            <td>gold</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>Voici donc les 2 principaux suspects !</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+PRAGMA table_info(get_fit_now_check_in);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>cid</th>
+            <th>name</th>
+            <th>type</th>
+            <th>notnull</th>
+            <th>dflt_value</th>
+            <th>pk</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0</td>
+            <td>membership_id</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>check_in_date</td>
+            <td>INTEGER</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>check_in_time</td>
+            <td>INTEGER</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>check_out_time</td>
+            <td>INTEGER</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+SELECT * FROM get_fit_now_check_in
+WHERE check_in_date = 20180109 AND membership_id == &quot;48Z7A&quot; OR membership_id == &quot;48Z55&quot;	 ;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>membership_id</th>
+            <th>check_in_date</th>
+            <th>check_in_time</th>
+            <th>check_out_time</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>48Z7A</td>
+            <td>20180109</td>
+            <td>1600</td>
+            <td>1730</td>
+        </tr>
+        <tr>
+            <td>48Z55</td>
+            <td>20180109</td>
+            <td>1530</td>
+            <td>1700</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>Il s’agit à priori de Joe Germuska ou de Jeremy Bowers. A ce stade impossible de savoir qui est le pincipal suspect. Il faut donc utiliser la deuxième information sur la plaque d’immatriculation et le fait qu’il s’agit à priori d’un homme</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+PRAGMA table_info(drivers_license);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>cid</th>
+            <th>name</th>
+            <th>type</th>
+            <th>notnull</th>
+            <th>dflt_value</th>
+            <th>pk</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0</td>
+            <td>id</td>
+            <td>INTEGER</td>
+            <td>0</td>
+            <td>None</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>age</td>
+            <td>INTEGER</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>height</td>
+            <td>INTEGER</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>eye_color</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>hair_color</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>gender</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>plate_number</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>car_make</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>car_model</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+SELECT * FROM drivers_license
+WHERE plate_number LIKE &quot;%H42W%&quot; and gender ==&quot;male&quot;;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>age</th>
+            <th>height</th>
+            <th>eye_color</th>
+            <th>hair_color</th>
+            <th>gender</th>
+            <th>plate_number</th>
+            <th>car_make</th>
+            <th>car_model</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>423327</td>
+            <td>30</td>
+            <td>70</td>
+            <td>brown</td>
+            <td>brown</td>
+            <td>male</td>
+            <td>0H42W2</td>
+            <td>Chevrolet</td>
+            <td>Spark LS</td>
+        </tr>
+        <tr>
+            <td>664760</td>
+            <td>21</td>
+            <td>71</td>
+            <td>black</td>
+            <td>black</td>
+            <td>male</td>
+            <td>4H42WR</td>
+            <td>Nissan</td>
+            <td>Altima</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>On s’approche du but, maintenant il faut relier ces informations à la base de données sur les individus de SQL City pour savoir à qui appartient ces voitures.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+PRAGMA table_info(person);
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>cid</th>
+            <th>name</th>
+            <th>type</th>
+            <th>notnull</th>
+            <th>dflt_value</th>
+            <th>pk</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0</td>
+            <td>id</td>
+            <td>INTEGER</td>
+            <td>0</td>
+            <td>None</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>name</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>license_id</td>
+            <td>INTEGER</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>address_number</td>
+            <td>INTEGER</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>address_street_name</td>
+            <td>TEXT</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>ssn</td>
+            <td>INTEGER</td>
+            <td>0</td>
+            <td>None</td>
+            <td>0</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+SELECT * FROM person
+WHERE license_id ==423327 or license_id==664760;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>license_id</th>
+            <th>address_number</th>
+            <th>address_street_name</th>
+            <th>ssn</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>51739</td>
+            <td>Tushar Chandra</td>
+            <td>664760</td>
+            <td>312</td>
+            <td>Phi St</td>
+            <td>137882671</td>
+        </tr>
+        <tr>
+            <td>67318</td>
+            <td>Jeremy Bowers</td>
+            <td>423327</td>
+            <td>530</td>
+            <td>Washington Pl, Apt 3A</td>
+            <td>871539279</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>Il semblerait que le suspect numéro 1 soit donc Jérémy Bowers. Bravo !</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+INSERT INTO solution VALUES (1, &#39;Jeremy Bowers&#39;); 
+SELECT value FROM solution
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+1 rows affected.
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Congrats, you found the murderer! But wait, there&#x27;s more... If you think you&#x27;re up for a challenge, try querying the interview transcript of the murderer to find the real villain behind this crime. If you feel especially confident in your SQL skills, try to complete this final step with no more than 2 queries. Use this same INSERT statement with your new suspect to check your answer.</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+SELECT * FROM solution;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>user</th>
+            <th>value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>0</td>
+            <td>Congrats, you found the murderer! But wait, there&#x27;s more... If you think you&#x27;re up for a challenge, try querying the interview transcript of the murderer to find the real villain behind this crime. If you feel especially confident in your SQL skills, try to complete this final step with no more than 2 queries. Use this same INSERT statement with your new suspect to check your answer.</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>Vous avez reconstitué le dossier principal que vous aviez perdu. Mais quelque chose vous dérange, vous trouvez ça trop facile. Votre expérience d’apprenti vous a plusieurs fois démontré qu’on ne peut jamais se fier aux premières conclusions. Quelque chose ne va pas et il faut le découvrir !</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="partie-2-votre-enquete">
+<h1>Partie 2 : Votre enquête<a class="headerlink" href="#partie-2-votre-enquete" title="Link to this heading">#</a></h1>
+<p>Le dossier a été reconstitué. Le suspect numéro 1 a été interpellé. Commencez par voir sa déposition et menez votre enquête !</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+SELECT * FROM interview
+WHERE person_id == 67318;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>person_id</th>
+            <th>transcript</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>67318</td>
+            <td>I was hired by a woman with a lot of money. I don&#x27;t know her name but I know she&#x27;s around 5&#x27;5&quot; (65&quot;) or 5&#x27;7&quot; (67&quot;). She has red hair and she drives a Tesla Model S. I know that she attended the SQL Symphony Concert 3 times in December 2017.<br></td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>Et voilà ! C’était sûr ! L’enquête est loin d’être terminée !
+Une femme est dans le coup !</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+SELECT * FROM drivers_license
+WHERE hair_color = &quot;red&quot; and car_make == &quot;Tesla&quot; and car_model ==&quot;Model S&quot; and (height BETWEEN 65 and 67) and gender == &quot;female&quot; ;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>age</th>
+            <th>height</th>
+            <th>eye_color</th>
+            <th>hair_color</th>
+            <th>gender</th>
+            <th>plate_number</th>
+            <th>car_make</th>
+            <th>car_model</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>202298</td>
+            <td>68</td>
+            <td>66</td>
+            <td>green</td>
+            <td>red</td>
+            <td>female</td>
+            <td>500123</td>
+            <td>Tesla</td>
+            <td>Model S</td>
+        </tr>
+        <tr>
+            <td>291182</td>
+            <td>65</td>
+            <td>66</td>
+            <td>blue</td>
+            <td>red</td>
+            <td>female</td>
+            <td>08CM64</td>
+            <td>Tesla</td>
+            <td>Model S</td>
+        </tr>
+        <tr>
+            <td>918773</td>
+            <td>48</td>
+            <td>65</td>
+            <td>black</td>
+            <td>red</td>
+            <td>female</td>
+            <td>917UU3</td>
+            <td>Tesla</td>
+            <td>Model S</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+SELECT * FROM person 
+WHERE license_id == 202298 or license_id == 291182 or license_id == 918773;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>license_id</th>
+            <th>address_number</th>
+            <th>address_street_name</th>
+            <th>ssn</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>78881</td>
+            <td>Red Korb</td>
+            <td>918773</td>
+            <td>107</td>
+            <td>Camerata Dr</td>
+            <td>961388910</td>
+        </tr>
+        <tr>
+            <td>90700</td>
+            <td>Regina George</td>
+            <td>291182</td>
+            <td>332</td>
+            <td>Maple Ave</td>
+            <td>337169072</td>
+        </tr>
+        <tr>
+            <td>99716</td>
+            <td>Miranda Priestly</td>
+            <td>202298</td>
+            <td>1883</td>
+            <td>Golden Ave</td>
+            <td>987756388</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>Voici nos 3 principales suspectes ! Il faut identifier celle qui est fincanièrement aisée et qui est allée plusieurs fois à l’évènement SQL Symphony.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+SELECT * FROM income 
+WHERE ssn == 961388910 or ssn == 337169072 or ssn == 987756388;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>ssn</th>
+            <th>annual_income</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>961388910</td>
+            <td>278000</td>
+        </tr>
+        <tr>
+            <td>987756388</td>
+            <td>310000</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>Nous avons des informations sur Miranda Priestly et Red Korb. Elles sont plutôt aisée mais à ce stade on ne peut pas dire qui est la coupable et nous n’avons pas d’infos sur Regina George.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span>
+SELECT * FROM facebook_event_checkin
+WHERE person_id == 78881 or person_id == 90700 or person_id == 99716;
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>person_id</th>
+            <th>event_id</th>
+            <th>event_name</th>
+            <th>date</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>99716</td>
+            <td>1143</td>
+            <td>SQL Symphony Concert</td>
+            <td>20171206</td>
+        </tr>
+        <tr>
+            <td>99716</td>
+            <td>1143</td>
+            <td>SQL Symphony Concert</td>
+            <td>20171212</td>
+        </tr>
+        <tr>
+            <td>99716</td>
+            <td>1143</td>
+            <td>SQL Symphony Concert</td>
+            <td>20171229</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+<p>La coupable est très clairement Mirinda Priestly ! Vous en informez immédiatement l’enquêteur !</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">sql</span> 
+INSERT INTO solution VALUES (1, &#39;Miranda Priestly&#39;); SELECT value FROM solution
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> * sqlite:///sql-murder-mystery.db
+1 rows affected.
+Done.
+</pre></div>
+</div>
+<div class="output text_html"><table>
+    <thead>
+        <tr>
+            <th>value</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Congrats, you found the brains behind the murder! Everyone in SQL City hails you as the greatest SQL detective of all time. Time to break out the champagne!</td>
+        </tr>
+    </tbody>
+</table></div></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./tp2_meurtre_sql_city"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sql_city_sujet_part2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><center>SQL City Episode 2 </center></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../tp3_studio_ghilbi/CONSIGNES.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">TP SQL sur les films du Studio Ghilbi</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#"><center>SQL City Correction </center></a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-1-reconstitution-du-dossier">Partie 1 : Reconstitution du dossier</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#premiere-etape-lire-la-base-de-donnees-et-visualiser-ce-qu-elle-contient">Première étape : Lire la base de données et visualiser ce qu’elle contient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deuxieme-etape-recuperer-le-rapport-de-la-scene-de-crime">Deuxième étape : Récupérer le rapport de la scène de crime</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troisieme-etape-se-renseigner-sur-les-temoignages">Troisième étape : Se renseigner sur les témoignages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quatrieme-etape-se-renseigner-sur-les-temoignages">Quatrième étape : Se renseigner sur les témoignages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quatrieme-etape-menons-l-enquete">Quatrième étape : Menons l’enquête !</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#partie-2-votre-enquete">Partie 2 : Votre enquête</a></li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Gasmi Rémy
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  © 2025 — TP SQL
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
