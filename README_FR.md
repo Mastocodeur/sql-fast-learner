@@ -3,6 +3,8 @@
 
 [![Last Commit](https://img.shields.io/github/last-commit/Mastocodeur/sql-fast-learner)](https://github.com/Mastocodeur/sql-fast-learner/commits/main/?author=Mastocodeur)
 [![Read in English](https://img.shields.io/badge/Read_in_English-🇬🇧-blue)](README.md)
+![Binder](https://img.shields.io/badge/Powered%20by-Binder-red?logo=jupyter)
+
 
 
 <p align="center">
