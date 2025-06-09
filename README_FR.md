@@ -2,12 +2,12 @@
 
 
 [![Last Commit](https://img.shields.io/github/last-commit/Mastocodeur/sql-fast-learner)](https://github.com/Mastocodeur/sql-fast-learner/commits/main/?author=Mastocodeur)
+[![Read in English](https://img.shields.io/badge/Read_in_English-🇬🇧-blue)](README.md)
+
 
 <p align="center">
     <img src="sql-tp-book/images/sql_lib.png" width="600" height="400">
 </p>
-
-[Read in English](README.md)
 
 # 🎯 Objectifs du dépôt
 Ce dépôt a pour vocation de rassembler l’ensemble de mon travail en SQL, à la fois comme :

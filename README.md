@@ -2,13 +2,13 @@
 
 
 [![Last Commit](https://img.shields.io/github/last-commit/Mastocodeur/sql-fast-learner)](https://github.com/Mastocodeur/sql-fast-learner/commits/main/?author=Mastocodeur)
+[![Lire en français](https://img.shields.io/badge/Lire_en_français-🇫🇷-blue)](README_FR.md)
+
 
 <p align="center">
     <img src="sql-tp-book/images/sql_lib.png" width="600" height="400">
 </p>
 
-
-[Lire en français](README_FR.md)
 
 ---
 
@@ -71,4 +71,12 @@ The content is therefore:
 ### 🎨 Visuals
 
 All illustrations were generated using **ChatGPT-4**.
+
+### 🤝 Contributions
+
+PRs welcome if you want to:
+- Add new datasets
+- Improve exercises or explanations
+- Translate sections
+
 
