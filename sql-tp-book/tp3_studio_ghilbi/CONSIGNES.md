@@ -1,11 +1,10 @@
 # TP SQL sur les films du Studio Ghilbi
 
-<div style="text-align: center;">
-    <img src="../images/ghilbi.png" width="500" height="200">
-</div>
+
+![Ghilbi Intro](../images/ghilbi.png)
 
 
-## Objectifs :
+## Objectifs 
 - Visualiser et travailler avec plusieurs tables d'une base de données SQL
 - Apprendre à écrire des lignes de commande SQL
 - Extraire des informations d'une base de données SQL

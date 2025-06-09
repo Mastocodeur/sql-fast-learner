@@ -12,9 +12,7 @@ On commence par télécharger le logiciel DB Browser(SQLite) via ce lien : https
 
 Une fois l'installation réalisée, on doit normalement avoir cette icône sur le bureau :
 
-<div align="center">
-  <img src="../images/logo_appli_dbbrowser.png"alt="Description" width="100"/>
-</div>
+![Logo](../images/logo_appli_dbbrowser.png)
 
 
 ## 🧰 Présentation du logiciel 
@@ -33,9 +31,7 @@ Il est particulièrement adapté pour :
 
 Une fois le logiciel lancé, voici à quoi ressemble l'interface :
 
-<div align="center">
-  <img src="../images/interface_db_browser.png"alt="Description" width="500"/>
-</div>
+![Interface](../images/interface_db_browser.png)
 
 
 ### 📂 Ouvrir/Visualiser une base de données
@@ -43,47 +39,34 @@ Une fois le logiciel lancé, voici à quoi ressemble l'interface :
 Dans `Fichier`, on va cliquer sur `Ouvrir un Base de Données…` et on
 sélectionne la base de données sur laquelle on veut travailler ou qu'on veut visualiser. (Voir les étapes en images ci-dessous)
 
-<div align="center">
-  <img src="../images/etape_fichier.png"alt="Description" width="500"/>
-</div>
+![Fichier step](../images/etape_fichier.png)
 
 Puis :
 
-<div align="center">
-  <img src="../images/etape_ouvrir.png"alt="Description" width="500"/>
-</div>
+![Ouvrir](../images/etape_ouvrir.png)
 
 Comme expliqué précédemment, il s'agit des fichiers en `.sqlite` ou `.db` :
 
-<div align="center">
-  <img src="../images/exemple_bd_a_importer.png"alt="Description" width="500"/>
-</div>
+![Exemple](../images/exemple_bd_a_importer.png)
 
 On voit alors apparaître une table dans notre interface : 
 
-<div align="center">
-  <img src="../images/visu_table.png"alt="Description" width="500"/>
-</div>
+![Visu Table](../images/visu_table.png)
 
 Pour parcourir les lignes de notre base de données, il suffit de cliquer sur `Parcourir les données` :
 
-<div align="center">
-  <img src="../images/parcourir_donnees.png"alt="Description" width="500"/>
-</div>
+![Parcours Donnees](../images/parcourir_donnees.png)
 
 ### 🔑 Taper/Exécuter des commandes SQL
 
 Pour taper des commandes SQL afin de travailler sur notre base de données, il faut aller dans l'onglet `Exécuter le SQL.` :
 
-<div align="center">
-  <img src="../images/executer_sql.png"alt="Description" width="500"/>
-</div>
+![Exe SQL](../images/executer_sql.png)
 
 C'est dans cette partie qu'on tape nos commandes. Pour exécuter la commande tapée, il suffit de cliquer sur le bouton play ▶️ en vert :
 
-<div align="center">
-  <img src="../images/play_sql.png"alt="Description" width="500"/>
-</div>
+![Play SQL](../images/play_sql.png)
+
 
 On visualise directement le résultat dans la partie inférieur de la fenêtre.
 
@@ -93,9 +76,7 @@ Une fonctionnalité très intéressante de ce logiciel est la possibilité d'exp
 
 Voici comment faire : 
 
-<div align="center">
-  <img src="../images/export_visu.png"alt="Description" width="500"/>
-</div>
+![Export Visu](../images/export_visu.png)
 
 On peut également `Enregistrer comme une vue`.
 
@@ -103,9 +84,7 @@ Très pratique dans le cadre d'un TP ou d'un travail qui demandera d'éxécuter 
 
 On peut donc enregistrer nos vues, avec le nom que l'on veut, par exemple "question1" (donc le résultat de l'éxécution de nos différentes commandes) et retrouver le tout dans la section principale `Structure de la Base de Données` :
 
-<div align="center">
-  <img src="../images/visu_vues.png"alt="Description" width="500"/>
-</div>
+![Export Visu](../images/visu_vues.png)
 
 ## 📘 Documentation 
 

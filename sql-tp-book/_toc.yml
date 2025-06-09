@@ -12,24 +12,25 @@ chapters:
   - file: tp1_lycee/sql_intro
     title: TP 1 — Liste d’élèves (lycée)
 
-  - file: tp2_meurtre_sql_city/sql_city_sujet_part1
+    
+  - file: tp2_meurtre_sql_city/detective_sql
     title: TP 2 — SQL City Murder
     sections:
+      - file: tp2_meurtre_sql_city/sql_city_sujet_part1
       - file: tp2_meurtre_sql_city/sql_city_sujet_part2
       - file: tp2_meurtre_sql_city/sql_city_correction
-      - file: tp2_meurtre_sql_city/detective_sql
 
-  - file: tp3_studio_ghilbi/studio_ghilbi_enonce
+  - file: tp3_studio_ghilbi/CONSIGNES
     title: TP 3 — Studio Ghilbi
     sections:
+      - file: tp3_studio_ghilbi/studio_ghilbi_enonce
       - file: tp3_studio_ghilbi/studio_ghilbi_correction
-      - file: tp3_studio_ghilbi/CONSIGNES
 
-  - file: tp4_volcans/tp_volcan_notebook_enonce
+  - file: tp4_volcans/tp_volcan
     title: TP 4 — Volcans
     sections:
+      - file: tp4_volcans/tp_volcan_notebook_enonce
       - file: tp4_volcans/tp_volcan_notebook_correction
-      - file: tp4_volcans/tp_volcan
 
   - file: tp5_leet_code/sql50
     title: TP 5 — LeetCode

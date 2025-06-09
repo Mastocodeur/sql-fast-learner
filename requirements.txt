@@ -2,3 +2,4 @@ sql
 ipython-sql
 pandas
 jupyter-book
+prettytable==3.8.0

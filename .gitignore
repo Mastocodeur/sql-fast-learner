@@ -6,3 +6,5 @@ sql-tp-book/_build/latex
 _build/
 .ipynb_checkpoints/
 .DS_Store
+_config.yml
+_toc.yml

@@ -33,11 +33,16 @@ bibtex_bibfiles:
 # Ajoute une barre latérale avec navigation
 html:
   navbar_number_sections: true
-  use_repository_button: false
-  use_issues_button: false
-  use_edit_page_button: false
+  use_repository_button: true
+  use_issues_button: true
+  use_edit_page_button: true
+  use_download_button: true
+  use_fullscreen_button: true
+  use_search_button: true
   extra_navbar: ""
   extra_footer: "© 2025 — TP SQL"
+  favicon: images/sql_favicon.ico
+
 
 # Ignorer certains fichiers
 exclude_patterns:
@@ -50,3 +55,13 @@ exclude_patterns:
 # Ajoute des fichiers supplémentaires
 extra_files:
   - "../images/"
+
+
+html_extra_path:
+  - images
+
+repository:
+  url: https://github.com/Mastocodeur/sql-fast-learner
+  path_to_book: ""
+  branch: main
+  provider: github
