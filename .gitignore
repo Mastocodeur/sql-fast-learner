@@ -8,3 +8,5 @@ _build/
 .DS_Store
 _config.yml
 _toc.yml
+sql-tp-book/_config.yml
+sql-tp-book/_toc.yml    

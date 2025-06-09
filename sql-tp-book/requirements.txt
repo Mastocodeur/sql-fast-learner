@@ -1,3 +1,7 @@
 jupyter-book
 matplotlib
 numpy
+sql
+ipython-sql
+pandas
+prettytable==3.8.0

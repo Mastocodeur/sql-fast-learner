@@ -9,8 +9,10 @@ chapters:
       - file: tutoriel/TUTORIEL_DB_BROWSER
       - file: tutoriel/TUTORIEL_SQL_NOTEBOOK
 
-  - file: tp1_lycee/sql_intro
-    title: TP 1 — Liste d’élèves (lycée)
+  - file: tp1_lycee/TP_INTRO
+    title: TP 1 — Liste d’élèves
+    sections:
+      - file: tp1_lycee/sql_intro
 
     
   - file: tp2_meurtre_sql_city/detective_sql
